@@ -10,15 +10,18 @@
 class realmDataSet: Object {
 	
 	dynamic var ID = String()
+	dynamic var now = NSDate()
+	
 }
-var realm = try!Realm()
+//realmを使用するためのクラスを作る
+var setr = try!Realm()
 import UIKit
 import RealmSwift
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UISearchBarDelegate {
 	//realmDataSetクラスを代入
 	let realmsset = realmDataSet()
-	var users =  realm.objects(realmDataSet.self)
+	var usersSet =  setr.objects(realmDataSet.self)
 	//Storybordと接続
 	@IBOutlet weak var tableViewSetting: UITableView!
 	@IBOutlet weak var textSet: UITextField!
@@ -48,7 +51,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		//要素数をtableviewに表示させる
-		return users.count
+		return usersSet.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +59,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 		let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
 		
 		//realmobjectsの要素数を取得
-		let object = users[indexPath.row]
+		let object = usersSet[indexPath.row]
 		
 		//文字列を取得
 		cell.textLabel?.text = object.ID.description
@@ -65,13 +68,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	}
 	
 	//tableを編集モードにするメソッド
-	 func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			//realmファイルを開く
-			try! realm.write {
+			try!setr.write {
 				
 				//オブジェクト削除
-				realm.delete(users[indexPath.row])
+				setr.delete(usersSet[indexPath.row])
 				
 				//tableViewSettingを再リロード
 				self.tableViewSetting.reloadData()
@@ -82,29 +85,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	
 	//tableに文字列がある場合にタップすると、アクションを起こすメソッド
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-	
+		
 		//realmファイルを開く
-			try!realm.write {
-				
-				//indexの値を渡す
-				let obj = users[indexPath.row]
-				obj.ID = textSet.text!
-				
-				//tableViewSettingを再リロード
-				self.tableViewSetting.reloadData()
+		try!setr.write {
+			
+			//indexの値を渡す
+			let obj = usersSet[indexPath.row]
+			obj.ID = textSet.text!
+			
+			//tableViewSettingを再リロード
+			self.tableViewSetting.reloadData()
 		}
-}
+	}
 	
 	//改行ボタンが押された際に呼ばれるデリゲートメソッド
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		//キーボードを下げry
 		textField.resignFirstResponder()
 		//realmのトランザクションを開く
-		try! realm.write {
+		try! setr.write {
 			//配列に値を渡す
 			let object = [textSet.text!]
 			//配列に値を入れる
-			realm.create(realmDataSet.self,value: object)
+			setr.create(realmDataSet.self,value: object)
 			self.tableViewSetting.reloadData()
 		}
 		return true
@@ -114,15 +117,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		//realmファイルを開く
 		
-
-			let results = realm.objects(realmDataSet.self)
-    .filter("ID BEGINSWITH %@", searchSet.text!)
-    .sorted(byProperty: "ID", ascending: false)
-			//indexの値を渡す
-			users = results
-			
-			//tableViewSettingを再リロード
-			self.tableViewSetting.reloadData()
-	
+		
+		let results = setr.objects(realmDataSet.self)
+			.filter("ID BEGINSWITH %@", searchSet.text!)
+			.sorted(byProperty: "ID", ascending: false)
+		//indexの値を渡す
+		usersSet = results
+		
+		//tableViewSettingを再リロード
+		self.tableViewSetting.reloadData()
+		
 	}
 }
+
