@@ -9,19 +9,22 @@
 //realmを使用するためのクラスを作る
 class realmDataSet: Object {
 	
-	dynamic var ID = String()
 	dynamic var now = NSDate()
+	dynamic var ID = String()
 	
 }
+
 //realmを使用するためのクラスを作る
-var setr = try!Realm()
+var realmTry = try!Realm()
 import UIKit
 import RealmSwift
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UISearchBarDelegate {
+	
 	//realmDataSetクラスを代入
 	let realmsset = realmDataSet()
-	var usersSet =  setr.objects(realmDataSet.self)
+	var usersSet =  realmTry.objects(realmDataSet.self)
+	
 	//Storybordと接続
 	@IBOutlet weak var tableViewSetting: UITableView!
 	@IBOutlet weak var textSet: UITextField!
@@ -34,14 +37,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 		tableViewSetting.delegate = self
 		tableViewSetting.dataSource = self
 		
-		//viewとtextSetを紐付ける
+		//viewとtextSetを接続させる
 		textSet.delegate = self
 		
 		//texSetの背景色設定
 		textSet.backgroundColor = UIColor.lightGray
 		
-		//
+		//検索barのを接続させる
 		searchSet.delegate = self
+		
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -50,31 +54,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
 		//要素数をtableviewに表示させる
 		return usersSet.count
+		
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
 		//tableviewのcellをstorybordのidentifiierの一致させる
-		let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		
-		//realmobjectsの要素数を取得
+		//objectに代入realmデータをさせる
 		let object = usersSet[indexPath.row]
-		
-		//文字列を取得
-		cell.textLabel?.text = object.ID.description
+		cell.textLabel?.text = object.ID
 		
 		return cell
+		
 	}
 	
 	//tableを編集モードにするメソッド
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		
 		if editingStyle == .delete {
+			
 			//realmファイルを開く
-			try!setr.write {
+			try!realmTry.write {
 				
 				//オブジェクト削除
-				setr.delete(usersSet[indexPath.row])
+				realmTry.delete(usersSet[indexPath.row])
 				
 				//tableViewSettingを再リロード
 				self.tableViewSetting.reloadData()
@@ -86,15 +94,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	//tableに文字列がある場合にタップすると、アクションを起こすメソッド
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		//realmファイルを開く
-		try!setr.write {
+		if textSet.text == "" {
 			
-			//indexの値を渡す
-			let obj = usersSet[indexPath.row]
-			obj.ID = textSet.text!
+			//realmファイルを開く
+			try!realmTry.write {
+				
+				//オブジェクト削除
+				realmTry.delete(usersSet[indexPath.row])
+				
+				//tableViewSettingを再リロード
+				self.tableViewSetting.reloadData()
+			}
 			
-			//tableViewSettingを再リロード
-			self.tableViewSetting.reloadData()
+		}else{
+			
+			//realmファイルを開く
+			try!realmTry.write {
+				
+				//indexの値を渡す
+				let obj = usersSet[indexPath.row]
+				obj.ID = textSet.text!
+				
+				//tableViewSettingを再リロード
+				self.tableViewSetting.reloadData()
+			}
 		}
 	}
 	
@@ -103,11 +126,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 		//キーボードを下げry
 		textField.resignFirstResponder()
 		//realmのトランザクションを開く
-		try! setr.write {
+		try! realmTry.write {
 			//配列に値を渡す
-			let object = [textSet.text!]
+			let now = NSDate()
+			let object = [now,textSet.text!] as [Any]
 			//配列に値を入れる
-			setr.create(realmDataSet.self,value: object)
+			realmTry.create(realmDataSet.self,value: object)
 			self.tableViewSetting.reloadData()
 		}
 		return true
@@ -116,17 +140,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	//テキストが変更される毎に呼ばれる
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		//realmファイルを開く
-		
-		
-		let results = setr.objects(realmDataSet.self)
-			.filter("ID BEGINSWITH %@", searchSet.text!)
-			.sorted(byProperty: "ID", ascending: false)
-		//indexの値を渡す
-		usersSet = results
-		
-		//tableViewSettingを再リロード
-		self.tableViewSetting.reloadData()
-		
+		if  searchBar.text !=  "" {
+			let results = realmTry.objects(realmDataSet.self)
+				.filter("ID BEGINSWITH %@", searchSet.text!)
+				.sorted(byProperty: "ID", ascending: false)
+			//indexの値を渡す
+			usersSet = results
+			
+			//tableViewSettingを再リロード
+			self.tableViewSetting.reloadData()
+			
+		}else{
+			
+			let time = realmTry.objects(realmDataSet.self)
+				.sorted(byProperty: "now", ascending: false)
+			//indexの値を渡す
+			usersSet = time
+			//tableViewSettingを再リロード
+			self.tableViewSetting.reloadData()
+			
+		}
 	}
 }
-
