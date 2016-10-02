@@ -15,20 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		let config = Realm.Configuration(
-			// 新しいスキーマバージョンを設定します。以前のバージョンより大きくなければなりません。
-			// （スキーマバージョンを設定したことがなければ、最初は0が設定されています）
-			schemaVersion: 1,
-			migrationBlock: { migration, oldSchemaVersion in
-    // 最初のマイグレーションの場合、`oldSchemaVersion`は0です
-    if (oldSchemaVersion < 1) {
-	
-    }
-				
-  })
-		// デフォルトRealmに新しい設定を適用します
-		Realm.Configuration.defaultConfiguration = config
-		print("SchemaVersion",Realm.Configuration.defaultConfiguration)
 		return true
 	}
 
