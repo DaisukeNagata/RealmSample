@@ -130,7 +130,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 			//配列に値を渡す
 			let now = NSDate()
 			let object = [now,textSet.text!] as [Any]
-			//配列に値を入れる
+			//realmfileに値を入れる
 			realmTry.create(realmDataSet.self,value: object)
 			self.tableViewSetting.reloadData()
 		}
@@ -139,8 +139,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 	
 	//テキストが変更される毎に呼ばれる
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		//realmファイルを開く
+		//文字列があれば
 		if  searchBar.text !=  "" {
+			//左辺値の頭文字を検索
 			let results = realmTry.objects(realmDataSet.self)
 				.filter("ID BEGINSWITH %@", searchSet.text!)
 				.sorted(byProperty: "ID", ascending: false)
