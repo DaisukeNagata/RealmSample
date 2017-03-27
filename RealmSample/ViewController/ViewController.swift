@@ -78,8 +78,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
                 self.clearSuti()
                 
                 try! realmTry.write {
-                    let object = [self.now,self.textSet.text!] as [Any]
-                    realmTry.create(realmDataSet.self,value: object)
+                    realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!] as [Any])
                     self.tableViewSetting.reloadData()
                 }
             }
@@ -103,9 +102,8 @@ class ViewController: UIViewController,UITextFieldDelegate{
                         
                         //配列に値を渡す ここの処理indexがないと例外が起きるので、空文字の場合にindexを入れる処理。
                         if  self.textSet.text! != "" {
-                            let object = [self.now,self.textSet.text!,textField2.text!] as [Any]
                             //realmfileに値を入れる
-                            realmTry.create(realmDataSet.self,value: object)
+                            realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!,textField2.text!] as [Any])
                             self.tableViewSetting.reloadData()
                         }
                     }
@@ -158,14 +156,13 @@ class ViewController: UIViewController,UITextFieldDelegate{
             try!realmTry.write {
                 usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
             }
-            
-            wari(Index:Index)
         }
         if textSet.text! != ""  &&  ViewController.vc.setFiledtType.label.threadLabel.text == "0" &&  ViewController.vc.setFiledtType.label.threadLabelTwo.text == "0" {
             try!realmTry.write {
                 usersSet[Index].ID = textSet.text!
             }
         }
+        wari(Index:Index)
         totalTax.text? = totalCount.description
         self.tableViewSetting.reloadData()
     }
