@@ -28,6 +28,7 @@
 		BBE664221E896E9500529258 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; };
 		BBE664231E896EE600529258 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; };
 		BBE664241E896EE600529258 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBE664261E89905C00529258 /* iphoneSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE664251E89905C00529258 /* iphoneSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +68,7 @@
 		BBB360EB1E89569C00E81BF5 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BBB360EC1E89569C00E81BF5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		BBE664211E896E9500529258 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		BBE664251E89905C00529258 /* iphoneSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iphoneSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB360E71E89569200E81BF5 /* Multithread.swift */,
+				BBE664251E89905C00529258 /* iphoneSize.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				BBB360E51E89565D00E81BF5 /* MagnificationCell.swift in Sources */,
 				BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */,
 				BBB360DA1E8955D800E81BF5 /* MagnificationViewController.swift in Sources */,
+				BBE664261E89905C00529258 /* iphoneSize.swift in Sources */,
 				BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */,
 				BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */,
 				BBB360DD1E89560600E81BF5 /* SearchBar.swift in Sources */,

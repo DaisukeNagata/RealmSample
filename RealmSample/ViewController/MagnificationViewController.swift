@@ -59,10 +59,13 @@ class MagnificationViewController: UIViewController,UITextFieldDelegate {
         
         DispatchQueue.main.async { () -> Void in
             //設定したbuttonを呼び出す
-            let keyBoardWindow = UIApplication.shared.windows.last
-            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (keyBoardWindow?.frame.size.height)!-265, width:106, height:53)
-            keyBoardWindow?.addSubview(self.button)
-            
+            UIApplication.shared.windows.last?.addSubview(self.button)
+
+            self.button.snp.makeConstraints{(make) in
+                make.centerY.equalToSuperview().multipliedBy(0.1)
+                make.centerX.equalToSuperview().multipliedBy(-1)
+                make.height.equalTo(self.view)
+            }
             //ボタンが押された際のアニメーション
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
                 self.view.frame = self.view.frame.offsetBy(dx: 0, dy: 0)

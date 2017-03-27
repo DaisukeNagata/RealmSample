@@ -66,15 +66,11 @@ class ViewController: UIViewController,UITextFieldDelegate{
     func keyShow(note : NSNotification) -> Void{
         //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
         DispatchQueue.main.async { () -> Void in
-            
             //キーボードを閉じるViewを呼び出す。
-            let window = UIApplication.shared.windows.last
-            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (window?.frame.size.height)!-265, width:106, height:53)
-            window?.addSubview(self.button)
+            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
+            UIApplication.shared.windows.last?.addSubview(self.button)
 
-            
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
-
             }, completion: { (complete) -> Void in
             })
         }
