@@ -20,16 +20,16 @@ struct iphoneSize {
         case 568:
             return 255.0
         case 667:
-            return 255
-        case 767:
-            return 255
-        case 1048:
-            return 310
+            return 255.0
+        case 736:
+            return 255.0
+        case 1024:
+            return 310.0
         case 1336:
-            return 380
+            return 380.0
         default:
             break
         }
-        return 310
+        return 310.0
     }
 }
