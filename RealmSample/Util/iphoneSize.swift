@@ -11,8 +11,6 @@ import UIKit
 
 struct iphoneSize {
     
-    static  var height = CGFloat()
-    
     static  func  heightSize()-> CGFloat {
         let heightsize = UIScreen.main.bounds.height
         
