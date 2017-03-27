@@ -93,17 +93,15 @@ class ViewController: UIViewController,UITextFieldDelegate{
         alertController.addTextField(configurationHandler: nil)
         let otherAction = UIAlertAction(title: "OK", style: .default) {
             action in
-            alertController.addTextField { (textField2 : UITextField) -> Void in
+            alertController.addTextField { ( textFields : UITextField) -> Void in
                 if let textFields = alertController.textFields {
-                    let textField2 = textFields[0]
-                    
-                    textField2.placeholder = "２行目追加"
+                    textFields[0].placeholder = "２行目追加"
                     try!realmTry.write {
                         
                         //配列に値を渡す ここの処理indexがないと例外が起きるので、空文字の場合にindexを入れる処理。
                         if  self.textSet.text! != "" {
                             //realmfileに値を入れる
-                            realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!,textField2.text!] as [Any])
+                            realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!, textFields[0].text!] as [Any])
                             self.tableViewSetting.reloadData()
                         }
                     }
