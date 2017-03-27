@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0868241D9FFF560044A23B /* AppDelegate.swift */; };
-		BB0868271D9FFF560044A23B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0868261D9FFF560044A23B /* ViewController.swift */; };
 		BB08682A1D9FFF560044A23B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0868281D9FFF560044A23B /* Main.storyboard */; };
 		BB08682C1D9FFF560044A23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB08682B1D9FFF560044A23B /* Assets.xcassets */; };
 		BB08682F1D9FFF560044A23B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB08682D1D9FFF560044A23B /* LaunchScreen.storyboard */; };
@@ -16,15 +15,16 @@
 		BB385C9C1DB25BD000253038 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; };
 		BB385C9E1DB25C1200253038 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB385C9F1DB25C1700253038 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BB4B9E511DAB13F400F89784 /* Multithread.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4B9E501DAB13F400F89784 /* Multithread.swift */; };
-		BB4B9E531DAB18DD00F89784 /* MagnificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4B9E521DAB18DD00F89784 /* MagnificationViewController.swift */; };
-		BB4B9E571DAB85CF00F89784 /* MagnificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4B9E561DAB85CF00F89784 /* MagnificationCell.swift */; };
-		BB4FFBB11E8806D60053C51A /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4FFBB01E8806D60053C51A /* TextField.swift */; };
-		BB4FFBB41E882FF80053C51A /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4FFBB31E882FF80053C51A /* TableDataSource.swift */; };
-		BB4FFBB61E8830520053C51A /* TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4FFBB51E8830520053C51A /* TableDelegate.swift */; };
-		BB4FFBBC1E8832EF0053C51A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4FFBBB1E8832EF0053C51A /* SearchBar.swift */; };
-		BB5B6D451E874019008EE508 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B6D441E874018008EE508 /* Label.swift */; };
-		BB5B6D471E8746AA008EE508 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B6D461E8746AA008EE508 /* Button.swift */; };
+		BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360D71E8955D100E81BF5 /* ViewController.swift */; };
+		BBB360DA1E8955D800E81BF5 /* MagnificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360D91E8955D800E81BF5 /* MagnificationViewController.swift */; };
+		BBB360DD1E89560600E81BF5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360DC1E89560600E81BF5 /* SearchBar.swift */; };
+		BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360DF1E89563400E81BF5 /* TableDataSource.swift */; };
+		BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E01E89563400E81BF5 /* TableDelegate.swift */; };
+		BBB360E51E89565D00E81BF5 /* MagnificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E41E89565D00E81BF5 /* MagnificationCell.swift */; };
+		BBB360E81E89569200E81BF5 /* Multithread.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E71E89569200E81BF5 /* Multithread.swift */; };
+		BBB360ED1E89569C00E81BF5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360EA1E89569C00E81BF5 /* Button.swift */; };
+		BBB360EE1E89569C00E81BF5 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360EB1E89569C00E81BF5 /* Label.swift */; };
+		BBB360EF1E89569C00E81BF5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360EC1E89569C00E81BF5 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +45,6 @@
 		24CA6879723659939093F82C /* Pods_RealmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0868211D9FFF560044A23B /* RealmSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0868241D9FFF560044A23B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB0868261D9FFF560044A23B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB0868291D9FFF560044A23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB08682B1D9FFF560044A23B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB08682E1D9FFF560044A23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,15 +52,16 @@
 		BB385C971DB25A0C00253038 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		BB4B9E501DAB13F400F89784 /* Multithread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multithread.swift; sourceTree = "<group>"; };
-		BB4B9E521DAB18DD00F89784 /* MagnificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationViewController.swift; sourceTree = "<group>"; };
-		BB4B9E561DAB85CF00F89784 /* MagnificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationCell.swift; sourceTree = "<group>"; };
-		BB4FFBB01E8806D60053C51A /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		BB4FFBB31E882FF80053C51A /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
-		BB4FFBB51E8830520053C51A /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
-		BB4FFBBB1E8832EF0053C51A /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		BB5B6D441E874018008EE508 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		BB5B6D461E8746AA008EE508 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		BBB360D71E8955D100E81BF5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController/ViewController.swift; sourceTree = "<group>"; };
+		BBB360D91E8955D800E81BF5 /* MagnificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagnificationViewController.swift; path = ViewController/MagnificationViewController.swift; sourceTree = "<group>"; };
+		BBB360DC1E89560600E81BF5 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		BBB360DF1E89563400E81BF5 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
+		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
+		BBB360E41E89565D00E81BF5 /* MagnificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationCell.swift; sourceTree = "<group>"; };
+		BBB360E71E89569200E81BF5 /* Multithread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multithread.swift; sourceTree = "<group>"; };
+		BBB360EA1E89569C00E81BF5 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		BBB360EB1E89569C00E81BF5 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		BBB360EC1E89569C00E81BF5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +108,12 @@
 		BB0868231D9FFF560044A23B /* RealmSample */ = {
 			isa = PBXGroup;
 			children = (
-				BB4FFBB91E8832850053C51A /* Util */,
+				BBB360E91E89569C00E81BF5 /* UI */,
+				BBB360E61E89569200E81BF5 /* Util */,
+				BBB360E31E89565D00E81BF5 /* Cell */,
+				BBB360DB1E89560600E81BF5 /* SearchBar */,
 				BB4FFBB81E88320B0053C51A /* ViewController */,
-				BB4FFBB71E88315C0053C51A /* Cell */,
-				BB4FFBAF1E8804E00053C51A /* UI */,
+				BBB360DE1E89563400E81BF5 /* TableView */,
 				BB0868241D9FFF560044A23B /* AppDelegate.swift */,
 				BB0868281D9FFF560044A23B /* Main.storyboard */,
 				BB08682B1D9FFF560044A23B /* Assets.xcassets */,
@@ -121,58 +123,57 @@
 			path = RealmSample;
 			sourceTree = "<group>";
 		};
-		BB4FFBAF1E8804E00053C51A /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				BB5B6D441E874018008EE508 /* Label.swift */,
-				BB5B6D461E8746AA008EE508 /* Button.swift */,
-				BB4FFBB01E8806D60053C51A /* TextField.swift */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		BB4FFBB21E882FD70053C51A /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				BB4FFBB31E882FF80053C51A /* TableDataSource.swift */,
-				BB4FFBB51E8830520053C51A /* TableDelegate.swift */,
-			);
-			name = TableView;
-			sourceTree = "<group>";
-		};
-		BB4FFBB71E88315C0053C51A /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				BB4B9E561DAB85CF00F89784 /* MagnificationCell.swift */,
-			);
-			name = Cell;
-			sourceTree = "<group>";
-		};
 		BB4FFBB81E88320B0053C51A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BB0868261D9FFF560044A23B /* ViewController.swift */,
-				BB4B9E521DAB18DD00F89784 /* MagnificationViewController.swift */,
-				BB4FFBBA1E8832D10053C51A /* SearchBar */,
-				BB4FFBB21E882FD70053C51A /* TableView */,
+				BBB360D91E8955D800E81BF5 /* MagnificationViewController.swift */,
+				BBB360D71E8955D100E81BF5 /* ViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		BB4FFBB91E8832850053C51A /* Util */ = {
+		BBB360DB1E89560600E81BF5 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
-				BB4B9E501DAB13F400F89784 /* Multithread.swift */,
+				BBB360DC1E89560600E81BF5 /* SearchBar.swift */,
 			);
-			name = Util;
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
-		BB4FFBBA1E8832D10053C51A /* SearchBar */ = {
+		BBB360DE1E89563400E81BF5 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				BB4FFBBB1E8832EF0053C51A /* SearchBar.swift */,
+				BBB360DF1E89563400E81BF5 /* TableDataSource.swift */,
+				BBB360E01E89563400E81BF5 /* TableDelegate.swift */,
 			);
-			name = SearchBar;
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		BBB360E31E89565D00E81BF5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BBB360E41E89565D00E81BF5 /* MagnificationCell.swift */,
+			);
+			name = Cell;
+			path = RealmSample/Cell;
+			sourceTree = SOURCE_ROOT;
+		};
+		BBB360E61E89569200E81BF5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BBB360E71E89569200E81BF5 /* Multithread.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		BBB360E91E89569C00E81BF5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BBB360EA1E89569C00E81BF5 /* Button.swift */,
+				BBB360EB1E89569C00E81BF5 /* Label.swift */,
+				BBB360EC1E89569C00E81BF5 /* TextField.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,17 +270,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB5B6D471E8746AA008EE508 /* Button.swift in Sources */,
-				BB4B9E531DAB18DD00F89784 /* MagnificationViewController.swift in Sources */,
-				BB0868271D9FFF560044A23B /* ViewController.swift in Sources */,
-				BB4FFBB11E8806D60053C51A /* TextField.swift in Sources */,
+				BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */,
+				BBB360EF1E89569C00E81BF5 /* TextField.swift in Sources */,
+				BBB360E51E89565D00E81BF5 /* MagnificationCell.swift in Sources */,
 				BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */,
-				BB4B9E571DAB85CF00F89784 /* MagnificationCell.swift in Sources */,
-				BB4B9E511DAB13F400F89784 /* Multithread.swift in Sources */,
-				BB4FFBB61E8830520053C51A /* TableDelegate.swift in Sources */,
-				BB4FFBB41E882FF80053C51A /* TableDataSource.swift in Sources */,
-				BB4FFBBC1E8832EF0053C51A /* SearchBar.swift in Sources */,
-				BB5B6D451E874019008EE508 /* Label.swift in Sources */,
+				BBB360DA1E8955D800E81BF5 /* MagnificationViewController.swift in Sources */,
+				BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */,
+				BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */,
+				BBB360DD1E89560600E81BF5 /* SearchBar.swift in Sources */,
+				BBB360ED1E89569C00E81BF5 /* Button.swift in Sources */,
+				BBB360EE1E89569C00E81BF5 /* Label.swift in Sources */,
+				BBB360E81E89569200E81BF5 /* Multithread.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
