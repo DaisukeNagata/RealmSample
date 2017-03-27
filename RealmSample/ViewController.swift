@@ -6,160 +6,167 @@
 //  Copyright © 2016年 永田大祐. All rights reserved.
 //
 
-//realmを使用するためのクラスを作る
-class realmDataSet: Object {
-	
-	dynamic var now = NSDate()
-	dynamic var ID = String()
-	
-}
 
-//realmを使用するためのクラスを作る
-var realmTry = try!Realm()
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UISearchBarDelegate {
-	
-	//realmDataSetクラスを代入
-	let realmsset = realmDataSet()
-	var usersSet =  realmTry.objects(realmDataSet.self)
-	
-	//Storybordと接続
-	@IBOutlet weak var tableViewSetting: UITableView!
-	@IBOutlet weak var textSet: UITextField!
-	@IBOutlet weak var searchSet: UISearchBar!
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-		//viewとtableを接続させる
-		tableViewSetting.delegate = self
-		tableViewSetting.dataSource = self
-		
-		//viewとtextSetを接続させる
-		textSet.delegate = self
-		
-		//texSetの背景色設定
-		textSet.backgroundColor = UIColor.lightGray
-		
-		//検索barのを接続させる
-		searchSet.delegate = self
-		
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		//要素数をtableviewに表示させる
-		return usersSet.count
-		
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
-		//tableviewのcellをstorybordのidentifiierの一致させる
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		
-		//objectに代入realmデータをさせる
-		let object = usersSet[indexPath.row]
-		cell.textLabel?.text = object.ID
-		
-		return cell
-		
-	}
-	
-	//tableを編集モードにするメソッド
-	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-		
-		if editingStyle == .delete {
-			
-			//realmファイルを開く
-			try!realmTry.write {
-				
-				//オブジェクト削除
-				realmTry.delete(usersSet[indexPath.row])
-				
-				//tableViewSettingを再リロード
-				self.tableViewSetting.reloadData()
-				
-			}
-		}
-	}
-	
-	//tableに文字列がある場合にタップすると、アクションを起こすメソッド
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
-		if textSet.text == "" {
-			
-			//realmファイルを開く
-			try!realmTry.write {
-				
-				//オブジェクト削除
-				realmTry.delete(usersSet[indexPath.row])
-				
-				//tableViewSettingを再リロード
-				self.tableViewSetting.reloadData()
-			}
-			
-		}else{
-			
-			//realmファイルを開く
-			try!realmTry.write {
-				
-				//indexの値を渡す
-				let obj = usersSet[indexPath.row]
-				obj.ID = textSet.text!
-				
-				//tableViewSettingを再リロード
-				self.tableViewSetting.reloadData()
-			}
-		}
-	}
-	
-	//改行ボタンが押された際に呼ばれるデリゲートメソッド
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		//キーボードを下げry
-		textField.resignFirstResponder()
-		//realmのトランザクションを開く
-		try! realmTry.write {
-			//配列に値を渡す
-			let now = NSDate()
-			let object = [now,textSet.text!] as [Any]
-			//realmfileに値を入れる
-			realmTry.create(realmDataSet.self,value: object)
-			self.tableViewSetting.reloadData()
-		}
-		return true
-	}
-	
-	//テキストが変更される毎に呼ばれる
-	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		//文字列があれば
-		if  searchBar.text !=  "" {
-			//左辺値の頭文字を検索
-			let results = realmTry.objects(realmDataSet.self)
-				.filter("ID BEGINSWITH %@", searchSet.text!)
-				.sorted(byProperty: "ID", ascending: false)
-			//indexの値を渡す
-			usersSet = results
-			
-			//tableViewSettingを再リロード
-			self.tableViewSetting.reloadData()
-			
-		}else{
-			
-			let time = realmTry.objects(realmDataSet.self)
-				.sorted(byProperty: "now", ascending: false)
-			//indexの値を渡す
-			usersSet = time
-			//tableViewSettingを再リロード
-			self.tableViewSetting.reloadData()
-			
-		}
-	}
+class ViewController: UIViewController,UITextFieldDelegate{
+    
+    static var vc = ViewController()
+    let setFiledtType = MagnificationViewController()
+    let button = MagnificationViewController().button
+    let now = NSDate()
+    
+    @IBOutlet weak var Navitotal: UIBarButtonItem!
+    @IBOutlet weak var tableViewSetting: UITableView!
+    @IBOutlet weak var textSet: UITextField!
+    @IBOutlet weak var searchSet: UISearchBar!
+    @IBOutlet weak var totalTax: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setFiledtType.view.frame = CGRect(x:0, y:136, width:UIScreen.main.bounds.width,height: 40)
+        setFiledtType.setFiled.frame = CGRect(x:UIScreen.main.bounds.width/2, y:108, width:UIScreen.main.bounds.width,height: 30)
+        
+        textSet.text = "0"
+        totalTax.text? = "0"
+        totalCount = 0
+        
+        tableViewSetting.dataSource = self
+        tableViewSetting.delegate = self
+        textSet.delegate = self
+        searchSet.delegate = self
+        
+        textSet.backgroundColor = UIColor.white
+        tableViewSetting.register(MagnificationCell.self, forCellReuseIdentifier: "Cell")
+        
+        tableViewSetting.reloadData()
+        view.addSubview(setFiledtType.setFiled)
+        view.addSubview(setFiledtType.view)
+        
+        button.addTarget(self, action: #selector(Done(sender:)), for: UIControlEvents.touchUpInside)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func keyShow(note : NSNotification) -> Void{
+        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+        DispatchQueue.main.async { () -> Void in
+            
+            //キーボードを閉じるViewを呼び出す。
+            let window = UIApplication.shared.windows.last
+            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (window?.frame.size.height)!-265, width:106, height:53)
+            window?.addSubview(self.button)
+
+            
+            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+
+            }, completion: { (complete) -> Void in
+            })
+        }
+    }
+    
+    func Done(sender : UIButton){
+        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+        DispatchQueue.main.async { () -> Void in
+            if self.textSet.text! != ""{
+
+                self.clearSuti()
+                
+                try! realmTry.write {
+                    let object = [self.now,self.textSet.text!] as [Any]
+                    realmTry.create(realmDataSet.self,value: object)
+                    self.tableViewSetting.reloadData()
+                }
+            }
+        }
+        self.textSet.resignFirstResponder()
+    }
+    //NavigationController-----------------------------------------
+    @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
+        
+        // アラートビューにテキストフィールドを追加
+        let alertController = UIAlertController(title: "", message: "商品名と数字を入力してください", preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: nil)
+        let otherAction = UIAlertAction(title: "OK", style: .default) {
+            action in
+            alertController.addTextField { (textField2 : UITextField) -> Void in
+                if let textFields = alertController.textFields {
+                    let textField2 = textFields[0]
+                    
+                    textField2.placeholder = "２行目追加"
+                    try!realmTry.write {
+                        
+                        //配列に値を渡す ここの処理indexがないと例外が起きるので、空文字の場合にindexを入れる処理。
+                        if  self.textSet.text! != "" {
+                            let object = [self.now,self.textSet.text!,textField2.text!] as [Any]
+                            //realmfileに値を入れる
+                            realmTry.create(realmDataSet.self,value: object)
+                            self.tableViewSetting.reloadData()
+                        }
+                    }
+                    self.textSet.resignFirstResponder()
+                }
+            }
+        }
+        alertController.addAction(otherAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func clearAction(_ sender: UIBarButtonItem) {
+        
+        self.clearSuti()
+    }
+    
+    //数値クリア
+    func clearSuti(){
+        totalTax.text? = "0"
+        totalCount = 0
+    }
+    
+    func deleate(){
+        try!realmTry.write {
+            realmTry.delete(realmSusikiString().magni())
+        }
+    }
+
+    func wari(Index:Int){
+        if ViewController.vc.setFiledtType.label.threadLabelTwo.text != "0" && textSet.text! != "" {
+            
+            try!realmTry.write {
+                
+                usersSet[Index].ID =  ((Double( usersSet[Index].ID))! / Suusiki().magnificationTwo).description
+                
+                self.clearSuti()
+
+                self.totalTax.text? = totalCount.description
+                self.tableViewSetting.reloadData()
+            }
+        }
+    }
+    
+    func cast(Index:Int){
+        //数値設定
+        self.clearSuti()
+        
+        if ViewController.vc.setFiledtType.label.threadLabel.text != "0" && textSet.text! != "" {
+            
+            try!realmTry.write {
+                usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
+            }
+            
+            wari(Index:Index)
+        }
+        if textSet.text! != ""  &&  ViewController.vc.setFiledtType.label.threadLabel.text == "0" &&  ViewController.vc.setFiledtType.label.threadLabelTwo.text == "0" {
+            try!realmTry.write {
+                usersSet[Index].ID = textSet.text!
+            }
+        }
+        totalTax.text? = totalCount.description
+        self.tableViewSetting.reloadData()
+    }
 }
