@@ -18,8 +18,7 @@ extension ViewController: UITableViewDataSource {
         cell.cellMethod(indexPath: indexPath)
         
         for _ in 0...0 {
-            let proRealm = realmSusiki()
-            totalCount += proRealm.magnification
+            totalCount +=  realmSusiki().magnification
             totalTax.text? = totalCount.description
         }
         return cell
