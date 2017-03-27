@@ -14,21 +14,18 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if  searchBar.text !=  "" {
-            //左辺値の頭文字を検索
-            let results = realmTry.objects(realmDataSet.self)
+
+            //indexの値を渡す
+            usersSet = realmTry.objects(realmDataSet.self)
                 .filter("ID BEGINSWITH %@", searchSet.text!)
                 .sorted(byProperty: "Message", ascending: false)
-            //indexの値を渡す
-            usersSet = results
             
             self.tableViewSetting.reloadData()
             
         }else{
             
-            let time = realmTry.objects(realmDataSet.self)
+            usersSet = realmTry.objects(realmDataSet.self)
                 .sorted(byProperty: "now", ascending: false)
-            
-            usersSet = time
             
             self.tableViewSetting.reloadData()
         }
