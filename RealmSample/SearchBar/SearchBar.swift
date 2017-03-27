@@ -18,11 +18,11 @@ extension ViewController: UISearchBarDelegate {
             //indexの値を渡す
             usersSet = realmTry.objects(realmDataSet.self)
                 .filter("ID BEGINSWITH %@", searchSet.text!)
-                .sorted(byProperty: "Message", ascending: false)
+                .sorted(byKeyPath: "Message", ascending: false)
         }else{
             
             usersSet = realmTry.objects(realmDataSet.self)
-                .sorted(byProperty: "now", ascending: false)
+                .sorted(byKeyPath: "now", ascending: false)
         }
         self.tableViewSetting.reloadData()
     }

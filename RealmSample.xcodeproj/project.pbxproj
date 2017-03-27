@@ -25,6 +25,9 @@
 		BBB360ED1E89569C00E81BF5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360EA1E89569C00E81BF5 /* Button.swift */; };
 		BBB360EE1E89569C00E81BF5 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360EB1E89569C00E81BF5 /* Label.swift */; };
 		BBB360EF1E89569C00E81BF5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360EC1E89569C00E81BF5 /* TextField.swift */; };
+		BBE664221E896E9500529258 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; };
+		BBE664231E896EE600529258 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; };
+		BBE664241E896EE600529258 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BBE664241E896EE600529258 /* SnapKit.framework in CopyFiles */,
 				BB385C9F1DB25C1700253038 /* RealmSwift.framework in CopyFiles */,
 				BB385C9E1DB25C1200253038 /* Realm.framework in CopyFiles */,
 			);
@@ -62,6 +66,7 @@
 		BBB360EA1E89569C00E81BF5 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BBB360EB1E89569C00E81BF5 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BBB360EC1E89569C00E81BF5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		BBE664211E896E9500529258 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE664221E896E9500529258 /* SnapKit.framework in Frameworks */,
 				BB385C9C1DB25BD000253038 /* Realm.framework in Frameworks */,
 				BB385C9A1DB25A1E00253038 /* RealmSwift.framework in Frameworks */,
+				BBE664231E896EE600529258 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +87,7 @@
 		157E2620345369DA490D5EAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BBE664211E896E9500529258 /* SnapKit.framework */,
 				BB385C9B1DB25BD000253038 /* Realm.framework */,
 				BB385C991DB25A1E00253038 /* RealmSwift.framework */,
 				BB385C971DB25A0C00253038 /* Cartfile */,
@@ -256,6 +264,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputPaths = (
 			);
@@ -414,6 +423,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbank.RealmSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -432,6 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbank.RealmSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

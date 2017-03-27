@@ -19,6 +19,7 @@ class TextField: UITextField {
         self.text = "0"
         self.layer.position = CGPoint(x:UIScreen.main.bounds.width/2,y:100)
         self.keyboardType = .numberPad
+        self.textAlignment = .left
 
     }
     

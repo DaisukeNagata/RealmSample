@@ -9,6 +9,7 @@
 
 import UIKit
 import RealmSwift
+import SnapKit
 
 class ViewController: UIViewController,UITextFieldDelegate{
     
@@ -26,9 +27,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setFiledtType.view.frame = CGRect(x:0, y:136, width:UIScreen.main.bounds.width,height: 40)
-        setFiledtType.setFiled.frame = CGRect(x:UIScreen.main.bounds.width/2, y:108, width:UIScreen.main.bounds.width,height: 30)
-        
         textSet.text = "0"
         totalTax.text? = "0"
         totalCount = 0
@@ -44,7 +42,19 @@ class ViewController: UIViewController,UITextFieldDelegate{
         tableViewSetting.reloadData()
         view.addSubview(setFiledtType.setFiled)
         view.addSubview(setFiledtType.view)
-        
+
+        setFiledtType.view.snp.makeConstraints{(make) in
+            make.top.equalTo(textSet).offset(3)
+            make.right.equalTo(searchSet).inset(0)
+            make.width.equalTo(searchSet).multipliedBy(0.5)
+            make.height.equalTo(textSet)
+        }
+        setFiledtType.setFiled.snp.makeConstraints{(make) in
+            make.height.equalTo(setFiledtType.view)
+            make.right.equalTo(self.view).inset(0)
+            make.width.equalTo( setFiledtType.view)
+            make.centerY.equalToSuperview().multipliedBy(0.5)
+        }
         button.addTarget(self, action: #selector(Done(sender:)), for: UIControlEvents.touchUpInside)
     }
     
@@ -131,7 +141,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     }
 
     func wari(Index:Int){
-        if ViewController.vc.setFiledtType.label.threadLabelTwo.text != "0" && textSet.text! != "" {
+        if ViewController.vc.setFiledtType.threadLabelTwo.text != "0" && textSet.text! != "" {
             
             try!realmTry.write {
                 
@@ -149,13 +159,13 @@ class ViewController: UIViewController,UITextFieldDelegate{
         //数値設定
         self.clearSuti()
         
-        if ViewController.vc.setFiledtType.label.threadLabel.text != "0" && textSet.text! != "" {
+        if ViewController.vc.setFiledtType.threadLabel.text != "0" && textSet.text! != "" {
             
             try!realmTry.write {
                 usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
             }
         }
-        if textSet.text! != ""  &&  ViewController.vc.setFiledtType.label.threadLabel.text == "0" &&  ViewController.vc.setFiledtType.label.threadLabelTwo.text == "0" {
+        if textSet.text! != ""  &&  ViewController.vc.setFiledtType.threadLabel.text == "0" &&  ViewController.vc.setFiledtType.threadLabelTwo.text == "0" {
             try!realmTry.write {
                 usersSet[Index].ID = textSet.text!
             }

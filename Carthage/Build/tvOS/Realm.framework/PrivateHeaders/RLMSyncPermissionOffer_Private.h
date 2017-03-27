@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////
 //
-// Copyright 2014 Realm Inc.
+// Copyright 2016 Realm Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,23 +16,27 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-#import <memory>
-#import <string>
+#import "RLMSyncPermissionOffer.h"
 
-@class RLMRealm;
+NS_ASSUME_NONNULL_BEGIN
 
-namespace realm {
-    class BindingContext;
-}
+@interface RLMSyncPermissionOffer()
 
-// Add a Realm to the weak cache
-void RLMCacheRealm(std::string const& path, RLMRealm *realm);
-// Get a Realm for the given path which can be used on the current thread
-RLMRealm *RLMGetThreadLocalCachedRealmForPath(std::string const& path);
-// Get a Realm for the given path
-RLMRealm *RLMGetAnyCachedRealmForPath(std::string const& path);
-// Clear the weak cache of Realms
-void RLMClearRealmCache();
+@property (readwrite) NSString *id;
+@property (readwrite) NSDate *createdAt;
+@property (readwrite) NSDate *updatedAt;
+@property (nullable, readwrite) NSNumber<RLMInt> *statusCode;
+@property (nullable, readwrite) NSString *statusMessage;
 
-std::unique_ptr<realm::BindingContext> RLMCreateBindingContext(RLMRealm *realm);
+@property (nullable, readwrite) NSString *token;
+@property (readwrite) NSString *realmUrl;
+
+@property (readwrite) BOOL mayRead;
+@property (readwrite) BOOL mayWrite;
+@property (readwrite) BOOL mayManage;
+
+@property (nullable, readwrite) NSDate *expiresAt;
+
+@end
+
+NS_ASSUME_NONNULL_END

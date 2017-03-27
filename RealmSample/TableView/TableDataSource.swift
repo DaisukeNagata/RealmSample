@@ -47,7 +47,7 @@ extension ViewController: UITableViewDataSource {
             deleate()
         }
         
-        if ViewController.vc.setFiledtType.label.threadLabel.text != "" || ViewController.vc.setFiledtType.label.threadLabelTwo.text != "" {
+        if ViewController.vc.setFiledtType.threadLabel.text != "" || ViewController.vc.setFiledtType.threadLabelTwo.text != "" {
             cast( Index: indexPath.row)
         }
     }
