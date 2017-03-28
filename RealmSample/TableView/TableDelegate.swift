@@ -13,6 +13,6 @@ extension ViewController:UITableViewDelegate{
     //tableView Data-------------------------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return usersSet.count
+        return RealmModel.realm.usersSet.count
     }
 }

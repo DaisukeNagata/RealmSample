@@ -31,15 +31,15 @@ class MagnificationViewController: UIViewController,UITextFieldDelegate {
         
         ViewController.vc.setFiledtType.threadLabel.snp.makeConstraints{(make) in
             make.width.equalTo(self.view).multipliedBy(1)
-            make.centerY.equalToSuperview().multipliedBy(2.39)
+            make.centerY.equalToSuperview().multipliedBy(0.7)
             make.left.equalTo(self.view).offset(0)
-            make.height.equalTo(self.view)
+            make.height.equalTo(self.view).multipliedBy(0.3)
         }
         ViewController.vc.setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
             make.width.equalTo(self.view).multipliedBy(1)
-            make.centerY.equalToSuperview().multipliedBy(2.39)
+            make.centerY.equalToSuperview().multipliedBy(0.7)
             make.centerX.equalToSuperview().multipliedBy(-1)
-            make.height.equalTo(self.view)
+            make.height.equalTo(self.view).multipliedBy(0.3)
         }
         
         // タップを認識.
@@ -58,7 +58,10 @@ class MagnificationViewController: UIViewController,UITextFieldDelegate {
     func keyboardWillShow(note : NSNotification) -> Void{
         
         DispatchQueue.main.async { () -> Void in
-
+            //キーボードを閉じるViewを呼び出す。
+            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
+            UIApplication.shared.windows.last?.addSubview(self.button)
+            
             //ボタンが押された際のアニメーション
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
                 self.view.frame = self.view.frame.offsetBy(dx: 0, dy: 0)

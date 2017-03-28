@@ -13,7 +13,7 @@ class MagnificationCell: UITableViewCell {
 	var titleLabel = UILabel()
 	var cellLabel = UILabel()
 	var kakauLabel = UILabel()
-
+    
 	override init(style: UITableViewCellStyle, reuseIdentifier: String!)
 	{
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,9 +37,8 @@ class MagnificationCell: UITableViewCell {
 		super.init(coder: aDecoder)!
 	}
     func cellMethod(indexPath:IndexPath){
-        //objectに代入realmデータをさせる
-        indexSet = indexPath.row
-        let object = usersSet[indexSet]
+        
+        let object = RealmModel.realm.usersSet[indexPath.row]
         //Resultsの値を代入
         titleLabel.text  = object.Message
         cellLabel.text = object.ID

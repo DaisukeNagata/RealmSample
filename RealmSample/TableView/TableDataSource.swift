@@ -32,9 +32,9 @@ extension ViewController: UITableViewDataSource {
             
             self.clearSuti()
             
-            try!realmTry.write {
+            try!RealmModel.realm.realmTry.write {
                 
-                realmTry.delete(usersSet[indexPath.row])
+                RealmModel.realm.realmTry.delete(RealmModel.realm.usersSet[indexPath.row])
                 
                 self.tableViewSetting.reloadData()
             }

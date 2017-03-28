@@ -23,8 +23,8 @@ class Label:UILabel{
         threadLabelTwo.text = "0"
         
         // ボタンの背景色を設定.
-        threadLabel.backgroundColor = UIColor.white
-        threadLabelTwo.backgroundColor = UIColor.white
+        threadLabel.backgroundColor = UIColor.orange
+        threadLabelTwo.backgroundColor = UIColor.blue
         threadLabel.textAlignment = .left
         threadLabelTwo.textAlignment = .left
         // ボタンの枠を丸くする.
