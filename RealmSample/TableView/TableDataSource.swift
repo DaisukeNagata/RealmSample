@@ -48,13 +48,18 @@ extension ViewController: UITableViewDataSource {
         }
         
         if ViewController.vc.setFiledtType.threadLabel.text != "" || ViewController.vc.setFiledtType.threadLabelTwo.text != "" {
+            RealmModel.index.indexSet = indexPath.row
             cast( Index: indexPath.row)
         }
     }
     
     //textFiled Data-------------------------------------------------
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == textSet {
         //キーボードを閉じるためのメソッドを呼び出す
         NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        }else if textField == setFiledtType.setFiled{
+        NotificationCenter.default.addObserver(self, selector: #selector(keyShowTwo(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        }
     }
 }

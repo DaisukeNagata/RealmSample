@@ -20,7 +20,7 @@ struct iphoneSize {
         case 667:
             return 255.0
         case 736:
-            return 255.0
+            return 275.0
         case 1024:
             return 310.0
         case 1366:
