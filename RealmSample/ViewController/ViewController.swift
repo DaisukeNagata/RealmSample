@@ -13,23 +13,38 @@ import SnapKit
 
 class ViewController: UIViewController,UITextFieldDelegate{
     
-    static var vc = ViewController()
-    let setFiledtType = MagnificationViewController()
-    let button = Button().button
-    let buttonTwo = Button().button
-    let now = NSDate()
+    var viewModel: MagnificationModeling
+    var setFiledtType = MagnificationView()
+    var button  = Button().button
+    var buttonTwo = Button().button
+    var now = NSDate()
     var totalCount: Double = 0
     
     
+    init(viewModel:MagnificationModeling) {
+        self.viewModel = viewModel
+        super.init(nibName:nil,bundle:nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     @IBOutlet weak var Navitotal: UIBarButtonItem!
     @IBOutlet weak var tableViewSetting: UITableView!
     @IBOutlet weak var textSet: UITextField!
     @IBOutlet weak var searchSet: UISearchBar!
     @IBOutlet weak var totalTax: UILabel!
     
+    static func viewController() -> ViewController {
+        let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = sb.instantiateInitialViewController() as! ViewController
+        
+        return vc
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         textSet.text = "0"
         totalTax.text? = "0"
         
@@ -45,8 +60,8 @@ class ViewController: UIViewController,UITextFieldDelegate{
         tableViewSetting.reloadData()
         view.addSubview(setFiledtType.setFiled)
         view.addSubview(setFiledtType.view)
-        view.addSubview(ViewController.vc.setFiledtType.threadLabel)
-        view.addSubview(ViewController.vc.setFiledtType.threadLabelTwo)
+        view.addSubview(setFiledtType.threadLabel)
+        view.addSubview(setFiledtType.threadLabelTwo)
         
         setFiledtType.view.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
@@ -60,13 +75,13 @@ class ViewController: UIViewController,UITextFieldDelegate{
             make.width.equalTo(searchSet).multipliedBy(0.5)
             make.height.equalTo(textSet)
         }
-        ViewController.vc.setFiledtType.threadLabel.snp.makeConstraints{(make) in
+        setFiledtType.threadLabel.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
-        ViewController.vc.setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
+        setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
@@ -88,77 +103,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func keyShow(note : NSNotification) -> Void{
-        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
-        DispatchQueue.main.async { () -> Void in
-            //キーボードを閉じるViewを呼び出す。
-            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
-            UIApplication.shared.windows.last?.addSubview(self.button)
-            
-            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
-            }, completion: { (complete) -> Void in
-            })
-        }
-    }
-    func keyShowTwo(note : NSNotification) -> Void{
-        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
-        DispatchQueue.main.async { () -> Void in
-            //キーボードを閉じるViewを呼び出す。
-            self.buttonTwo.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
-            UIApplication.shared.windows.last?.addSubview(self.buttonTwo)
-            
-            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
-            }, completion: { (complete) -> Void in
-            })
-        }
-    }
-    
-    
-    func Done(sender : UIButton){
-        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
-        DispatchQueue.main.async { () -> Void in
-            if self.textSet.text! != ""{
-                
-                self.clearSuti()
-                
-                try! RealmModel.realm.realmTry.write {
-                    RealmModel.realm.realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!] as [Any])
-                    self.tableViewSetting.reloadData()
-                }
-            }
-        }
-        self.setFiledtType.setFiled.resignFirstResponder()
-        self.textSet.resignFirstResponder()
-    }
-    
-    func DoneTwo(sender : UIButton){
-        
-        DispatchQueue.main.async { () -> Void in
-            
-            self.setFiledtType.setFiled.resignFirstResponder()
-            
-            if ViewController.vc.setFiledtType.threadLabel.isEnabled == false {
-                ViewController.vc.setFiledtType.threadLabel.text = self.setFiledtType.setFiled.text
-            }else if ViewController.vc.setFiledtType.threadLabelTwo.isEnabled == false {
-                ViewController.vc.setFiledtType.threadLabelTwo.text = ViewController.vc.setFiledtType.setFiled.text
-            }
-        }
-    }
-    
-    //タップ検出
-    internal func tapGesture(sender: UITapGestureRecognizer){
-        if ViewController.vc.setFiledtType.threadLabel.isEnabled == true{
-            ViewController.vc.setFiledtType.threadLabel.isEnabled = false
-            ViewController.vc.setFiledtType.threadLabelTwo.isEnabled = true
-            ViewController.vc.setFiledtType.threadLabel.backgroundColor = UIColor.blue
-            ViewController.vc.setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
-        }else{
-            ViewController.vc.setFiledtType.threadLabel.isEnabled = true
-            ViewController.vc.setFiledtType.threadLabelTwo.isEnabled = false
-            ViewController.vc.setFiledtType.threadLabel.backgroundColor = UIColor.white
-            ViewController.vc.setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
-        }
-    }
     
     //NavigationController-----------------------------------------
     @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
@@ -191,53 +135,77 @@ class ViewController: UIViewController,UITextFieldDelegate{
     
     @IBAction func clearAction(_ sender: UIBarButtonItem) {
         
-        self.clearSuti()
+        viewModel.clearSuti()
     }
-    
-    //数値クリア
-    func clearSuti(){
-        totalTax.text? = "0"
-        totalCount = 0
-    }
-    
-    func deleate(){
-        try!RealmModel.realm.realmTry.write {
-            RealmModel.realm.realmTry.delete(realmSusikiString().magni())
+    func tapGesture(sender: UITapGestureRecognizer){
+        if setFiledtType.threadLabel.isEnabled == true{
+            setFiledtType.threadLabel.isEnabled = false
+            setFiledtType.threadLabelTwo.isEnabled = true
+            setFiledtType.threadLabel.backgroundColor = UIColor.blue
+            setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
+        }else{
+            setFiledtType.threadLabel.isEnabled = true
+            setFiledtType.threadLabelTwo.isEnabled = false
+            setFiledtType.threadLabel.backgroundColor = UIColor.white
+            setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
         }
     }
     
-    func wari(Index:Int){
-        if ViewController.vc.setFiledtType.threadLabelTwo.text != "0" && textSet.text! != "" {
-            
-            try!RealmModel.realm.realmTry.write {
+    func Done(sender: UIButton) {
+        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+        DispatchQueue.main.async { () -> Void in
+            if self.textSet.text! != ""{
                 
-                RealmModel.realm.usersSet[Index].ID =  ((Double( RealmModel.realm.usersSet[Index].ID))! / Suusiki().magnificationTwo).description
+                self.viewModel.clearSuti()
                 
-                self.clearSuti()
-                
-                self.totalTax.text? = totalCount.description
-                self.tableViewSetting.reloadData()
+                try! RealmModel.realm.realmTry.write {
+                    RealmModel.realm.realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!] as [Any])
+                    self.tableViewSetting.reloadData()
+                }
             }
         }
-    }
-    
-    func cast(Index:Int){
-        //数値設定
-        self.clearSuti()
         
-        if ViewController.vc.setFiledtType.threadLabel.text != "0" && textSet.text! != "" {
-            
-            try!RealmModel.realm.realmTry.write {
-                RealmModel.realm.usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
-            }
-        }
-        if textSet.text! != ""  &&  ViewController.vc.setFiledtType.threadLabel.text == "0" && ViewController.vc.setFiledtType.threadLabelTwo.text == "0" {
-            try!RealmModel.realm.realmTry.write {
-                RealmModel.realm.usersSet[Index].ID = textSet.text!
-            }
-        }
-        wari(Index:Index)
-        totalTax.text? = totalCount.description
-        self.tableViewSetting.reloadData()
+        textSet.resignFirstResponder()
     }
+    
+    func DoneTwo(sender: UIButton) {
+        DispatchQueue.main.async { () -> Void in
+            
+           self.setFiledtType.setFiled.resignFirstResponder()
+            
+            if self.setFiledtType.threadLabel.isEnabled == false {
+                self.setFiledtType.threadLabel.text = self.setFiledtType.setFiled.text
+            }else if self.setFiledtType.threadLabelTwo.isEnabled == false {
+                self.setFiledtType.threadLabelTwo.text = self.setFiledtType.setFiled.text
+            }
+        }
+        
+    }
+    
+    
+    func keyShow(note: NSNotification) {
+        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+        DispatchQueue.main.async { () -> Void in
+            //キーボードを閉じるViewを呼び出す。
+            self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
+            UIApplication.shared.windows.last?.addSubview(self.button)
+            
+            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            }, completion: { (complete) -> Void in
+            })
+        }
+    }
+    func keyShowTwo(note : NSNotification) {
+        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+        DispatchQueue.main.async { () -> Void in
+            //キーボードを閉じるViewを呼び出す。
+            self.buttonTwo.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
+            UIApplication.shared.windows.last?.addSubview(self.buttonTwo)
+            
+            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            }, completion: { (complete) -> Void in
+            })
+        }
+    }
+    
 }

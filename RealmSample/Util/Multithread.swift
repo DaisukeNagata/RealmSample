@@ -21,15 +21,15 @@ protocol setTextString {
 protocol setText {
     
     var magnification:Double{get set}
-    //メソッド設定
     func magnificationSet()->Double
 }
 
 //Labelを管理するクラス
+
 class Suusiki:setText {
-    
-    internal var magnification: Double = (Double(ViewController.vc.setFiledtType.threadLabel.text!))!
-    internal var magnificationTwo: Double =  (Double(ViewController.vc.setFiledtType.threadLabelTwo.text!))!
+  
+    internal var magnification: Double = (Double(MagnificationView().threadLabel.text!))!
+    internal var magnificationTwo: Double =  (Double(MagnificationView().threadLabelTwo.text!))!
     internal func magnificationSet() -> Double {
         
         return  magnification

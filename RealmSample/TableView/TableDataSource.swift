@@ -30,7 +30,7 @@ extension ViewController: UITableViewDataSource {
         
         if editingStyle == .delete {
             
-            self.clearSuti()
+            viewModel.clearSuti()
             
             try!RealmModel.realm.realmTry.write {
                 
@@ -44,12 +44,12 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if textSet.text == "" {
-            deleate()
+            viewModel.deleate()
         }
         
-        if ViewController.vc.setFiledtType.threadLabel.text != "" || ViewController.vc.setFiledtType.threadLabelTwo.text != "" {
+        if setFiledtType.threadLabel.text != "" || setFiledtType.threadLabelTwo.text != "" {
             RealmModel.index.indexSet = indexPath.row
-            cast( Index: indexPath.row)
+        viewModel.cast(Index: indexPath.row)
         }
     }
     
