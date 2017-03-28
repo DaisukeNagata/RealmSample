@@ -16,15 +16,19 @@ protocol MagnificationModeling {
     func deleate()
     func wari(Index:Int)
     func cast(Index:Int)
-    var vc: ViewController { get }
+
 }
 
 class MagnificationViewModel : MagnificationModeling {
-    internal var vc: ViewController{return self.vc}
-    
+
+    weak var vc: ViewController?
+    func attachViewSet(vc: ViewController) {
+        self.vc = vc
+    }
+
     func clearSuti(){
-        vc.totalTax.text? = "0"
-        vc.totalCount = 0
+    vc?.totalTax.text! = "0"
+    vc?.totalCount = 0
     }
     func deleate(){
         try!RealmModel.realm.realmTry.write {
@@ -32,7 +36,7 @@ class MagnificationViewModel : MagnificationModeling {
         }
     }
     func wari(Index:Int){
-        if  vc.setFiledtType.threadLabelTwo.text != "0" && vc.textSet.text! != "" {
+        if  vc?.setFiledtType.threadLabelTwo.text != "0" &&  vc?.textSet.text! != "" {
             
             try!RealmModel.realm.realmTry.write {
                 
@@ -40,8 +44,8 @@ class MagnificationViewModel : MagnificationModeling {
                 
                 clearSuti()
                 
-                vc.totalTax.text? = vc.totalCount.description
-                vc.tableViewSetting.reloadData()
+                 vc?.totalTax.text? =  (vc?.totalCount.description)!
+                 vc?.tableViewSetting.reloadData()
             }
         }
     }
@@ -49,7 +53,7 @@ class MagnificationViewModel : MagnificationModeling {
         //数値設定
         clearSuti()
         
-        if   vc.setFiledtType.threadLabel.text != "0" && vc.textSet.text! != "" {
+        if   vc?.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {
             print(Suusiki().magnification*realmSusiki().magnification)
             try!RealmModel.realm.realmTry.write {
                 RealmModel.realm.usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
@@ -58,14 +62,14 @@ class MagnificationViewModel : MagnificationModeling {
         }
         
         
-        if vc.textSet.text! != ""  &&  vc.setFiledtType.threadLabel.text == "0" && vc.setFiledtType.threadLabelTwo.text == "0" {
+        if  vc?.textSet.text! != ""  &&   vc?.setFiledtType.threadLabel.text == "0" &&  vc?.setFiledtType.threadLabelTwo.text == "0" {
             try!RealmModel.realm.realmTry.write {
-                RealmModel.realm.usersSet[Index].ID = vc.textSet.text!
+                RealmModel.realm.usersSet[Index].ID =  (vc?.textSet.text!)!
             }
         }
         wari(Index:Index)
-        vc.totalTax.text? = vc.totalCount.description
-        vc.tableViewSetting.reloadData()
+         vc?.totalTax.text? =  (vc?.totalCount.description)!
+         vc?.tableViewSetting.reloadData()
     }
     
 }

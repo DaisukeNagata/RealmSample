@@ -13,7 +13,7 @@ import SnapKit
 
 class ViewController: UIViewController,UITextFieldDelegate{
     
-    var viewModel: MagnificationModeling
+    var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
     var button  = Button().button
     var buttonTwo = Button().button
@@ -21,30 +21,16 @@ class ViewController: UIViewController,UITextFieldDelegate{
     var totalCount: Double = 0
     
     
-    init(viewModel:MagnificationModeling) {
-        self.viewModel = viewModel
-        super.init(nibName:nil,bundle:nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     @IBOutlet weak var Navitotal: UIBarButtonItem!
     @IBOutlet weak var tableViewSetting: UITableView!
     @IBOutlet weak var textSet: UITextField!
     @IBOutlet weak var searchSet: UISearchBar!
     @IBOutlet weak var totalTax: UILabel!
     
-    static func viewController() -> ViewController {
-        let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc = sb.instantiateInitialViewController() as! ViewController
-        
-        return vc
-    }
-
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        viewModel.attachViewSet(vc: self)
         textSet.text = "0"
         totalTax.text? = "0"
         
@@ -207,5 +193,4 @@ class ViewController: UIViewController,UITextFieldDelegate{
             })
         }
     }
-    
 }

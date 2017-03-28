@@ -15,18 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let window = UIWindow()
-        self.window = window
-        window.frame = UIScreen.main.bounds
-        window.makeKeyAndVisible()
-
-        let vm = MagnificationViewModel()
-       // let vc = ViewController(viewModel: vm)
-      //  let nc = UINavigationController(rootViewController: vc)
-        
-        window.rootViewController = ViewController.viewController()
-
-
+   
 		let config = Realm.Configuration(
 			// 新しいスキーマバージョンを設定します。 これは以前に使用されたものよりも大きくなければなりません
 			// version（以前にスキーマバージョンを設定していない場合、バージョンは0です）。
