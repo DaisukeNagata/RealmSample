@@ -28,11 +28,11 @@ class ViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var searchSet: UISearchBar!
     @IBOutlet weak var totalTax: UILabel!
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.attachViewSet(vc: self)
-      
+        
         textSet.text = "0"
         totalTax.text? = "0"
         
@@ -159,7 +159,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     func DoneTwo(sender: UIButton) {
         DispatchQueue.main.async { () -> Void in
             
-           self.setFiledtType.setFiled.resignFirstResponder()
+            ViewController.vcView.setFiledtType.setFiled.resignFirstResponder()
             
             if ViewController.vcView.setFiledtType.threadLabel.isEnabled == false {
                 ViewController.vcView.setFiledtType.threadLabel.text = self.setFiledtType.setFiled.text
@@ -168,6 +168,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
             }
         }
     }
+    
     
     func keyShow(note: NSNotification) {
         //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。

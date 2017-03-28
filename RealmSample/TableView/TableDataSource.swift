@@ -31,13 +31,9 @@ extension ViewController: UITableViewDataSource {
         if editingStyle == .delete {
             
             viewModel.clearSuti()
+            viewModel.deleate()
             
-            try!RealmModel.realm.realmTry.write {
-                
-                RealmModel.realm.realmTry.delete(RealmModel.realm.usersSet[indexPath.row])
-                
                 self.tableViewSetting.reloadData()
-            }
         }
     }
     
