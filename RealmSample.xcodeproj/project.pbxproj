@@ -64,7 +64,7 @@
 		BBB360DF1E89563400E81BF5 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
 		BBB360E41E89565D00E81BF5 /* MagnificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationCell.swift; sourceTree = "<group>"; };
-		BBB360E71E89569200E81BF5 /* Multithread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multithread.swift; sourceTree = "<group>"; };
+		BBB360E71E89569200E81BF5 /* Multithread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Multithread.swift; path = ../Util/Multithread.swift; sourceTree = "<group>"; };
 		BBB360EA1E89569C00E81BF5 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BBB360EB1E89569C00E81BF5 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BBB360EC1E89569C00E81BF5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 		BB68DBE81E8A742D00212102 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BBB360E71E89569200E81BF5 /* Multithread.swift */,
 				BB5DE3701E8B10CA00245D83 /* MagnificationViewModel.swift */,
 				BB68DBEB1E8A887100212102 /* RealmModel.swift */,
 			);
@@ -180,7 +181,6 @@
 		BBB360E61E89569200E81BF5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				BBB360E71E89569200E81BF5 /* Multithread.swift */,
 				BBE664251E89905C00529258 /* iphoneSize.swift */,
 			);
 			path = Util;

@@ -13,6 +13,7 @@ import SnapKit
 
 class ViewController: UIViewController,UITextFieldDelegate{
     
+    static var vcView = ViewController()
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
     var button  = Button().button
@@ -31,6 +32,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.attachViewSet(vc: self)
+      
         textSet.text = "0"
         totalTax.text? = "0"
         
@@ -46,8 +48,8 @@ class ViewController: UIViewController,UITextFieldDelegate{
         tableViewSetting.reloadData()
         view.addSubview(setFiledtType.setFiled)
         view.addSubview(setFiledtType.view)
-        view.addSubview(setFiledtType.threadLabel)
-        view.addSubview(setFiledtType.threadLabelTwo)
+        view.addSubview(ViewController.vcView.setFiledtType.threadLabel)
+        view.addSubview(ViewController.vcView.setFiledtType.threadLabelTwo)
         
         setFiledtType.view.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
@@ -61,13 +63,13 @@ class ViewController: UIViewController,UITextFieldDelegate{
             make.width.equalTo(searchSet).multipliedBy(0.5)
             make.height.equalTo(textSet)
         }
-        setFiledtType.threadLabel.snp.makeConstraints{(make) in
+        ViewController.vcView.setFiledtType.threadLabel.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
-        setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
+        ViewController.vcView.setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
@@ -124,16 +126,16 @@ class ViewController: UIViewController,UITextFieldDelegate{
         viewModel.clearSuti()
     }
     func tapGesture(sender: UITapGestureRecognizer){
-        if setFiledtType.threadLabel.isEnabled == true{
-            setFiledtType.threadLabel.isEnabled = false
-            setFiledtType.threadLabelTwo.isEnabled = true
-            setFiledtType.threadLabel.backgroundColor = UIColor.blue
-            setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
+        if ViewController.vcView.setFiledtType.threadLabel.isEnabled == true{
+            ViewController.vcView.setFiledtType.threadLabel.isEnabled = false
+            ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled = true
+            ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.blue
+            ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
         }else{
-            setFiledtType.threadLabel.isEnabled = true
-            setFiledtType.threadLabelTwo.isEnabled = false
-            setFiledtType.threadLabel.backgroundColor = UIColor.white
-            setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
+            ViewController.vcView.setFiledtType.threadLabel.isEnabled = true
+            ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled = false
+            ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.white
+            ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
         }
     }
     
@@ -159,15 +161,13 @@ class ViewController: UIViewController,UITextFieldDelegate{
             
            self.setFiledtType.setFiled.resignFirstResponder()
             
-            if self.setFiledtType.threadLabel.isEnabled == false {
-                self.setFiledtType.threadLabel.text = self.setFiledtType.setFiled.text
-            }else if self.setFiledtType.threadLabelTwo.isEnabled == false {
-                self.setFiledtType.threadLabelTwo.text = self.setFiledtType.setFiled.text
+            if ViewController.vcView.setFiledtType.threadLabel.isEnabled == false {
+                ViewController.vcView.setFiledtType.threadLabel.text = self.setFiledtType.setFiled.text
+            }else if ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled == false {
+                ViewController.vcView.setFiledtType.threadLabelTwo.text = self.setFiledtType.setFiled.text
             }
         }
-        
     }
-    
     
     func keyShow(note: NSNotification) {
         //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。

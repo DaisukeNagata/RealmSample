@@ -35,11 +35,12 @@ class MagnificationViewModel : MagnificationModeling {
             RealmModel.realm.realmTry.delete(realmSusikiString().magni())
         }
     }
+    
     func wari(Index:Int){
-        if  vc?.setFiledtType.threadLabelTwo.text != "0" &&  vc?.textSet.text! != "" {
+        if  ViewController.vcView.setFiledtType.threadLabelTwo.text != "0" &&  vc?.textSet.text! != "" {
             
             try!RealmModel.realm.realmTry.write {
-                
+            
                 RealmModel.realm.usersSet[Index].ID =  ((Double( RealmModel.realm.usersSet[Index].ID))! / Suusiki().magnificationTwo).description
                 
                 clearSuti()
@@ -49,20 +50,19 @@ class MagnificationViewModel : MagnificationModeling {
             }
         }
     }
+    
     func cast(Index:Int){
         //数値設定
         clearSuti()
         
-        if   vc?.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {
+        if  ViewController.vcView.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {
             print(Suusiki().magnification*realmSusiki().magnification)
             try!RealmModel.realm.realmTry.write {
                 RealmModel.realm.usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
-                
             }
         }
         
-        
-        if  vc?.textSet.text! != ""  &&   vc?.setFiledtType.threadLabel.text == "0" &&  vc?.setFiledtType.threadLabelTwo.text == "0" {
+        if  vc?.textSet.text! != ""  &&   ViewController.vcView.setFiledtType.threadLabel.text == "0" &&  ViewController.vcView.setFiledtType.threadLabelTwo.text == "0" {
             try!RealmModel.realm.realmTry.write {
                 RealmModel.realm.usersSet[Index].ID =  (vc?.textSet.text!)!
             }

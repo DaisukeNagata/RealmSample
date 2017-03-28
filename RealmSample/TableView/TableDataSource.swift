@@ -40,6 +40,7 @@ extension ViewController: UITableViewDataSource {
             }
         }
     }
+    
     //tableに文字列がある場合にタップすると、アクションを起こすメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

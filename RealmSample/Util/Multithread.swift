@@ -22,15 +22,17 @@ protocol setText {
     
     var magnification:Double{get set}
     func magnificationSet()->Double
+
 }
 
 //Labelを管理するクラス
 
 class Suusiki:setText {
-  
-    internal var magnification: Double = (Double(MagnificationView().threadLabel.text!))!
-    internal var magnificationTwo: Double =  (Double(MagnificationView().threadLabelTwo.text!))!
-    internal func magnificationSet() -> Double {
+
+
+    var magnification: Double = (Double(ViewController.vcView.setFiledtType.threadLabel.text!))!
+    var magnificationTwo: Double =  (Double(ViewController.vcView.setFiledtType.threadLabelTwo.text!))!
+     func magnificationSet() -> Double {
         
         return  magnification
     }
@@ -61,6 +63,8 @@ class realmSusikiString:setTextString {
 
 //realmを使用するためのクラスを作る.（Double）
 class realmSusiki:setText {
+    internal static var vc: ViewController?
+
     
     internal var magnification: Double =  (Double(RealmModel.realm.usersSet[RealmModel.index.indexSet].ID))!
     
