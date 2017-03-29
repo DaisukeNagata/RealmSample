@@ -26,27 +26,9 @@
 		BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360DF1E89563400E81BF5 /* TableDataSource.swift */; };
 		BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E01E89563400E81BF5 /* TableDelegate.swift */; };
 		BBD11EE11E8C085C00EEF83A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		BBD11EE31E8C09E800EEF83A /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BBD11EE41E8C09ED00EEF83A /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BBD11EE51E8C09F100EEF83A /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BBE664261E89905C00529258 /* iphoneSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE664251E89905C00529258 /* iphoneSize.swift */; };
 		BF2D7C49725D0AEFF1FB6B52 /* Pods_RealmSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CA6879723659939093F82C /* Pods_RealmSample.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BBD11EE21E8C09DD00EEF83A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BBD11EE51E8C09F100EEF83A /* RealmSwift.framework in CopyFiles */,
-				BBD11EE41E8C09ED00EEF83A /* Realm.framework in CopyFiles */,
-				BBD11EE31E8C09E800EEF83A /* SnapKit.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		24CA6879723659939093F82C /* Pods_RealmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,7 +215,6 @@
 				BB08681E1D9FFF560044A23B /* Frameworks */,
 				BB08681F1D9FFF560044A23B /* Resources */,
 				BB385C961DB259D400253038 /* ShellScript */,
-				BBD11EE21E8C09DD00EEF83A /* CopyFiles */,
 				FBCDA4939B40673CA07BB64C /* [CP] Embed Pods Frameworks */,
 				ACB424DAA7312C720A60CE9A /* [CP] Copy Pods Resources */,
 			);
@@ -332,9 +313,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Build/iOS/SnapKit.framework",
 			);
 			outputPaths = (
 			);
