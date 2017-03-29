@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension ViewController:UITableViewDelegate{
-    //tableView Data-------------------------------------------------
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return RealmModel.realm.usersSet.count

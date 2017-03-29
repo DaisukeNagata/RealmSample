@@ -80,9 +80,8 @@ class ViewController: UIViewController,UITextFieldDelegate{
         button.addTarget(self, action: #selector(Done(sender:)), for: UIControlEvents.touchUpInside)
         buttonTwo.addTarget(self, action: #selector(DoneTwo(sender:)), for: UIControlEvents.touchUpInside)
         
-        // タップを認識.
         let myTap = UITapGestureRecognizer(target: self, action: #selector(tapGesture(sender:)))
-        // Viewに追加.
+        
         setFiledtType.view.addGestureRecognizer(myTap)
     }
     
@@ -95,7 +94,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
     //NavigationController-----------------------------------------
     @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
         
-        // アラートビューにテキストフィールドを追加
         let alertController = UIAlertController(title: "", message: "商品名と数字を入力してください", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: nil)
         let otherAction = UIAlertAction(title: "OK", style: .default) {
@@ -105,7 +103,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
                     textFields[0].placeholder = "２行目追加"
                     try!RealmModel.realm.realmTry.write {
                         
-                        //配列に値を渡す ここの処理indexがないと例外が起きるので、空文字の場合にindexを入れる処理。
                         if  self.textSet.text! != "" {
                             //realmfileに値を入れる
                             RealmModel.realm.realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!, textFields[0].text!] as [Any])
@@ -140,7 +137,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     }
     
     func Done(sender: UIButton) {
-        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+   
         DispatchQueue.main.async { () -> Void in
             if self.textSet.text! != ""{
                 
@@ -171,9 +168,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
     
     
     func keyShow(note: NSNotification) {
-        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+
         DispatchQueue.main.async { () -> Void in
-            //キーボードを閉じるViewを呼び出す。
+
             self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
             UIApplication.shared.windows.last?.addSubview(self.button)
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
@@ -182,9 +179,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
         }
     }
     func keyShowTwo(note : NSNotification) {
-        //同時にボタンを押したときなども非同期でスレッド取得、順番を制御する。
+     
         DispatchQueue.main.async { () -> Void in
-            //キーボードを閉じるViewを呼び出す。
+
             self.buttonTwo.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
             UIApplication.shared.windows.last?.addSubview(self.buttonTwo)
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in

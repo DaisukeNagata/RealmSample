@@ -23,7 +23,7 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-    //tableを編集モードにするメソッド
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -35,8 +35,7 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-    //tableに文字列がある場合にタップすると、アクションを起こすメソッド
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if textSet.text == "" {
             viewModel.deleate()
@@ -48,8 +47,7 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-    //textFiled Data-------------------------------------------------
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+       func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == textSet {
             NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         }else if textField == setFiledtType.setFiled{

@@ -7,11 +7,10 @@
 //
 
 import UIKit
-//モデルリングの準備
 
 protocol MagnificationModeling {
     
-    //数値クリア
+
     func clearSuti()
     func deleate()
     func wari(Index:Int)
@@ -52,7 +51,7 @@ class MagnificationViewModel : MagnificationModeling {
     }
     
     func cast(Index:Int){
-        //数値設定
+
         clearSuti()
         
         if  ViewController.vcView.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {

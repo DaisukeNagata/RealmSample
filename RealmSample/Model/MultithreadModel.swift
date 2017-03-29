@@ -8,15 +8,13 @@
 
 import Foundation
 
-
-//Stringを設定するprotocol
 protocol setTextString {
     
-    //メソッド設定
+
     func magni()->realmDataSet
 }
 
-//Doubleを設定するprotocol
+
 protocol setTextModel {
     
     var magnification:Double{get set}
@@ -24,7 +22,7 @@ protocol setTextModel {
     
 }
 
-//Labelを管理するクラス
+
 
 class Suusiki:setTextModel  {
     
@@ -42,7 +40,7 @@ class Suusiki:setTextModel  {
     }
 }
 
-//realmを使用するためのクラスを作る（String）
+
 class realmSusikiString:setTextString {
     
     internal var magnificati =  RealmModel.realm.usersSet[RealmModel.index.indexSet]
@@ -53,7 +51,7 @@ class realmSusikiString:setTextString {
     }
 }
 
-//realmを使用するためのクラスを作る.（Double）
+
 class realmSusiki:setTextModel {
     internal static var vc: ViewController?
     

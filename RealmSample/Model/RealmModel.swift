@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-//realmを使用するクラス
+
 class realmDataSet: Object {
     
     dynamic var now = NSDate()
@@ -20,12 +20,13 @@ class realmDataSet: Object {
 }
 
 struct RealmModel {
-    //realmを使用するためのクラスを作る
+
     struct realm{
         static var realmTry = try!Realm()
         static var realmsset = realmDataSet()
         static var usersSet =  RealmModel.realm.realmTry.objects(realmDataSet.self)
     }
+    
     struct index{
         static var indexSet : Int = 0
     }
