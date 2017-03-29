@@ -12,59 +12,50 @@ import Foundation
 //Stringを設定するprotocol
 protocol setTextString {
     
-    var magnificationString:String{get set}
     //メソッド設定
-    func magnificationSetString()->String
+    func magni()->realmDataSet
 }
 
 //Doubleを設定するprotocol
-protocol setText {
+protocol setTextModel {
     
     var magnification:Double{get set}
     func magnificationSet()->Double
-
+    
 }
 
 //Labelを管理するクラス
 
-class Suusiki:setText {
-
-
+class Suusiki:setTextModel  {
+    
     var magnification: Double = (Double(ViewController.vcView.setFiledtType.threadLabel.text!))!
     var magnificationTwo: Double =  (Double(ViewController.vcView.setFiledtType.threadLabelTwo.text!))!
-     func magnificationSet() -> Double {
+    func magnificationSet() -> Double {
         
         return  magnification
     }
+    
     internal func magnificationSetTwo() -> Double {
         
         return  magnificationTwo
         
     }
 }
+
 //realmを使用するためのクラスを作る（String）
 class realmSusikiString:setTextString {
     
     internal var magnificati =  RealmModel.realm.usersSet[RealmModel.index.indexSet]
-    internal var magnificationString =  RealmModel.realm.usersSet[RealmModel.index.indexSet].ID
-    
-    internal func magnificationSetString() -> String {
-        
-        return  magnificationString
-        
-    }
     
     internal func magni() -> realmDataSet {
         
         return  magnificati
-        
     }
 }
 
 //realmを使用するためのクラスを作る.（Double）
-class realmSusiki:setText {
+class realmSusiki:setTextModel {
     internal static var vc: ViewController?
-
     
     internal var magnification: Double =  (Double(RealmModel.realm.usersSet[RealmModel.index.indexSet].ID))!
     

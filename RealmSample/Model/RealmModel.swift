@@ -15,7 +15,6 @@ class realmDataSet: Object {
     dynamic var now = NSDate()
     dynamic var ID = String()
     dynamic var Message = String()
-    //プロパティを増やす場合は、schemaVersionをUpさせて追加する。プロパティ名を変更する際は/*https://realm.io/docs/swift/latest/#migrations*/の詳細を参照する。
     dynamic var Message2 = String()
     
 }

@@ -45,7 +45,7 @@ class MagnificationViewModel : MagnificationModeling {
                 
                 clearSuti()
                 
-                 vc?.totalTax.text? =  (vc?.totalCount.description)!
+                vc?.totalTax.text? =  (vc?.totalCount.description)!
                  vc?.tableViewSetting.reloadData()
             }
         }
@@ -73,20 +73,3 @@ class MagnificationViewModel : MagnificationModeling {
     }
     
 }
-
-class MagnificationView: UIView,UITextFieldDelegate {
-    
-    var setFiled = TextField()
-    let button = Button().button
-    var threadLabel = Label().threadLabel
-    var threadLabelTwo = Label().threadLabelTwo
-    var view = UIView()
-    
-    override init (frame:CGRect){
-        super.init(frame: frame)
-    }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-

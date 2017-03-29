@@ -42,5 +42,6 @@ class MagnificationCell: UITableViewCell {
         //Resultsの値を代入
         titleLabel.text  = object.Message
         cellLabel.text = object.ID
+      
     }
 }

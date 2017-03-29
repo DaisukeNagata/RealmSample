@@ -14,15 +14,13 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MagnificationCell
-        
-        cell.cellMethod(indexPath: indexPath)
+         cell.cellMethod(indexPath: indexPath)
         
         for _ in 0...0 {
             totalCount +=  realmSusiki().magnification
-            totalTax.text? = totalCount.description
+            totalTax.text? =  totalCount.description
         }
         return cell
-        
     }
     
     //tableを編集モードにするメソッド
@@ -33,7 +31,7 @@ extension ViewController: UITableViewDataSource {
             viewModel.clearSuti()
             viewModel.deleate()
             
-                self.tableViewSetting.reloadData()
+            self.tableViewSetting.reloadData()
         }
     }
     
@@ -44,19 +42,18 @@ extension ViewController: UITableViewDataSource {
             viewModel.deleate()
         }
         
-        if setFiledtType.threadLabel.text != "" || setFiledtType.threadLabelTwo.text != "" {
+        if ViewController.vcView.setFiledtType.threadLabel.text != "" || ViewController.vcView.setFiledtType.threadLabelTwo.text != "" {
             RealmModel.index.indexSet = indexPath.row
-        viewModel.cast(Index: indexPath.row)
+            viewModel.cast(Index: indexPath.row)
         }
     }
     
     //textFiled Data-------------------------------------------------
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == textSet {
-        //キーボードを閉じるためのメソッドを呼び出す
-        NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         }else if textField == setFiledtType.setFiled{
-        NotificationCenter.default.addObserver(self, selector: #selector(keyShowTwo(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyShowTwo(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         }
     }
 }

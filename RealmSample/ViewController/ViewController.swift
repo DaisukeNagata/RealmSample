@@ -176,7 +176,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
             //キーボードを閉じるViewを呼び出す。
             self.button.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
             UIApplication.shared.windows.last?.addSubview(self.button)
-            
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
             }, completion: { (complete) -> Void in
             })
@@ -188,7 +187,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
             //キーボードを閉じるViewを呼び出す。
             self.buttonTwo.frame = CGRect(x:UIScreen.main.bounds.width-100,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:106, height:53)
             UIApplication.shared.windows.last?.addSubview(self.buttonTwo)
-            
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
             }, completion: { (complete) -> Void in
             })
