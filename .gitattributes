@@ -1,0 +1,1 @@
+*./Users/nagatadaisuke/RealmSample_Swift3.0/Carthage/Build/iOS/Realm.framework filter=lfs diff=lfs merge=lfs -text
