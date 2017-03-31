@@ -7,13 +7,13 @@
 //
 
 import Foundation
-
+import UIKit
 struct Size {
-  static let  textFieldHeight = 100
-    static let keyShowWith = 100
-    static let keyShowHeight = 53
-    static let keyShowWithTwo = 106
-    static let labelFont = 22
-    static let labelWidthX =  20
-    static let labelHeight = 40
+    static let  textFieldHeight : CGFloat =  100
+    static let keyShowWith : CGFloat =  100
+    static let keyShowHeight : CGFloat =  53
+    static let keyShowWithTwo : CGFloat =  106
+    static let labelFont : CGFloat =  22
+    static let labelWidthX : CGFloat =   20
+    static let labelHeight : CGFloat =  40
 }

@@ -10,7 +10,6 @@ import UIKit
 
 protocol MagnificationModeling {
     
-
     func clearSuti()
     func deleate()
     func wari(Index:Int)
