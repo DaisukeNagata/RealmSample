@@ -1,1 +1,2 @@
 *.Realm.framework filter=lfs diff=lfs merge=lfs -text
+*.RealmSample_Swift3.0 filter=lfs diff=lfs merge=lfs -text
