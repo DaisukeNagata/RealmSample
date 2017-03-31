@@ -21,14 +21,15 @@
 		BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB68DBEB1E8A887100212102 /* RealmModel.swift */; };
 		BB824C321E8C038F00B4AC64 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BB824C341E8C03AC00B4AC64 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		BB880A931E8E85180036D409 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB880A921E8E85180036D409 /* Size.swift */; };
 		BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360D71E8955D100E81BF5 /* ViewController.swift */; };
 		BBB360DD1E89560600E81BF5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360DC1E89560600E81BF5 /* SearchBar.swift */; };
 		BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360DF1E89563400E81BF5 /* TableDataSource.swift */; };
 		BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E01E89563400E81BF5 /* TableDelegate.swift */; };
 		BBD11EE11E8C085C00EEF83A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		BBD11EE31E8C09E800EEF83A /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BBD11EE41E8C09ED00EEF83A /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BBD11EE51E8C09F100EEF83A /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BBD11EE31E8C09E800EEF83A /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBD11EE41E8C09ED00EEF83A /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBD11EE51E8C09F100EEF83A /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE664261E89905C00529258 /* iphoneSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE664251E89905C00529258 /* iphoneSize.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		BB5DE37D1E8BDA9A00245D83 /* MagnificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationViewModel.swift; sourceTree = "<group>"; };
 		BB5DE37F1E8BDAE800245D83 /* MagnificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagnificationCell.swift; path = RealmSample/TableView/Cell/MagnificationCell.swift; sourceTree = SOURCE_ROOT; };
 		BB68DBEB1E8A887100212102 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		BB880A921E8E85180036D409 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		BBB360D71E8955D100E81BF5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController/ViewController.swift; sourceTree = "<group>"; };
 		BBB360DC1E89560600E81BF5 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		BBB360DF1E89563400E81BF5 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				BBE664251E89905C00529258 /* iphoneSize.swift */,
+				BB880A921E8E85180036D409 /* Size.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -236,7 +239,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "永田大祐";
 				TargetAttributes = {
 					BB0868201D9FFF560044A23B = {
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */,
+				BB880A931E8E85180036D409 /* Size.swift in Sources */,
 				BB5DE3801E8BDAE800245D83 /* MagnificationCell.swift in Sources */,
 				BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */,
 				BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */,

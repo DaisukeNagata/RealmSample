@@ -17,7 +17,7 @@ class TextField: UITextField {
         
         // UITextFieldを作成する.
         self.text = "0"
-        self.layer.position = CGPoint(x:UIScreen.main.bounds.width/2,y:100)
+        self.layer.position = CGPoint(x:UIScreen.main.bounds.width/2,y:Size.textFieldHeight)
         self.keyboardType = .numberPad
         self.textAlignment = .left
 

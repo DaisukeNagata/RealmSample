@@ -18,15 +18,15 @@ class MagnificationCell: UITableViewCell {
 	{
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-		titleLabel = UILabel(frame: CGRect(x:20, y:0, width:UIScreen.main.bounds.width, height:40))
+		titleLabel = UILabel(frame: CGRect(x:Size.labelWidthX, y:0, width:UIScreen.main.bounds.width, height:Size.labelHeight))
 		titleLabel.text = "";
-		titleLabel.font = UIFont.systemFont(ofSize: 22)
+		titleLabel.font = UIFont.systemFont(ofSize: Size.labelFont)
 		
 		self.addSubview(titleLabel)
 
-		cellLabel = UILabel(frame: CGRect(x:UIScreen.main.bounds.width/2, y:0, width:UIScreen.main.bounds.width, height:40));
+		cellLabel = UILabel(frame: CGRect(x:UIScreen.main.bounds.width/2, y:0, width:UIScreen.main.bounds.width, height:Size.labelHeight));
 		cellLabel.text = "";
-		cellLabel.font = UIFont.systemFont(ofSize: 22)
+		cellLabel.font = UIFont.systemFont(ofSize: Size.labelFont)
 		
 		self.addSubview(cellLabel)
 		
