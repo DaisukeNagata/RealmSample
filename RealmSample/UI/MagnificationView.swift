@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-class MagnificationView: UIView,UITextFieldDelegate {
+class MagnificationView: UIView{
     
     var setFiled = TextField()
     let button = Button().button
     var threadLabel = Label().threadLabel
     var threadLabelTwo = Label().threadLabelTwo
+    var searchBar = SearchBar()
     var view = UIView()
     
     override init (frame:CGRect){

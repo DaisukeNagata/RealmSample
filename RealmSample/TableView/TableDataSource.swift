@@ -47,11 +47,4 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-       func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == textSet {
-            NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        }else if textField == setFiledtType.setFiled{
-            NotificationCenter.default.addObserver(self, selector: #selector(keyShowTwo(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        }
-    }
 }

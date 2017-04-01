@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 import SnapKit
 
-class ViewController: UIViewController,UITextFieldDelegate{
+class ViewController: UIViewController{
     
     static var vcView = ViewController()
     var viewModel = MagnificationViewModel()
@@ -25,7 +25,6 @@ class ViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var Navitotal: UIBarButtonItem!
     @IBOutlet weak var tableViewSetting: UITableView!
     @IBOutlet weak var textSet: UITextField!
-    @IBOutlet weak var searchSet: UISearchBar!
     @IBOutlet weak var totalTax: UILabel!
     
     
@@ -38,29 +37,36 @@ class ViewController: UIViewController,UITextFieldDelegate{
         
         tableViewSetting.dataSource = self
         tableViewSetting.delegate = self
+        setFiledtType.searchBar.delegate = self
         setFiledtType.setFiled.delegate = self
         textSet.delegate = self
-        searchSet.delegate = self
         
         textSet.backgroundColor = UIColor.white
         tableViewSetting.register(MagnificationCell.self, forCellReuseIdentifier: "Cell")
         
         tableViewSetting.reloadData()
+        view.addSubview(setFiledtType.searchBar)
         view.addSubview(setFiledtType.setFiled)
         view.addSubview(setFiledtType.view)
         view.addSubview(ViewController.vcView.setFiledtType.threadLabel)
         view.addSubview(ViewController.vcView.setFiledtType.threadLabelTwo)
         
+        setFiledtType.searchBar.snp.makeConstraints{(make) in
+            make.top.equalTo(textSet.snp.top).multipliedBy(0.65)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(self.view)
+            make.height.equalTo(textSet).multipliedBy(1.7)
+        }
         setFiledtType.view.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
-            make.right.equalTo(searchSet).inset(0)
-            make.width.equalTo(searchSet)
+            make.right.equalTo(setFiledtType.searchBar).inset(0)
+            make.width.equalTo(setFiledtType.searchBar)
             make.height.equalTo(textSet).multipliedBy(4)
         }
         setFiledtType.setFiled.snp.makeConstraints{(make) in
             make.top.equalTo(textSet).offset(3)
-            make.right.equalTo(searchSet).inset(0)
-            make.width.equalTo(searchSet).multipliedBy(0.5)
+            make.right.equalTo(setFiledtType.searchBar).inset(0)
+            make.width.equalTo(setFiledtType.searchBar).multipliedBy(0.5)
             make.height.equalTo(textSet)
         }
         ViewController.vcView.setFiledtType.threadLabel.snp.makeConstraints{(make) in
@@ -137,7 +143,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     }
     
     func Done(sender: UIButton) {
-   
+        
         DispatchQueue.main.async { () -> Void in
             if self.textSet.text! != ""{
                 
@@ -168,9 +174,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
     
     
     func keyShow(note: NSNotification) {
-
+        
         DispatchQueue.main.async { () -> Void in
-
+            
             self.button.frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             UIApplication.shared.windows.last?.addSubview(self.button)
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
@@ -179,9 +185,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
         }
     }
     func keyShowTwo(note : NSNotification) {
-     
+        
         DispatchQueue.main.async { () -> Void in
-
+            
             self.buttonTwo.frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             UIApplication.shared.windows.last?.addSubview(self.buttonTwo)
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
@@ -190,3 +196,35 @@ class ViewController: UIViewController,UITextFieldDelegate{
         }
     }
 }
+
+//UISearchBarDelegate-------------------------------------------------
+extension ViewController:UISearchBarDelegate{
+    func searchBar(_ SearchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if  setFiledtType.searchBar.text !=  "" {
+            
+            //indexの値を渡す
+            RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
+                .filter("Message BEGINSWITH %@",  setFiledtType.searchBar.text!)
+                .sorted(byKeyPath: "Message", ascending: false)
+            
+        }else if  setFiledtType.searchBar.text! == ""{
+            
+            RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
+                .sorted(byKeyPath: "now", ascending: false)
+        }
+        self.tableViewSetting.reloadData()
+    }
+}
+
+//UITextFieldDelegate-------------------------------------------------
+extension ViewController:UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == textSet {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        }else if textField == setFiledtType.setFiled{
+            NotificationCenter.default.addObserver(self, selector: #selector(keyShowTwo(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        }
+    }
+}
+
