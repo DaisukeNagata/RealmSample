@@ -2,7 +2,7 @@
 ## Click on carthage in the Finder After completing the process, specify the directory in the terminal and press carthage update --platform iOS
 ##　左上がtableに入力する数字、隣が掛け算と割り算の倍率を設定する数字、左下が掛け算、右が割り算、青いラベルで入力が可能になります。
 
-![](https://github.com/daisukenagata/RealmSample_Swift3.0/blob/master/realmTableview.gif?raw=truewidth="200"height="350")
+![](https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Gif/realmTableview.gif )
 
 
 # ios10.3 RealmSample Sequence Diagram
@@ -16,7 +16,7 @@
 
 
 
-<img src="https://github.com/daisukenagata/RealmSample_Swift3.0/blob/master/1.png?raw=true" width="172" height="300"><img src="https://github.com/daisukenagata/RealmSample_Swift3.0/blob/master/2.png?raw=true" width="172" height="300"><img src="https://github.com/daisukenagata/RealmSample_Swift3.0/blob/master/3.png?raw=true" width="172" height="300"><img src="https://github.com/daisukenagata/RealmSample_Swift3.0/blob/master/4.png?raw=true" width="172" height="300"><img src="https://github.com/daisukenagata/RealmSample_Swift3.0/blob/master/5.png?raw=true" width="172" height="300">
+<img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Photo/1.png?raw=true" width="172" height="300"><img src="hhttps://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Photo/2.png?raw=true" width="172" height="300"><img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Photo/3.png?raw=true" width="172" height="300"><img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Photo/4.png?raw=true" width="172" height="300"><img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Photo/5.png?raw=true" width="172" height="300">
 
 
 
