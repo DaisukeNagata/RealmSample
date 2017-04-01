@@ -16,8 +16,8 @@ class ViewController: UIViewController,UITextFieldDelegate{
     static var vcView = ViewController()
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
-    var button  = Button().button
-    var buttonTwo = Button().button
+    var button  = MagnificationView().button
+    var buttonTwo = MagnificationView().button
     var now = NSDate()
     var totalCount: Double = 0
     

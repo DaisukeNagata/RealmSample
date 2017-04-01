@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let config = Realm.Configuration(
 			// 新しいスキーマバージョンを設定します。 これは以前に使用されたものよりも大きくなければなりません
 			// version（以前にスキーマバージョンを設定していない場合、バージョンは0です）。
-			schemaVersion: 2,
+			schemaVersion: 1,
 			
 			//スキーマのバージョンが上記のものよりも低い/を開くときに自動的に呼び出されるブロックを設定する
 				migrationBlock: { migration, oldSchemaVersion in

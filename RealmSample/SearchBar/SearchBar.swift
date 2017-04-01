@@ -17,9 +17,10 @@ extension ViewController: UISearchBarDelegate {
             
             //indexの値を渡す
             RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
-                .filter("ID BEGINSWITH %@", searchSet.text!)
+                .filter("Message BEGINSWITH %@", searchSet.text!)
                 .sorted(byKeyPath: "Message", ascending: false)
-        }else{
+            
+        }else if searchBar.text == ""{
             
             RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
                 .sorted(byKeyPath: "now", ascending: false)
