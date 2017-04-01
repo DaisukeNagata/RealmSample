@@ -6,7 +6,7 @@
 
 
 # ios10.3 RealmSample Sequence Diagram
-<img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/シーケンス図.png?raw=true" width="600px" height="300px">
+<img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/master/Photo/シーケンス図.png?raw=true" width="600px" height="300px">
 
 # ios10.3 RealmSample Class diagram
 <img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/2830e8be82d4a9520dc156ccec0996df536b125d/クラス図.png?raw=true" width="600px" height="560px">
