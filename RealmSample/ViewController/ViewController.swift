@@ -52,41 +52,13 @@ class ViewController: UIViewController,UITextFieldDelegate{
         view.addSubview(ViewController.vcView.setFiledtType.threadLabel)
         view.addSubview(ViewController.vcView.setFiledtType.threadLabelTwo)
         
-        //RXでのButtonTap
+        //RX------------------------------------------------------------------------------
         button.rx.tap.bindNext { _ in self.Done(sender: self.button) }.addDisposableTo(dis)
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-        
-        Observable.combineLatest(textSet.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
-            textValue1 , textValue2-> Int in
-            return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
-            }
-            .map { $0.description }
-            .bindTo( ViewController.vcView.setFiledtType.threadLabel.rx.text)
-            .disposed(by: dis)
-        
-        Observable.combineLatest(setFiledtType.setFiled.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
-            textValue1 , textValue2-> Int in
-            return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
-            }
-            .map { $0.description }
-            .bindTo( ViewController.vcView.setFiledtType.threadLabelTwo.rx.text)
-            .disposed(by: dis)
-        
-        // オブザーバーでframeChange
-        let willChangeFrame = NotificationCenter.default.rx.notification(.UIKeyboardWillChangeFrame)
-            .map { notification -> CGRect in
-                self.button.frame = frame
-                UIApplication.shared.windows.last?.addSubview(self.button)
-                UIView.animate(withDuration: (((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
-                }, completion: { (complete) -> Void in
-                })
-                return  frame
-        }
-        // frameのシーケンスにマージ
-        Observable.of(willChangeFrame).merge()
-            .bindTo(Variable<CGRect>(frame))
-            .addDisposableTo(dis)
+            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textFFiled,setFiled:setFiledtType.setFiled,threadLabel:ViewController.vcView.setFiledtType.threadLabel,threadLabelTwo:ViewController.vcView.setFiledtType.threadLabelTwo)
+        //RX------------------------------------------------------------------------------
         
         setFiledtType.searchBar.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.top).multipliedBy(0.65)
