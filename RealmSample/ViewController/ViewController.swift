@@ -10,6 +10,8 @@
 import UIKit
 import RealmSwift
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController{
     
@@ -20,7 +22,7 @@ class ViewController: UIViewController{
     var buttonTwo = MagnificationView().button
     var now = NSDate()
     var totalCount: Double = 0
-    
+    var dis = DisposeBag()
     
     @IBOutlet weak var Navitotal: UIBarButtonItem!
     @IBOutlet weak var tableViewSetting: UITableView!
@@ -45,11 +47,45 @@ class ViewController: UIViewController{
         tableViewSetting.register(MagnificationCell.self, forCellReuseIdentifier: "Cell")
         
         tableViewSetting.reloadData()
+        
         view.addSubview(setFiledtType.searchBar)
         view.addSubview(setFiledtType.setFiled)
         view.addSubview(setFiledtType.view)
         view.addSubview(ViewController.vcView.setFiledtType.threadLabel)
         view.addSubview(ViewController.vcView.setFiledtType.threadLabelTwo)
+        
+        //RXでのButtonTap
+        button.rx.tap .bindNext { _ in self.Done(sender: self.button) }.addDisposableTo(dis)
+        
+        //RXでのタップジャスチャー
+        let tap = UITapGestureRecognizer()
+        tap.rx.event.subscribe(onNext: { [weak self] _ in
+                self?.view.endEditing(true)
+                if ViewController.vcView.setFiledtType.threadLabel.isEnabled == true{
+                    ViewController.vcView.setFiledtType.threadLabel.isEnabled = false
+                    ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled = true
+                    ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.blue
+                    ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
+                }else{
+                    ViewController.vcView.setFiledtType.threadLabel.isEnabled = true
+                    ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled = false
+                    ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.white
+                    ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
+                }
+            DispatchQueue.main.async { () -> Void in
+                
+                ViewController.vcView.setFiledtType.setFiled.resignFirstResponder()
+                
+                if ViewController.vcView.setFiledtType.threadLabel.isEnabled == false {
+                    ViewController.vcView.setFiledtType.threadLabel.text = self?.setFiledtType.setFiled.text
+                }else if ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled == false {
+                    ViewController.vcView.setFiledtType.threadLabelTwo.text = self?.setFiledtType.setFiled.text
+                }
+            }
+            })
+            .disposed(by: dis)
+        setFiledtType.view.addGestureRecognizer(tap)
+        
         
         setFiledtType.searchBar.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.top).multipliedBy(0.65)
@@ -83,14 +119,7 @@ class ViewController: UIViewController{
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
         
-        button.addTarget(self, action: #selector(Done(sender:)), for: UIControlEvents.touchUpInside)
-        buttonTwo.addTarget(self, action: #selector(DoneTwo(sender:)), for: UIControlEvents.touchUpInside)
-        
-        let myTap = UITapGestureRecognizer(target: self, action: #selector(tapGesture(sender:)))
-        
-        setFiledtType.view.addGestureRecognizer(myTap)
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -128,27 +157,13 @@ class ViewController: UIViewController{
         
         viewModel.clearSuti()
     }
-    func tapGesture(sender: UITapGestureRecognizer){
-        if ViewController.vcView.setFiledtType.threadLabel.isEnabled == true{
-            ViewController.vcView.setFiledtType.threadLabel.isEnabled = false
-            ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled = true
-            ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.blue
-            ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
-        }else{
-            ViewController.vcView.setFiledtType.threadLabel.isEnabled = true
-            ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled = false
-            ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.white
-            ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
-        }
-    }
-    
-    func Done(sender: UIButton) {
+       func Done(sender: UIButton) {
         
         DispatchQueue.main.async { () -> Void in
             if self.textSet.text! != ""{
                 
                 self.viewModel.clearSuti()
-                
+ 
                 try! RealmModel.realm.realmTry.write {
                     RealmModel.realm.realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!] as [Any])
                     self.tableViewSetting.reloadData()
@@ -159,19 +174,6 @@ class ViewController: UIViewController{
         textSet.resignFirstResponder()
     }
     
-    func DoneTwo(sender: UIButton) {
-        DispatchQueue.main.async { () -> Void in
-            
-            ViewController.vcView.setFiledtType.setFiled.resignFirstResponder()
-            
-            if ViewController.vcView.setFiledtType.threadLabel.isEnabled == false {
-                ViewController.vcView.setFiledtType.threadLabel.text = self.setFiledtType.setFiled.text
-            }else if ViewController.vcView.setFiledtType.threadLabelTwo.isEnabled == false {
-                ViewController.vcView.setFiledtType.threadLabelTwo.text = self.setFiledtType.setFiled.text
-            }
-        }
-    }
-    
     
     func keyShow(note: NSNotification) {
         
@@ -179,17 +181,6 @@ class ViewController: UIViewController{
             
             self.button.frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             UIApplication.shared.windows.last?.addSubview(self.button)
-            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
-            }, completion: { (complete) -> Void in
-            })
-        }
-    }
-    func keyShowTwo(note : NSNotification) {
-        
-        DispatchQueue.main.async { () -> Void in
-            
-            self.buttonTwo.frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            UIApplication.shared.windows.last?.addSubview(self.buttonTwo)
             UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
             }, completion: { (complete) -> Void in
             })
@@ -222,9 +213,7 @@ extension ViewController:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == textSet {
             NotificationCenter.default.addObserver(self, selector: #selector(keyShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        }else if textField == setFiledtType.setFiled{
-            NotificationCenter.default.addObserver(self, selector: #selector(keyShowTwo(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        }
+         }
     }
 }
 
