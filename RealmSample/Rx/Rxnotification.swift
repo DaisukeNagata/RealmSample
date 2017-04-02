@@ -10,7 +10,8 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class RxNotification : NSObject{
+struct RxNotification {
+    
     static var rxNotification = RxNotification()
     var dis = DisposeBag()
     

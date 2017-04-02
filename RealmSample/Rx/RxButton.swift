@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class RxButton: NSObject {
+struct RxButton {
     
     static var rxButton = RxButton()
     var dis = DisposeBag()

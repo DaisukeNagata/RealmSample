@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class RxTextFiled:NSObject{
+struct RxTextFiled{
     
     static var rxTextFiled = RxTextFiled()
     var dis = DisposeBag()
