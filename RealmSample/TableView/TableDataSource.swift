@@ -14,7 +14,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MagnificationCell
-         cell.cellMethod(indexPath: indexPath)
+        cell.cellMethod(indexPath: indexPath)
         
         for _ in 0...0 {
             totalCount +=  realmSusiki().magnification
@@ -23,7 +23,7 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -35,16 +35,14 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if textSet.text == "" {
             viewModel.deleate()
-        }
-        
-        if ViewController.vcView.setFiledtType.threadLabel.text != "" && ViewController.vcView.setFiledtType.threadLabelTwo.text != "" {
+        } else if textSet.text != "" {
             RealmModel.index.indexSet = indexPath.row
             viewModel.cast(Index: indexPath.row)
         }
+        self.tableViewSetting.reloadData()
     }
-    
 }
