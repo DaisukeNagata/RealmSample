@@ -20,6 +20,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     var setFiledtType = MagnificationView()
     var button  = MagnificationView().button
     var buttonTwo = MagnificationView().button
+    var textFFiled = UITextField()
     var now = NSDate()
     var totalCount: Double = 0
     var dis = DisposeBag()
@@ -32,7 +33,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.attachViewSet(vc: self)
-        
+        textFFiled.text = "0"
         textSet.text = "0"
         totalTax.text? = "0"
         
@@ -55,26 +56,22 @@ class ViewController: UIViewController,UITextFieldDelegate{
         button.rx.tap.bindNext { _ in self.Done(sender: self.button) }.addDisposableTo(dis)
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-
-        //RXでのタップジャスチャー
-        let tap = UITapGestureRecognizer()
-        tap.rx.event.subscribe(onNext: { [weak self] _ in
-                self?.setFiledtType.threadLabel.endEditing(true)
-                if  ViewController.vcView.setFiledtType.threadLabel.backgroundColor == UIColor.white{
-                    ViewController.vcView.setFiledtType.threadLabel.text = self?.setFiledtType.setFiled.text
-                    ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.blue
-                    ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.white
-                }else{
-                    ViewController.vcView.setFiledtType.threadLabelTwo.text = self?.setFiledtType.setFiled.text
-                    ViewController.vcView.setFiledtType.threadLabel.backgroundColor = UIColor.white
-                    ViewController.vcView.setFiledtType.threadLabelTwo.backgroundColor = UIColor.blue
-                }
-            })
+        
+        Observable.combineLatest(textSet.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
+            textValue1 , textValue2-> Int in
+            return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
+            }
+            .map { $0.description }
+            .bindTo( ViewController.vcView.setFiledtType.threadLabel.rx.text)
             .disposed(by: dis)
-
-        setFiledtType.view.addGestureRecognizer(tap)
         
-        
+        Observable.combineLatest(setFiledtType.setFiled.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
+            textValue1 , textValue2-> Int in
+            return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
+            }
+            .map { $0.description }
+            .bindTo( ViewController.vcView.setFiledtType.threadLabelTwo.rx.text)
+            .disposed(by: dis)
         
         // オブザーバーでframeChange
         let willChangeFrame = NotificationCenter.default.rx.notification(.UIKeyboardWillChangeFrame)
@@ -158,7 +155,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
         viewModel.clearSuti()
     }
     
-       func Done(sender: UIButton) {
+    func Done(sender: UIButton) {
         DispatchQueue.main.async { () -> Void in
             if self.textSet.text! != ""{
                 self.viewModel.clearSuti()
