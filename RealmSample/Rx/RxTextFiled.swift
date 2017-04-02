@@ -11,8 +11,10 @@ import RxCocoa
 import UIKit
 
 class RxTextFiled:NSObject{
+    
     static var rxTextFiled = RxTextFiled()
     var dis = DisposeBag()
+    
     func RxrextFiled(textSet:UITextField,textFFiled:UITextField,setFiled:UITextField,threadLabel:UILabel,threadLabelTwo:UILabel)  {
         
         Observable.combineLatest(textSet.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {

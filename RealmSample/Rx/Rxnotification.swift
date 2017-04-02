@@ -13,6 +13,7 @@ import UIKit
 class RxNotification : NSObject{
     static var rxNotification = RxNotification()
     var dis = DisposeBag()
+    
     func Rxnotification(button:ViewController,frame:CGRect)  {
         // オブザーバーでframeChange
         let willChangeFrame = NotificationCenter.default.rx.notification(.UIKeyboardWillChangeFrame)
@@ -30,4 +31,3 @@ class RxNotification : NSObject{
             .addDisposableTo(dis)
     }
 }
-
