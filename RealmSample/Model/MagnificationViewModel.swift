@@ -54,7 +54,6 @@ class MagnificationViewModel : MagnificationModeling {
         clearSuti()
         
         if  ViewController.vcView.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {
-            print(Suusiki().magnification*realmSusiki().magnification)
             try!RealmModel.realm.realmTry.write {
                 RealmModel.realm.usersSet[Index].ID = (Suusiki().magnification*realmSusiki().magnification).description
             }
@@ -65,6 +64,7 @@ class MagnificationViewModel : MagnificationModeling {
                 RealmModel.realm.usersSet[Index].ID =  (vc?.textSet.text!)!
             }
         }
+        
         wari(Index:Index)
          vc?.totalTax.text? =  (vc?.totalCount.description)!
          vc?.tableViewSetting.reloadData()

@@ -41,7 +41,7 @@ extension ViewController: UITableViewDataSource {
             viewModel.deleate()
         }
         
-        if ViewController.vcView.setFiledtType.threadLabel.text != "" || ViewController.vcView.setFiledtType.threadLabelTwo.text != "" {
+        if ViewController.vcView.setFiledtType.threadLabel.text != "" && ViewController.vcView.setFiledtType.threadLabelTwo.text != "" {
             RealmModel.index.indexSet = indexPath.row
             viewModel.cast(Index: indexPath.row)
         }
