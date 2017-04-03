@@ -17,9 +17,8 @@ struct RxSearchBar {
     
     func rxSearchBar(search:UISearchBar,text:String,table:UITableView){
             search
-            .rx.text // Observable property thanks to RxCocoa
-            .orEmpty // Make it non-optional
-            .subscribe(onNext: { [unowned search] query in // Here we will be notified of every new value
+            .rx.text.orEmpty
+            .subscribe(onNext: { [unowned search] query in
                 if  search.text !=  "" {
                     //indexの値を渡す
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
@@ -31,7 +30,7 @@ struct RxSearchBar {
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
                         .sorted(byKeyPath: "now", ascending: false)
                 }
-                table.reloadData() // And reload table view data.
+                table.reloadData() 
             })
             .addDisposableTo(dis)
     }
