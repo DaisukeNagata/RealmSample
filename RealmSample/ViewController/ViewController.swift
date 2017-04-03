@@ -13,7 +13,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController,UITextFieldDelegate{
+class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
     
     static var vcView = ViewController()
     var viewModel = MagnificationViewModel()
@@ -58,6 +58,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
         RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textFFiled,setFiled:setFiledtType.setFiled,threadLabel:ViewController.vcView.setFiledtType.threadLabel,threadLabelTwo:ViewController.vcView.setFiledtType.threadLabelTwo)
+        RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
         //RX------------------------------------------------------------------------------
         
         setFiledtType.searchBar.snp.makeConstraints{(make) in
@@ -124,23 +125,4 @@ class ViewController: UIViewController,UITextFieldDelegate{
         viewModel.clearSuti()
     }
     
-}
-
-//UISearchBarDelegate-------------------------------------------------
-extension ViewController:UISearchBarDelegate{
-    func searchBar(_ SearchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if  setFiledtType.searchBar.text !=  "" {
-            //indexの値を渡す
-            RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
-                .filter("Message BEGINSWITH %@",  setFiledtType.searchBar.text!)
-                .sorted(byKeyPath: "Message", ascending: false)
-            
-        }else if  setFiledtType.searchBar.text! == ""{
-            
-            RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
-                .sorted(byKeyPath: "now", ascending: false)
-        }
-        self.tableViewSetting.reloadData()
-    }
 }
