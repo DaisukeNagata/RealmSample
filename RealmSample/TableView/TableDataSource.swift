@@ -25,20 +25,16 @@ extension ViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
         if editingStyle == .delete {
-            
-            viewModel.clearSuti()
-            viewModel.deleate()
-            
-            self.tableViewSetting.reloadData()
+             RealmSetting().RealmDeleate(indexPath:indexPath)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if textSet.text == "" {
-            viewModel.deleate()
+            RealmSetting().RealmDeleate(indexPath:indexPath)
         } else if textSet.text != "" {
             RealmModel.index.indexSet = indexPath.row
             viewModel.cast(Index: indexPath.row)

@@ -56,7 +56,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
         button.rx.tap.bindNext { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel, tableViewSetting: self.tableViewSetting, now: self.now) }.addDisposableTo(dis)
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+        RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
         RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textFFiled,setFiled:setFiledtType.setFiled,threadLabel:ViewController.vcView.setFiledtType.threadLabel,threadLabelTwo:ViewController.vcView.setFiledtType.threadLabelTwo)
         //RX------------------------------------------------------------------------------
         
@@ -107,15 +107,12 @@ class ViewController: UIViewController,UITextFieldDelegate{
             alertController.addTextField { ( textFields : UITextField) -> Void in
                 if let textFields = alertController.textFields {
                     textFields[0].placeholder = "２行目追加"
-                    try!RealmModel.realm.realmTry.write {
-                        if  self.textSet.text! != "" {
-                            //realmfileに値を入れる
-                            RealmModel.realm.realmTry.create(realmDataSet.self,value: [self.now,self.textSet.text!, textFields[0].text!] as [Any])
-                            self.tableViewSetting.reloadData()
-                        }
-                    }
+                    
+                    RealmSetting().RealmCreate(now: self.now,text: self.textSet.text! ,text2: textFields[0].text!)
+                    self.tableViewSetting.reloadData()
                     self.textSet.resignFirstResponder()
                     self.setFiledtType.setFiled.resignFirstResponder()
+                    
                 }
             }
         }

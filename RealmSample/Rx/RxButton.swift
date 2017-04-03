@@ -16,16 +16,13 @@ struct RxButton {
     var dis = DisposeBag()
     
     func Rxbutton(sender: UIButton,textSet:UITextField,viewModel:MagnificationViewModel,tableViewSetting:UITableView,now:NSDate){
-            DispatchQueue.main.async { () -> Void in
-                if textSet.text! != ""{
-                    viewModel.clearSuti()
-                    
-                    try! RealmModel.realm.realmTry.write {
-                        RealmModel.realm.realmTry.create(realmDataSet.self,value: [now,textSet.text!] as [Any])
-                        tableViewSetting.reloadData()
-                    }
-                }
+        DispatchQueue.main.async { () -> Void in
+            if textSet.text! != ""{
+                viewModel.clearSuti()
+                RealmSetting().RealmCreate(now: now, text: textSet.text!,text2: "")
+                tableViewSetting.reloadData()
             }
-            textSet.resignFirstResponder()
         }
+        textSet.resignFirstResponder()
     }
+}
