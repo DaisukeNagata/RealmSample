@@ -24,7 +24,7 @@ class RealmSetting{
     
     func RealmDeleate(indexPath: IndexPath){
         try!RealmModel.realm.realmTry.write {
-            RealmModel.realm.realmTry.delete(RealmModel.realm.usersSet[RealmModel.index.indexSet])
+            RealmModel.realm.realmTry.delete(RealmModel.realm.usersSet[indexPath.row])
         }
     }
 }

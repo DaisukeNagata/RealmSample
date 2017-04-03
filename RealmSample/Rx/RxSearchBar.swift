@@ -30,7 +30,7 @@ struct RxSearchBar {
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
                         .sorted(byKeyPath: "now", ascending: false)
                 }
-                table.reloadData() 
+                table.reloadData()
             })
             .addDisposableTo(dis)
     }
