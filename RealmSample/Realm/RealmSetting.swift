@@ -27,4 +27,5 @@ class RealmSetting{
             RealmModel.realm.realmTry.delete(RealmModel.realm.usersSet[indexPath.row])
         }
     }
+    
 }

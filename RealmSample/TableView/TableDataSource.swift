@@ -17,7 +17,7 @@ extension ViewController: UITableViewDataSource {
         cell.cellMethod(indexPath: indexPath)
         
         for _ in 0...0 {
-            totalCount +=  realmSusiki().magnification
+            totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
             totalTax.text? =  totalCount.description
         }
         return cell
@@ -35,7 +35,7 @@ extension ViewController: UITableViewDataSource {
         if textSet.text == "" || textSet.text == "0" {
             RealmSetting().RealmDeleate(indexPath:indexPath)
         } else if textSet.text != "" {
-            viewModel.cast(Index: indexPath)
+            viewModel.cast(Index: indexPath.row)
         }
         
         self.tableViewSetting.reloadData()
