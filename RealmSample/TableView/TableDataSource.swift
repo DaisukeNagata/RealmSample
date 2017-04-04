@@ -35,7 +35,7 @@ extension ViewController: UITableViewDataSource {
         if textSet.text == "" || textSet.text == "0" {
             RealmSetting().RealmDeleate(indexPath:indexPath)
         } else if textSet.text != "" {
-            viewModel.cast(Index: indexPath.row)
+            viewModel.cast(Index: indexPath)
         }
         
         self.tableViewSetting.reloadData()
