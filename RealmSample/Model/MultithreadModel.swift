@@ -9,7 +9,7 @@
 import Foundation
 
 protocol setTextString {
-
+    
     func magni()->realmDataSet
     
 }
@@ -17,18 +17,16 @@ protocol setTextString {
 
 protocol setTextModel {
     
-    var magnification:Double{get set}
-    func magnificationSet()->Double
+    func magnificationSet(Index:Int)->Double
     
 }
-
 
 
 class Suusiki:setTextModel  {
     
     var magnification: Double = (Double(ViewController.vcView.setFiledtType.threadLabel.text!))!
     var magnificationTwo: Double =  (Double(ViewController.vcView.setFiledtType.threadLabelTwo.text!))!
-    func magnificationSet() -> Double {
+    func magnificationSet(Index:Int)->Double{
         
         return  magnification
     }
@@ -53,11 +51,11 @@ class realmSusikiString:setTextString {
 
 
 class realmSusiki:setTextModel {
-    internal static var vc: ViewController?
     
-    internal var magnification: Double =  (Double(RealmModel.realm.usersSet[RealmModel.index.indexSet].ID))!
     
-    internal func magnificationSet() -> Double {
+    internal func magnificationSet(Index:Int) -> Double {
+        
+        let magnification: Double =  (Double(RealmModel.realm.usersSet[Index].ID))!
         
         return  magnification
         

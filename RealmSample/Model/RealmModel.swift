@@ -22,9 +22,11 @@ class realmDataSet: Object {
 struct RealmModel {
 
     struct realm{
+        
         static var realmTry = try!Realm()
         static var realmsset = realmDataSet()
         static var usersSet =  RealmModel.realm.realmTry.objects(realmDataSet.self)
+        
     }
     
     struct index{

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SnapKit
 
 class Label:UILabel{
     
@@ -27,10 +26,7 @@ class Label:UILabel{
         threadLabelTwo.backgroundColor = UIColor.white
         threadLabel.textAlignment = .left
         threadLabelTwo.textAlignment = .left
-        // ボタンの枠を丸くする.
-        threadLabelTwo.layer.masksToBounds = true
-        // ボタンの枠を丸くする.
-        threadLabel.layer.masksToBounds = true
+
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
