@@ -16,10 +16,9 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MagnificationCell
         cell.cellMethod(indexPath: indexPath)
         
-        for _ in 0...0 {
             totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
             totalTax.text? =  totalCount.description
-        }
+        
         return cell
     }
     

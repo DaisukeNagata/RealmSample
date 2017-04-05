@@ -124,4 +124,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
     @IBAction func clearAction(_ sender: UIBarButtonItem) {
         viewModel.clearSuti()
     }
+    deinit {
+        print("1111111")
+    }
 }

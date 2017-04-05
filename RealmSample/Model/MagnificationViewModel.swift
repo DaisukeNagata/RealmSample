@@ -46,7 +46,6 @@ class MagnificationViewModel : MagnificationModeling {
         clearSuti()
         
         if  ViewController.vcView.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {
-            
             RealmSetting().RealmthreadLabel(text: (Suusiki().magnification*realmSusiki().magnificationSet(Index: Index)).description,Index: Index)
         }
         
