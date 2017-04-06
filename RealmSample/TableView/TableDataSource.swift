@@ -17,10 +17,11 @@ extension ViewController: UITableViewDataSource {
         cell.cellMethod(indexPath: indexPath)
         
         for _ in 0...0{
+            //RealmNotification
+            RealmSetting.realmSetting.RealmNOtification(views: self)
             totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
             totalTax.text? =  totalCount.description
         }
-        
         return cell
     }
     

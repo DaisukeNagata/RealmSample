@@ -53,7 +53,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
         view.addSubview(ViewController.vcView.setFiledtType.threadLabelTwo)
         
         //RX------------------------------------------------------------------------------
-        button.rx.tap.bindNext { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel, tableViewSetting: self.tableViewSetting, now: self.now) }.addDisposableTo(dis)
+        button.rx.tap.bindNext { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel ,views: self, now: self.now) }.addDisposableTo(dis)
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(button: self, frame: frame)

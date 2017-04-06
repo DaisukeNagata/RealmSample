@@ -7,9 +7,18 @@
 //
 
 import Foundation
-import RxSwift
+import UIKit
+import RealmSwift
 
 class RealmSetting{
+    
+    static var realmSetting = RealmSetting()
+    var notificationToken: NotificationToken?
+    
+    func RealmNOtification(views:ViewController){
+        RealmThread(views:views)
+    }
+    
     func RealmCreate(now:NSDate,text:String,text2:String){
         try!RealmModel.realm.realmTry.write {
             RealmModel.realm.realmTry.create(realmDataSet.self,value: [now,text,text2] as [Any])
@@ -18,7 +27,7 @@ class RealmSetting{
     
     func RealmthreadLabel(text:String,Index:Int){
         try!RealmModel.realm.realmTry.write {
-             RealmModel.realm.usersSet[Index].ID = text
+            RealmModel.realm.usersSet[Index].ID = text
         }
     }
     
@@ -26,5 +35,18 @@ class RealmSetting{
         try!RealmModel.realm.realmTry.write {
             RealmModel.realm.realmTry.delete(RealmModel.realm.usersSet[indexPath.row])
         }
+    }
+    //RealmNotification
+    private func RealmThread(views:ViewController){
+        notificationToken = RealmModel.realm.usersSet.addNotificationBlock { change in
+            if views.totalCount > 1000.0{
+                views.tableViewSetting.backgroundColor = UIColor.purple
+            }else if views.totalCount < 1{
+                views.tableViewSetting.backgroundColor = UIColor.white
+            }
+        }
+    }
+    deinit {
+        notificationToken?.stop()
     }
 }
