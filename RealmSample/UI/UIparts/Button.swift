@@ -20,7 +20,6 @@ class Button: UIButton {
         button.setTitle("Return", for: UIControlState.normal)
         button.setTitleColor(UIColor.black, for: UIControlState.normal)
         button.adjustsImageWhenHighlighted = false
-       
     }
     
     required init?(coder aDecoder: NSCoder) {

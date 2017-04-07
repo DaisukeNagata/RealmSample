@@ -24,7 +24,7 @@ class MagnificationViewModel : MagnificationModeling {
     }
     
     func clearSuti(){
-        vc?.totalTax.text! = "0"
+        vc?.totalTax?.text! = "0"
         vc?.totalCount = 0
     }
     
@@ -35,7 +35,7 @@ class MagnificationViewModel : MagnificationModeling {
             
             clearSuti()
             
-            vc?.totalTax.text? =  (vc?.totalCount.description)!
+            vc?.totalTax?.text? =  (vc?.totalCount.description)!
             vc?.tableViewSetting.reloadData()
             
         }
@@ -55,7 +55,7 @@ class MagnificationViewModel : MagnificationModeling {
         }
         
         wari(Index:Index)
-        vc?.totalTax.text? =  (vc?.totalCount.description)!
+        vc?.totalTax?.text? =  (vc?.totalCount.description)!
         vc?.tableViewSetting.reloadData()
     }
     

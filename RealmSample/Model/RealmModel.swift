@@ -16,7 +16,7 @@ class realmDataSet: Object {
     dynamic var ID = String()
     dynamic var Message = String()
     dynamic var Message2 = String()
-    
+
 }
 
 struct RealmModel {

@@ -9,7 +9,7 @@
 import UIKit
 
 class MagnificationCell: UITableViewCell {
-    
+
     var titleLabel = UILabel()
     var cellLabel = UILabel()
     var kakauLabel = UILabel()
