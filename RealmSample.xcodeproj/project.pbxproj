@@ -40,7 +40,6 @@
 		BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE5E1E99179200EFD61A /* MyParticle.sks */; };
 		BBF0FEB71E99264C00EFD61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEB51E99264C00EFD61A /* Main.storyboard */; };
 		BBF0FEBA1E99265400EFD61A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEB81E99265400EFD61A /* LaunchScreen.storyboard */; };
-		BBF0FEC41E99296000EFD61A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEC31E99296000EFD61A /* Info.plist */; };
 		BBF0FEC61E99298800EFD61A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FEC51E99298800EFD61A /* AppDelegate.swift */; };
 		BBF0FEC81E99299200EFD61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEC71E99299200EFD61A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -96,9 +95,9 @@
 		BBF0FE5E1E99179200EFD61A /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		BBF0FEB61E99264C00EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		BBF0FEB91E99265400EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		BBF0FEC31E99296000EFD61A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Desktop/Info.plist; sourceTree = "<group>"; };
 		BBF0FEC51E99298800EFD61A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBF0FEC71E99299200EFD61A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBF0FECB1E992B9F00EFD61A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RealmSample/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +132,7 @@
 				BB6DE6551E90986C00F1B420 /* RxSwift.framework */,
 				BB6DE6531E90985600F1B420 /* RxCocoa.framework */,
 				BB0868231D9FFF560044A23B /* RealmSample */,
-				BBF0FEC31E99296000EFD61A /* Info.plist */,
+				BBF0FECB1E992B9F00EFD61A /* Info.plist */,
 				BB0868221D9FFF560044A23B /* Products */,
 				157E2620345369DA490D5EAE /* Frameworks */,
 			);
@@ -336,7 +335,6 @@
 			files = (
 				BBF0FEB71E99264C00EFD61A /* Main.storyboard in Resources */,
 				BBF0FEBA1E99265400EFD61A /* LaunchScreen.storyboard in Resources */,
-				BBF0FEC41E99296000EFD61A /* Info.plist in Resources */,
 				BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */,
 				BBF0FEC81E99299200EFD61A /* Assets.xcassets in Resources */,
 			);
@@ -519,7 +517,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/../Desktop/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RealmSample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbank.RealmSample;
@@ -539,7 +537,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/../Desktop/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RealmSample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbank.RealmSample;
