@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0868241D9FFF560044A23B /* AppDelegate.swift */; };
 		BB08682C1D9FFF560044A23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB08682B1D9FFF560044A23B /* Assets.xcassets */; };
-		BB08682F1D9FFF560044A23B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB08682D1D9FFF560044A23B /* LaunchScreen.storyboard */; };
-		BB5DE36F1E8B107F00245D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE36D1E8B107F00245D83 /* Main.storyboard */; };
 		BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */; };
 		BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3751E8BDA3E00245D83 /* Button.swift */; };
 		BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3761E8BDA3E00245D83 /* Label.swift */; };
@@ -38,6 +36,12 @@
 		BBD11EE41E8C09ED00EEF83A /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBD11EE51E8C09F100EEF83A /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE664261E89905C00529258 /* iphoneSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE664251E89905C00529258 /* iphoneSize.swift */; };
+		BBF0FE581E99173900EFD61A /* GoziRaizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE571E99173900EFD61A /* GoziRaizer.swift */; };
+		BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE591E99174400EFD61A /* RaizerPaty.swift */; };
+		BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE5B1E99175900EFD61A /* Color.swift */; };
+		BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE5E1E99179200EFD61A /* MyParticle.sks */; };
+		BBF0FE651E99180000EFD61A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE611E99180000EFD61A /* LaunchScreen.storyboard */; };
+		BBF0FE661E99180000EFD61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE631E99180000EFD61A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,13 +64,11 @@
 /* Begin PBXFileReference section */
 		24CA6879723659939093F82C /* Pods_RealmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0868211D9FFF560044A23B /* RealmSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB0868241D9FFF560044A23B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB08682B1D9FFF560044A23B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BB08682E1D9FFF560044A23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB0868241D9FFF560044A23B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
+		BB08682B1D9FFF560044A23B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
 		BB385C971DB25A0C00253038 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		BB5DE36E1E8B107F00245D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationView.swift; sourceTree = "<group>"; };
 		BB5DE3751E8BDA3E00245D83 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = UIparts/Button.swift; sourceTree = "<group>"; };
 		BB5DE3761E8BDA3E00245D83 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = UIparts/Label.swift; sourceTree = "<group>"; };
@@ -90,6 +92,12 @@
 		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
 		BBE664211E896E9500529258 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		BBE664251E89905C00529258 /* iphoneSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iphoneSize.swift; sourceTree = "<group>"; };
+		BBF0FE571E99173900EFD61A /* GoziRaizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoziRaizer.swift; path = UIparts/GoziRaizer.swift; sourceTree = "<group>"; };
+		BBF0FE591E99174400EFD61A /* RaizerPaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RaizerPaty.swift; path = UIparts/RaizerPaty.swift; sourceTree = "<group>"; };
+		BBF0FE5B1E99175900EFD61A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BBF0FE5E1E99179200EFD61A /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		BBF0FE621E99180000EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBF0FE641E99180000EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,17 +148,15 @@
 		BB0868231D9FFF560044A23B /* RealmSample */ = {
 			isa = PBXGroup;
 			children = (
+				BBF0FE601E99180000EFD61A /* Base.lproj */,
 				BB9E1B531E952F5000A43385 /* Realm */,
 				BB9E1B561E952F7800A43385 /* Rx */,
 				BBB360E91E89569C00E81BF5 /* UI */,
 				BBB360E61E89569200E81BF5 /* Util */,
 				BB4FFBB81E88320B0053C51A /* ViewController */,
 				BB68DBE81E8A742D00212102 /* Model */,
+				BBF0FE5D1E99179200EFD61A /* Paticle */,
 				BBB360DE1E89563400E81BF5 /* TableView */,
-				BB0868241D9FFF560044A23B /* AppDelegate.swift */,
-				BB08682B1D9FFF560044A23B /* Assets.xcassets */,
-				BB5DE36D1E8B107F00245D83 /* Main.storyboard */,
-				BB08682D1D9FFF560044A23B /* LaunchScreen.storyboard */,
 				BB9E1B631E95B1C000A43385 /* Info.plist */,
 			);
 			path = RealmSample;
@@ -167,6 +173,8 @@
 		BB5DE3721E8BD99800245D83 /* UIParts */ = {
 			isa = PBXGroup;
 			children = (
+				BBF0FE591E99174400EFD61A /* RaizerPaty.swift */,
+				BBF0FE571E99173900EFD61A /* GoziRaizer.swift */,
 				BB5DE3751E8BDA3E00245D83 /* Button.swift */,
 				BB5DE3761E8BDA3E00245D83 /* Label.swift */,
 				BB5DE3771E8BDA3E00245D83 /* TextField.swift */,
@@ -226,6 +234,7 @@
 		BBB360E61E89569200E81BF5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BBF0FE5B1E99175900EFD61A /* Color.swift */,
 				BBE664251E89905C00529258 /* iphoneSize.swift */,
 				BB880A921E8E85180036D409 /* Size.swift */,
 			);
@@ -239,6 +248,26 @@
 				BB5DE3721E8BD99800245D83 /* UIParts */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		BBF0FE5D1E99179200EFD61A /* Paticle */ = {
+			isa = PBXGroup;
+			children = (
+				BBF0FE5E1E99179200EFD61A /* MyParticle.sks */,
+			);
+			path = Paticle;
+			sourceTree = "<group>";
+		};
+		BBF0FE601E99180000EFD61A /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				BBF0FE611E99180000EFD61A /* LaunchScreen.storyboard */,
+				BBF0FE631E99180000EFD61A /* Main.storyboard */,
+				BB08682B1D9FFF560044A23B /* Assets.xcassets */,
+				BB0868241D9FFF560044A23B /* AppDelegate.swift */,
+			);
+			name = Base.lproj;
+			path = TableView/Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,9 +333,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB5DE36F1E8B107F00245D83 /* Main.storyboard in Resources */,
-				BB08682F1D9FFF560044A23B /* LaunchScreen.storyboard in Resources */,
 				BB08682C1D9FFF560044A23B /* Assets.xcassets in Resources */,
+				BBF0FE661E99180000EFD61A /* Main.storyboard in Resources */,
+				BBF0FE651E99180000EFD61A /* LaunchScreen.storyboard in Resources */,
+				BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +368,7 @@
 			files = (
 				BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */,
 				BB9E1B5D1E952F7800A43385 /* RxSearchBar.swift in Sources */,
+				BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */,
 				BB880A931E8E85180036D409 /* Size.swift in Sources */,
 				BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */,
 				BB5DE3801E8BDAE800245D83 /* MagnificationCell.swift in Sources */,
@@ -349,12 +380,14 @@
 				BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */,
 				BB9E1B5B1E952F7800A43385 /* RxButton.swift in Sources */,
 				BB5DE37C1E8BDA6A00245D83 /* MultithreadModel.swift in Sources */,
+				BBF0FE581E99173900EFD61A /* GoziRaizer.swift in Sources */,
 				BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */,
 				BB9E1B5C1E952F7800A43385 /* Rxnotification.swift in Sources */,
 				BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */,
 				BB9E1B551E952F5000A43385 /* RealmSetting.swift in Sources */,
 				BB5DE37E1E8BDA9A00245D83 /* MagnificationViewModel.swift in Sources */,
 				BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */,
+				BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */,
 				BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,18 +395,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BB08682D1D9FFF560044A23B /* LaunchScreen.storyboard */ = {
+		BBF0FE611E99180000EFD61A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BB08682E1D9FFF560044A23B /* Base */,
+				BBF0FE621E99180000EFD61A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		BB5DE36D1E8B107F00245D83 /* Main.storyboard */ = {
+		BBF0FE631E99180000EFD61A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BB5DE36E1E8B107F00245D83 /* Base */,
+				BBF0FE641E99180000EFD61A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
