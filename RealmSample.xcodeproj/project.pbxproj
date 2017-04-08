@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0868241D9FFF560044A23B /* AppDelegate.swift */; };
-		BB08682C1D9FFF560044A23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB08682B1D9FFF560044A23B /* Assets.xcassets */; };
 		BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */; };
 		BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3751E8BDA3E00245D83 /* Button.swift */; };
 		BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3761E8BDA3E00245D83 /* Label.swift */; };
@@ -42,6 +40,9 @@
 		BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE5E1E99179200EFD61A /* MyParticle.sks */; };
 		BBF0FEB71E99264C00EFD61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEB51E99264C00EFD61A /* Main.storyboard */; };
 		BBF0FEBA1E99265400EFD61A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEB81E99265400EFD61A /* LaunchScreen.storyboard */; };
+		BBF0FEC41E99296000EFD61A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEC31E99296000EFD61A /* Info.plist */; };
+		BBF0FEC61E99298800EFD61A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FEC51E99298800EFD61A /* AppDelegate.swift */; };
+		BBF0FEC81E99299200EFD61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEC71E99299200EFD61A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,8 +65,6 @@
 /* Begin PBXFileReference section */
 		24CA6879723659939093F82C /* Pods_RealmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0868211D9FFF560044A23B /* RealmSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB0868241D9FFF560044A23B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
-		BB08682B1D9FFF560044A23B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
 		BB385C971DB25A0C00253038 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -86,7 +85,6 @@
 		BB9E1B581E952F7800A43385 /* Rxnotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rxnotification.swift; sourceTree = "<group>"; };
 		BB9E1B591E952F7800A43385 /* RxSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSearchBar.swift; sourceTree = "<group>"; };
 		BB9E1B5A1E952F7800A43385 /* RxTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTextFiled.swift; sourceTree = "<group>"; };
-		BB9E1B631E95B1C000A43385 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB360D71E8955D100E81BF5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController/ViewController.swift; sourceTree = "<group>"; };
 		BBB360DF1E89563400E81BF5 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +96,9 @@
 		BBF0FE5E1E99179200EFD61A /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		BBF0FEB61E99264C00EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		BBF0FEB91E99265400EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		BBF0FEC31E99296000EFD61A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Desktop/Info.plist; sourceTree = "<group>"; };
+		BBF0FEC51E99298800EFD61A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBF0FEC71E99299200EFD61A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +133,7 @@
 				BB6DE6551E90986C00F1B420 /* RxSwift.framework */,
 				BB6DE6531E90985600F1B420 /* RxCocoa.framework */,
 				BB0868231D9FFF560044A23B /* RealmSample */,
+				BBF0FEC31E99296000EFD61A /* Info.plist */,
 				BB0868221D9FFF560044A23B /* Products */,
 				157E2620345369DA490D5EAE /* Frameworks */,
 			);
@@ -148,6 +150,8 @@
 		BB0868231D9FFF560044A23B /* RealmSample */ = {
 			isa = PBXGroup;
 			children = (
+				BBF0FEC51E99298800EFD61A /* AppDelegate.swift */,
+				BBF0FEC71E99299200EFD61A /* Assets.xcassets */,
 				BBF0FE601E99180000EFD61A /* Base.lproj */,
 				BB9E1B531E952F5000A43385 /* Realm */,
 				BB9E1B561E952F7800A43385 /* Rx */,
@@ -157,7 +161,6 @@
 				BB68DBE81E8A742D00212102 /* Model */,
 				BBF0FE5D1E99179200EFD61A /* Paticle */,
 				BBB360DE1E89563400E81BF5 /* TableView */,
-				BB9E1B631E95B1C000A43385 /* Info.plist */,
 			);
 			path = RealmSample;
 			sourceTree = "<group>";
@@ -263,8 +266,6 @@
 			children = (
 				BBF0FEB81E99265400EFD61A /* LaunchScreen.storyboard */,
 				BBF0FEB51E99264C00EFD61A /* Main.storyboard */,
-				BB08682B1D9FFF560044A23B /* Assets.xcassets */,
-				BB0868241D9FFF560044A23B /* AppDelegate.swift */,
 			);
 			name = Base.lproj;
 			path = TableView/Base.lproj;
@@ -335,8 +336,9 @@
 			files = (
 				BBF0FEB71E99264C00EFD61A /* Main.storyboard in Resources */,
 				BBF0FEBA1E99265400EFD61A /* LaunchScreen.storyboard in Resources */,
-				BB08682C1D9FFF560044A23B /* Assets.xcassets in Resources */,
+				BBF0FEC41E99296000EFD61A /* Info.plist in Resources */,
 				BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */,
+				BBF0FEC81E99299200EFD61A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +375,6 @@
 				BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */,
 				BB5DE3801E8BDAE800245D83 /* MagnificationCell.swift in Sources */,
 				BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */,
-				BB0868251D9FFF560044A23B /* AppDelegate.swift in Sources */,
 				BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */,
 				BBE664261E89905C00529258 /* iphoneSize.swift in Sources */,
 				BB5DE37A1E8BDA3E00245D83 /* TextField.swift in Sources */,
@@ -389,6 +390,7 @@
 				BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */,
 				BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */,
 				BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */,
+				BBF0FEC61E99298800EFD61A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +519,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = RealmSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/../Desktop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbank.RealmSample;
@@ -537,7 +539,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = RealmSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/../Desktop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbank.RealmSample;
