@@ -58,5 +58,7 @@ class MagnificationViewModel : MagnificationModeling {
         vc?.totalTax?.text? =  (vc?.totalCount.description)!
         vc?.tableViewSetting.reloadData()
     }
-    
+    deinit {
+        print("deinit1")
+    }
 }

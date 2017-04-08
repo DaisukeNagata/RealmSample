@@ -30,6 +30,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
     @IBOutlet weak var textSet: UITextField!
     @IBOutlet weak var totalTax: UILabel!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.attachViewSet(vc: self)
@@ -113,7 +114,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
                     self.tableViewSetting.reloadData()
                     self.textSet.resignFirstResponder()
                     self.setFiledtType.setFiled.resignFirstResponder()
-                    
+                
                 }
             }
         }

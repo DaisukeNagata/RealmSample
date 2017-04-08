@@ -60,5 +60,4 @@ class realmSusiki:setTextModel {
         return  magnification
         
     }
-    
 }

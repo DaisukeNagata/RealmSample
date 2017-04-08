@@ -12,7 +12,7 @@ import UIKit
 class RaizerPaty:SKScene{
     
     var raizerPaty = SKEmitterNode()
-    
+
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.clear
         self.scaleMode = .resizeFill
@@ -29,5 +29,10 @@ class RaizerPaty:SKScene{
         raizerPaty.position = CGPoint(x: self.frame.maxX, y: self.frame.maxX)
         self.addChild(raizerPaty)
     }
+    deinit {
+        self.removeAllChildren()
+        print("deinit2")
+    }
 }
+
 

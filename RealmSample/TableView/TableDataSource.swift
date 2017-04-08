@@ -18,8 +18,7 @@ extension ViewController: UITableViewDataSource {
         
         for _ in 0...0{
             //RealmNotification
-            RealmSetting.realmSetting.RealmNOtification(views: self, Gozi: GoziRaizer().self)
-            
+            RealmSetting.realmSetting.RealmNOtification(views: self)
             totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
             totalTax?.text? =  totalCount.description
         }
@@ -40,9 +39,12 @@ extension ViewController: UITableViewDataSource {
         if textSet.text == "" || textSet.text == "0" {
             viewModel.clearSuti()
             RealmSetting().RealmDeleate(indexPath:indexPath)
-        } else if textSet.text != "" {
+        } else if textSet.text == "1" {
             viewModel.clearSuti()
             RealmSetting().RealmAdd(text: textSet.text!, Index: indexPath, now: now)
+        } else if textSet.text != "" {
+            viewModel.clearSuti()
+            viewModel.cast(Index: indexPath.row)
         }
         self.tableViewSetting.reloadData()
     }

@@ -15,9 +15,9 @@ class RealmSetting{
     static var realmSetting = RealmSetting()
     var notificationToken: NotificationToken?
     var timer = Timer()
-    var viewsSet:ViewController!
-    func RealmNOtification(views:ViewController,Gozi:GoziRaizer){
-        RealmThread(views:views, Gozi: Gozi)
+    var viewsSet:ViewController?
+    func RealmNOtification(views:ViewController){
+        RealmThread(views:views)
     }
     
     func RealmAdd(text:String,Index:IndexPath,now:NSDate){
@@ -44,25 +44,25 @@ class RealmSetting{
         }
     }
     //RealmNotification
-    private func RealmThread(views:ViewController,Gozi:GoziRaizer){
+    private func RealmThread(views:ViewController){
         viewsSet = views
-        notificationToken = RealmModel.realm.usersSet.addNotificationBlock { change in
+        notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
+            print(views.totalCount)
             if views.totalCount > 1000.0{
-                
                     views.view.addSubview(GoziRaizer().self)
-                    self.timer.fire()
-                    self.timer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(self.update(tm:)), userInfo: nil, repeats: true)
-                
+                    self?.timer.fire()
+                    self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
             }else if views.totalCount < 1{
                 views.totalTax.textColor = UIColor.black
             }
         }
     }
-    deinit {
-        notificationToken?.stop()
+    @objc func update(up:Timer){
+        up.invalidate()
+        viewsSet?.totalTax.textColor = UIColor.Color()
     }
-    @objc func update(tm:Timer){
-        tm.invalidate()
-        viewsSet.totalTax.textColor = UIColor.Color()
+    deinit {
+        self.notificationToken?.stop()
+        print("deinit9")
     }
 }

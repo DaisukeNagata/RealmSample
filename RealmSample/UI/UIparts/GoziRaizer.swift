@@ -31,7 +31,7 @@ class GoziRaizer: UIView {
         self.addSubview(labelSet(label: view))
         
             timer.fire()
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update(tm:)), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update(up:)), userInfo: nil, repeats: true)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,14 +65,19 @@ class GoziRaizer: UIView {
          animation.isRemovedOnCompletion = true
         return animation
     }
-     func update(tm: Timer){
+     func update(up: Timer){
+        up.invalidate()
         let scene = RaizerPaty(size: skview.bounds.size)
         skview.presentScene(scene)
         self.view.addSubview(skview)
-        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update2(tm:)), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update2(up:)), userInfo: nil, repeats: true)
     }
-     func update2(tm: Timer){
-        skview.removeFromSuperview()
-        self.lineLayer.removeFromSuperlayer()
+     func update2(up: Timer){
+        up.invalidate()        
+        self.removeFromSuperview()
+    }
+    deinit {
+        
+    print("deinit3")
     }
 }
