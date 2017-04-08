@@ -48,13 +48,11 @@ class RealmSetting{
         viewsSet = views
         notificationToken = RealmModel.realm.usersSet.addNotificationBlock { change in
             if views.totalCount > 1000.0{
-                print(Gozi.line.bounds.width)
-                //SE
-                if Gozi.line.bounds.width == 110 {
+                
+                    views.view.addSubview(GoziRaizer().self)
                     self.timer.fire()
-                    self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update(tm:)), userInfo: nil, repeats: true)
-                }
-                views.view.addSubview(GoziRaizer().self)
+                    self.timer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(self.update(tm:)), userInfo: nil, repeats: true)
+                
             }else if views.totalCount < 1{
                 views.totalTax.textColor = UIColor.black
             }

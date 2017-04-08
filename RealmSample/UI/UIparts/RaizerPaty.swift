@@ -10,8 +10,8 @@ import SpriteKit
 import UIKit
 
 class RaizerPaty:SKScene{
-    var raizerPaty = SKEmitterNode()
     
+    var raizerPaty = SKEmitterNode()
     
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.clear
@@ -20,19 +20,14 @@ class RaizerPaty:SKScene{
     }
     
     func RaizerPaty() {
-        
-        // パーティクルファイルのパスを指定
-        guard let testParticlePath = Bundle.main.path(forResource: "MyParticle", ofType: "sks") else {
+        self.view?.frame = CGRect(x:UIScreen.main.bounds.width-100,y:iphoneSize.heightSize2(),width:UIScreen.main.bounds.width/3,height:50)
+        guard let Path = Bundle.main.path(forResource: "MyParticle", ofType: "sks") else {
             return
         }
-        //SE
-        self.view?.frame = CGRect(x:223,y:150,width:300,height:44)
         self.view?.backgroundColor = UIColor.clear
-
-        raizerPaty = NSKeyedUnarchiver.unarchiveObject(withFile: testParticlePath) as! SKEmitterNode
+        raizerPaty = NSKeyedUnarchiver.unarchiveObject(withFile: Path) as! SKEmitterNode
         raizerPaty.position = CGPoint(x: self.frame.maxX, y: self.frame.maxX)
         self.addChild(raizerPaty)
-        
     }
 }
 

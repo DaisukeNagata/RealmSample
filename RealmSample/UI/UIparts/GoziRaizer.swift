@@ -24,10 +24,10 @@ class GoziRaizer: UIView {
         super.init(frame: frame)
         
         view.frame = bounds
-        //SE
+
         self.line.move(to: CGPoint(x: UIScreen.main.bounds.width/2 , y: 44))
         self.lineLayer.fillColor = UIColor.clear.cgColor
-        self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:190))
+        self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:190.0))
         self.addSubview(labelSet(label: view))
         
             timer.fire()

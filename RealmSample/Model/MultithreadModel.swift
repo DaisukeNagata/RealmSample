@@ -44,7 +44,7 @@ class realmSusikiString:setTextString {
     internal var magnificati =  RealmModel.realm.usersSet[RealmModel.index.indexSet]
     
     internal func magni() -> realmDataSet {
-        
+
         return  magnificati
     }
 }
