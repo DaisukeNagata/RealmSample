@@ -40,8 +40,8 @@
 		BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE591E99174400EFD61A /* RaizerPaty.swift */; };
 		BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE5B1E99175900EFD61A /* Color.swift */; };
 		BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE5E1E99179200EFD61A /* MyParticle.sks */; };
-		BBF0FE651E99180000EFD61A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE611E99180000EFD61A /* LaunchScreen.storyboard */; };
-		BBF0FE661E99180000EFD61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FE631E99180000EFD61A /* Main.storyboard */; };
+		BBF0FEB71E99264C00EFD61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEB51E99264C00EFD61A /* Main.storyboard */; };
+		BBF0FEBA1E99265400EFD61A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF0FEB81E99265400EFD61A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,8 +96,8 @@
 		BBF0FE591E99174400EFD61A /* RaizerPaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RaizerPaty.swift; path = UIparts/RaizerPaty.swift; sourceTree = "<group>"; };
 		BBF0FE5B1E99175900EFD61A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BBF0FE5E1E99179200EFD61A /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
-		BBF0FE621E99180000EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BBF0FE641E99180000EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		BBF0FEB61E99264C00EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		BBF0FEB91E99265400EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,8 +261,8 @@
 		BBF0FE601E99180000EFD61A /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				BBF0FE611E99180000EFD61A /* LaunchScreen.storyboard */,
-				BBF0FE631E99180000EFD61A /* Main.storyboard */,
+				BBF0FEB81E99265400EFD61A /* LaunchScreen.storyboard */,
+				BBF0FEB51E99264C00EFD61A /* Main.storyboard */,
 				BB08682B1D9FFF560044A23B /* Assets.xcassets */,
 				BB0868241D9FFF560044A23B /* AppDelegate.swift */,
 			);
@@ -333,9 +333,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF0FEB71E99264C00EFD61A /* Main.storyboard in Resources */,
+				BBF0FEBA1E99265400EFD61A /* LaunchScreen.storyboard in Resources */,
 				BB08682C1D9FFF560044A23B /* Assets.xcassets in Resources */,
-				BBF0FE661E99180000EFD61A /* Main.storyboard in Resources */,
-				BBF0FE651E99180000EFD61A /* LaunchScreen.storyboard in Resources */,
 				BBF0FE5F1E99179200EFD61A /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,20 +395,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BBF0FE611E99180000EFD61A /* LaunchScreen.storyboard */ = {
+		BBF0FEB51E99264C00EFD61A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BBF0FE621E99180000EFD61A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		BBF0FE631E99180000EFD61A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BBF0FE641E99180000EFD61A /* Base */,
+				BBF0FEB61E99264C00EFD61A /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBF0FEB81E99265400EFD61A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBF0FEB91E99265400EFD61A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
