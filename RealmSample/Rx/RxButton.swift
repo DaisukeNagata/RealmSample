@@ -26,4 +26,3 @@ struct RxButton {
         textSet.resignFirstResponder()
     }
 }
-

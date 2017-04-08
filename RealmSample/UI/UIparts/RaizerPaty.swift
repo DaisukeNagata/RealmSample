@@ -12,7 +12,7 @@ import UIKit
 class RaizerPaty:SKScene{
     
     var raizerPaty = SKEmitterNode()
-
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.clear
         self.scaleMode = .resizeFill

@@ -18,20 +18,20 @@ class GoziRaizer: UIView {
     var view = UIView()
     var skview = SKView()
     var timer = Timer()
-
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         view.frame = bounds
-
+        
         self.line.move(to: CGPoint(x: UIScreen.main.bounds.width/2 , y: 44))
         self.lineLayer.fillColor = UIColor.clear.cgColor
         self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:190.0))
         self.addSubview(labelSet(label: view))
         
-            timer.fire()
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update(up:)), userInfo: nil, repeats: true)
+        timer.fire()
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update(up:)), userInfo: nil, repeats: true)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,27 +57,27 @@ class GoziRaizer: UIView {
         return shape
     }
     func animationDraw(animation:CABasicAnimation)->CABasicAnimation{
-         animation.duration = 1.0
-         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-         animation.fromValue = 0.0
-         animation.toValue = 1.0
-         animation.fillMode = kCAFillModeForwards
-         animation.isRemovedOnCompletion = true
+        animation.duration = 1.0
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = true
         return animation
     }
-     func update(up: Timer){
+    func update(up: Timer){
         up.invalidate()
         let scene = RaizerPaty(size: skview.bounds.size)
         skview.presentScene(scene)
         self.view.addSubview(skview)
         self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update2(up:)), userInfo: nil, repeats: true)
     }
-     func update2(up: Timer){
-        up.invalidate()        
+    func update2(up: Timer){
+        up.invalidate()
         self.removeFromSuperview()
     }
+    
     deinit {
-        
-    print("deinit3")
+        print("deinit3")
     }
 }

@@ -49,5 +49,4 @@ struct iphoneSize {
         }
         return UIScreen.main.bounds.height/5
     }
-    
 }
