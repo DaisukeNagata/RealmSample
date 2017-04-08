@@ -32,7 +32,7 @@ class Label:UILabel{
         fatalError("init(coder:) has not been implemented")
     }
     deinit {
-        print("deinit5")
+        print("deinit6")
     }
 }
 

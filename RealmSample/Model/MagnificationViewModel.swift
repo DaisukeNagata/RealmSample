@@ -30,8 +30,8 @@ class MagnificationViewModel : MagnificationModeling {
     
     func wari(Index:Int){
         
-        if  ViewController.vcView.setFiledtType.threadLabelTwo.text != "0" &&  vc?.textSet.text! != "" {
-            RealmSetting().RealmthreadLabel(text: ((Double( RealmModel.realm.usersSet[Index].ID))! / Suusiki().magnificationTwo).description, Index: Index)
+        if  vc?.setFiledtType.setFiled.text! != "0" &&  vc?.textSet.text! != "" {
+            RealmSetting().RealmthreadLabel(text: ((Double( RealmModel.realm.usersSet[Index].ID))! / Double((vc?.setFiledtType.setFiled.text!)!)!).description, Index: Index)
             
             clearSuti()
             
@@ -45,13 +45,13 @@ class MagnificationViewModel : MagnificationModeling {
         
         clearSuti()
         
-        if  ViewController.vcView.setFiledtType.threadLabel.text != "0" &&  vc?.textSet.text! != "" {
-            RealmSetting().RealmthreadLabel(text: (Suusiki().magnification*realmSusiki().magnificationSet(Index: Index)).description,Index: Index)
+        if  RealmModel.realm.usersSet[Index].ID != "0" &&  vc?.textSet.text! != "" {
+            let threadLabel = Double(RealmModel.realm.usersSet[Index].ID)! * Double((vc?.textSet.text)!)!
+            RealmSetting().RealmthreadLabel(text:threadLabel.description, Index: Index)
         }
         
-        if  vc?.textSet.text! != ""  &&   ViewController.vcView.setFiledtType.threadLabel.text == "0" &&  ViewController.vcView.setFiledtType.threadLabelTwo.text == "0" {
+        if  RealmModel.realm.usersSet[Index].ID == "0" && vc?.textSet.text! != "" {
             RealmSetting().RealmthreadLabel(text: (vc?.textSet.text!)!, Index: Index)
-            
         }
         
         wari(Index:Index)

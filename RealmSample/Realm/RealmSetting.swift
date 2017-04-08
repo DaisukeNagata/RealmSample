@@ -63,6 +63,6 @@ class RealmSetting{
     }
     deinit {
         self.notificationToken?.stop()
-        print("deinit9")
+        print("deinit1")
     }
 }

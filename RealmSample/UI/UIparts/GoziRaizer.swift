@@ -78,6 +78,6 @@ class GoziRaizer: UIView {
     }
     
     deinit {
-        print("deinit3")
+        print("deinit4")
     }
 }

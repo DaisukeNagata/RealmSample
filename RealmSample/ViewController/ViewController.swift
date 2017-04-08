@@ -14,8 +14,7 @@ import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
-    
-    static var vcView = ViewController()
+
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
     var button  = MagnificationView().button
@@ -50,15 +49,15 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
         view.addSubview(setFiledtType.searchBar)
         view.addSubview(setFiledtType.setFiled)
         view.addSubview(setFiledtType.view)
-        view.addSubview(ViewController.vcView.setFiledtType.threadLabel)
-        view.addSubview(ViewController.vcView.setFiledtType.threadLabelTwo)
+        view.addSubview(setFiledtType.threadLabel)
+        view.addSubview(setFiledtType.threadLabelTwo)
         
         //RX------------------------------------------------------------------------------
         button.rx.tap.bindNext { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel ,views: self, now: self.now) }.addDisposableTo(dis)
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textFFiled,setFiled:setFiledtType.setFiled,threadLabel:ViewController.vcView.setFiledtType.threadLabel,threadLabelTwo:ViewController.vcView.setFiledtType.threadLabelTwo)
+        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textFFiled,setFiled:setFiledtType.setFiled,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
         RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
         //RX------------------------------------------------------------------------------
         
@@ -80,13 +79,13 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
             make.width.equalTo(setFiledtType.searchBar).multipliedBy(0.5)
             make.height.equalTo(textSet)
         }
-        ViewController.vcView.setFiledtType.threadLabel.snp.makeConstraints{(make) in
+        setFiledtType.threadLabel.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
-        ViewController.vcView.setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
+        setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)

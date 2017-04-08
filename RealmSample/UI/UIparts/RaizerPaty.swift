@@ -31,7 +31,7 @@ class RaizerPaty:SKScene{
     }
     deinit {
         self.removeAllChildren()
-        print("deinit2")
+        print("deinit3")
     }
 }
 

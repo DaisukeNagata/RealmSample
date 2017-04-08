@@ -22,23 +22,6 @@ protocol setTextModel {
 }
 
 
-class Suusiki:setTextModel  {
-    
-    var magnification: Double = (Double(ViewController.vcView.setFiledtType.threadLabel.text!))!
-    var magnificationTwo: Double =  (Double(ViewController.vcView.setFiledtType.threadLabelTwo.text!))!
-    func magnificationSet(Index:Int)->Double{
-        
-        return  magnification
-    }
-    
-    internal func magnificationSetTwo() -> Double {
-        
-        return  magnificationTwo
-        
-    }
-}
-
-
 class realmSusikiString:setTextString {
     
     internal var magnificati =  RealmModel.realm.usersSet[RealmModel.index.indexSet]
