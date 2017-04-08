@@ -15,6 +15,17 @@ You can substitute the number 1 with the number 1.
 You can delete numbers with empty and 0.
 
 
+
+プロジェクトを動かす場合はクローンしてください。
+
+ダウンロードですとinfoplistを作り直す必要がります。
+
+
+Please clone when moving the project.
+
+If you download it you will need to recreate infoplist.
+
+
 ## ios10.3 Realm_Rx_Sample Class Diagram & Sequence Diagram
 <img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/Rx_RealmSample/RealmSample/design/Desin.png?raw=true" width="350px" height="400px"><img src="https://media.githubusercontent.com/media/daisukenagata/RealmSample_Swift3.0/Rx_RealmSample/RealmSample/design/Sequence_Diagram.png?raw=true" width="350px" height="400px">
 
