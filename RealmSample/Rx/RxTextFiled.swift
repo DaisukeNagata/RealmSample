@@ -21,7 +21,7 @@ struct RxTextFiled{
             textValue1 , textValue2-> Int in
             return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
             }
-            .map { $0.description }
+            .map{$0.description }
             .bindTo(threadLabel.rx.text)
             .disposed(by: dis)
         

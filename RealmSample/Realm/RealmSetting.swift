@@ -14,7 +14,7 @@ class RealmSetting{
     
     static var realmSetting = RealmSetting()
     var notificationToken: NotificationToken?
-    var timer = Timer()
+    weak var timer = Timer()
     var viewsSet:ViewController?
     func RealmNOtification(views:ViewController){
         RealmThread(views:views)
@@ -50,7 +50,7 @@ class RealmSetting{
             print(views.totalCount)
             if views.totalCount > 1000.0{
                     views.view.addSubview(GoziRaizer().self)
-                    self?.timer.fire()
+                    self?.timer?.fire()
                     self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
             }else if views.totalCount < 1{
                 views.totalTax.textColor = UIColor.black

@@ -13,16 +13,16 @@ import UIKit
 struct RxButton {
     
     static var rxButton = RxButton()
-    var dis = DisposeBag()
-    
-    func Rxbutton(sender: UIButton,textSet:UITextField,viewModel:MagnificationViewModel,views:ViewController,now:NSDate){
+ 
+    func Rxbutton(sender: UIButton?,textSet:UITextField?,viewModel:MagnificationViewModel?,views:ViewController?,now:NSDate?){
         DispatchQueue.main.async { () -> Void in
-            if textSet.text! != ""{
-                viewModel.clearSuti()
-                RealmSetting().RealmCreate(now: now, text: textSet.text!,text2: "")
-                views.tableViewSetting.reloadData()
+            if textSet?.text! != ""{
+                viewModel?.clearSuti()
+                RealmSetting().RealmCreate(now: now!, text: (textSet?.text!)!,text2: "")
+                views?.tableViewSetting.reloadData()
             }
         }
-        textSet.resignFirstResponder()
+        textSet?.resignFirstResponder()
+        sender?.removeFromSuperview()
     }
 }

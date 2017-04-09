@@ -113,7 +113,6 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
                     self.tableViewSetting.reloadData()
                     self.textSet.resignFirstResponder()
                     self.setFiledtType.setFiled.resignFirstResponder()
-                
                 }
             }
         }

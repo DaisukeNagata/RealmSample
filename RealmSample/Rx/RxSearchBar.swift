@@ -15,7 +15,7 @@ struct RxSearchBar {
     static var rxSearchBar = RxSearchBar()
     var dis = DisposeBag()
     
-    func rxSearchBar(search:UISearchBar,text:String,table:UITableView){
+    func rxSearchBar(search:UISearchBar,text:String?,table:UITableView?){
             search
             .rx.text.orEmpty
             .subscribe(onNext: { [unowned search] query in
@@ -30,7 +30,7 @@ struct RxSearchBar {
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
                         .sorted(byKeyPath: "now", ascending: false)
                 }
-                table.reloadData()
+                table?.reloadData()
             })
             .addDisposableTo(dis)
     }
