@@ -18,7 +18,7 @@ You can delete numbers with empty and 0.
 
 プロジェクトを動かす場合はクローンしてください。
 
-ダウンロードですとinfoplistを作り直す必要がります。
+ダウンロードですとinfoplistを作り直す必要があります。
 
 
 Please clone when moving the project.
