@@ -21,6 +21,8 @@ extension ViewController: UITableViewDataSource {
             RealmSetting.realmSetting.RealmNOtification(views: self)
             totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
             totalTax?.text? =  totalCount.description
+            //HowTo Usage
+            mbText.text = report_memory()
         }
         return cell
     }

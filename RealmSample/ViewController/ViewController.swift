@@ -28,8 +28,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
     @IBOutlet weak var tableViewSetting: UITableView!
     @IBOutlet weak var textSet: UITextField!
     @IBOutlet weak var totalTax: UILabel!
+    @IBOutlet weak var mbText: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.attachViewSet(vc: self)
