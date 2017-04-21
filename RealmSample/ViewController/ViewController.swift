@@ -18,8 +18,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
     var button  = MagnificationView().button
-    var buttonTwo = MagnificationView().button
-    var textFFiled = UITextField()
+    var textField = UITextField()
     var now = NSDate()
     var totalCount: Double = 0
     var dis = DisposeBag()
@@ -33,7 +32,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.attachViewSet(vc: self)
-        textFFiled.text = "0"
+        textField.text = "0"
         textSet.text = "0"
         totalTax.text? = "0"
         
@@ -57,7 +56,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textFFiled,setFiled:setFiledtType.setFiled,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
+        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setFiled,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
         RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
         //RX------------------------------------------------------------------------------
         
