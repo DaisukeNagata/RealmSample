@@ -19,8 +19,8 @@ protocol MagnificationModeling {
 class MagnificationViewModel : MagnificationModeling {
     
     weak var vc: ViewController?
-    func attachViewSet(vc: ViewController) {
-        self.vc = vc
+    func attachViewSet(vc: UIViewController) {
+        self.vc = vc as? ViewController
     }
     
     func clearSuti(){
