@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5045531EAA94E300161BFE /* UsageMemory.swift */; };
 		BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */; };
 		BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3751E8BDA3E00245D83 /* Button.swift */; };
 		BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3761E8BDA3E00245D83 /* Label.swift */; };
@@ -67,6 +68,7 @@
 		BB385C971DB25A0C00253038 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		BB5045531EAA94E300161BFE /* UsageMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageMemory.swift; sourceTree = "<group>"; };
 		BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationView.swift; sourceTree = "<group>"; };
 		BB5DE3751E8BDA3E00245D83 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = UIparts/Button.swift; sourceTree = "<group>"; };
 		BB5DE3761E8BDA3E00245D83 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = UIparts/Label.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				BBF0FE5B1E99175900EFD61A /* Color.swift */,
 				BBE664251E89905C00529258 /* iphoneSize.swift */,
 				BB880A921E8E85180036D409 /* Size.swift */,
+				BB5045531EAA94E300161BFE /* UsageMemory.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */,
 				BBE664261E89905C00529258 /* iphoneSize.swift in Sources */,
 				BB5DE37A1E8BDA3E00245D83 /* TextField.swift in Sources */,
+				BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */,
 				BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */,
 				BB9E1B5B1E952F7800A43385 /* RxButton.swift in Sources */,
 				BB5DE37C1E8BDA6A00245D83 /* MultithreadModel.swift in Sources */,
