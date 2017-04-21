@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TextField: UITextField {
+class TextField: UITextField,UITextFieldDelegate {
     
     override init(frame:CGRect){
         super.init(frame: frame)

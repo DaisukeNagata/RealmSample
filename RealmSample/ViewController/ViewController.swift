@@ -13,7 +13,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
+class ViewController: UIViewController,UISearchBarDelegate{
 
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
@@ -39,8 +39,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UISearchBarDelegate{
         tableViewSetting.dataSource = self
         tableViewSetting.delegate = self
         setFiledtType.searchBar.delegate = self
-        setFiledtType.setFiled.delegate = self
-        textSet.delegate = self
+
         
         tableViewSetting.register(MagnificationCell.self, forCellReuseIdentifier: "Cell")
         tableViewSetting.reloadData()
