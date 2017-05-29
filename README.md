@@ -1,4 +1,8 @@
-# Realm_Rx_Sample ios10.3
+# Realm_Rx_Sample Xcode 8.3.2
+## version
+### github "ReactiveX/RxSwift" "3.4.1"
+### github "SnapKit/SnapKit" "3.2.0"
+### github "realm/realm-cocoa" "v2.7.0"
 
 タップする機能
 
