@@ -22,8 +22,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
     var now = NSDate()
     var totalCount: Double = 0
     var dis = DisposeBag()
-    
-    @IBOutlet weak var Navitotal: UIBarButtonItem!
+    var Navitotal: UIBarButtonItem!
     @IBOutlet weak var tableViewSetting: UITableView!
     @IBOutlet weak var textSet: UITextField!
     @IBOutlet weak var totalTax: UILabel!
@@ -31,6 +30,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         viewModel.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
@@ -51,7 +51,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
         view.addSubview(setFiledtType.threadLabelTwo)
         
         //RX------------------------------------------------------------------------------
-        button.rx.tap.bindNext { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel ,views: self, now: self.now) }.addDisposableTo(dis)
+        button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel ,views: self, now: self.now) }.addDisposableTo(dis)
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
@@ -121,4 +121,5 @@ class ViewController: UIViewController,UISearchBarDelegate{
     @IBAction func clearAction(_ sender: UIBarButtonItem) {
         viewModel.clearSuti()
     }
+    
 }

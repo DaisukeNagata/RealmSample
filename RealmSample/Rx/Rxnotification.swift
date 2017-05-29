@@ -28,7 +28,7 @@ class RxNotification {
         }
         // frameのシーケンスにマージ
         Observable.of(willChangeFrame).merge()
-            .bindTo(Variable<CGRect>(frame))
+            .bind(to: Variable<CGRect>(frame))
             .addDisposableTo(dis)
         
     }

@@ -22,7 +22,7 @@ struct RxTextFiled{
             return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
             }
             .map{$0.description }
-            .bindTo(threadLabel.rx.text)
+            .bind(to: threadLabel.rx.text)
             .disposed(by: dis)
         
         Observable.combineLatest(setFiled.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
@@ -30,7 +30,7 @@ struct RxTextFiled{
             return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
             }
             .map { $0.description }
-            .bindTo( threadLabelTwo.rx.text)
+            .bind( to: threadLabelTwo.rx.text)
             .disposed(by: dis)
     }
 }
