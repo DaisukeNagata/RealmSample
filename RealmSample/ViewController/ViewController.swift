@@ -99,27 +99,15 @@ class ViewController: UIViewController,UISearchBarDelegate{
     
     //NavigationController-----------------------------------------
     @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "", message: "商品名と数字を入力してください", preferredStyle: .alert)
-        alertController.addTextField(configurationHandler: nil)
-        let otherAction = UIAlertAction(title: "OK", style: .default) {
-            action in
-            alertController.addTextField { ( textFields : UITextField) -> Void in
-                if let textFields = alertController.textFields {
-                    textFields[0].placeholder = "２行目追加"
-                    
-                    RealmSetting().RealmCreate(now: self.now,text: self.textSet.text! ,text2: textFields[0].text!)
-                    self.tableViewSetting.reloadData()
-                    self.textSet.resignFirstResponder()
-                    self.setFiledtType.setFiled.resignFirstResponder()
-                }
-            }
-        }
-        alertController.addAction(otherAction)
-        present(alertController, animated: true, completion: nil)
+        
+        AlertView().alert(view: self,now:now,tx:self.textSet,table:tableViewSetting)
+        
     }
     
     @IBAction func clearAction(_ sender: UIBarButtonItem) {
+        
         viewModel.clearSuti()
+        
     }
     
 }

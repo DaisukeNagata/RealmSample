@@ -19,6 +19,7 @@
 		BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6DE63B1E8FB47900F1B420 /* SearchBar.swift */; };
 		BB6DE6541E90985600F1B420 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB6DE6531E90985600F1B420 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB6DE6561E90986C00F1B420 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB6DE6551E90986C00F1B420 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BB76F45F1EDDBBF900162E6F /* AlertVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76F45E1EDDBBF900162E6F /* AlertVIew.swift */; };
 		BB824C321E8C038F00B4AC64 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB385C9B1DB25BD000253038 /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BB824C341E8C03AC00B4AC64 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB385C991DB25A1E00253038 /* RealmSwift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BB880A931E8E85180036D409 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB880A921E8E85180036D409 /* Size.swift */; };
@@ -80,6 +81,7 @@
 		BB6DE63B1E8FB47900F1B420 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = UIparts/SearchBar.swift; sourceTree = "<group>"; };
 		BB6DE6531E90985600F1B420 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		BB6DE6551E90986C00F1B420 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		BB76F45E1EDDBBF900162E6F /* AlertVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertVIew.swift; sourceTree = "<group>"; };
 		BB880A921E8E85180036D409 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		BB9E1B541E952F5000A43385 /* RealmSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSetting.swift; sourceTree = "<group>"; };
 		BB9E1B571E952F7800A43385 /* RxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxButton.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		BB5DE3721E8BD99800245D83 /* UIParts */ = {
 			isa = PBXGroup;
 			children = (
+				BB76F45E1EDDBBF900162E6F /* AlertVIew.swift */,
 				BBF0FE591E99174400EFD61A /* RaizerPaty.swift */,
 				BBF0FE571E99173900EFD61A /* GoziRaizer.swift */,
 				BB5DE3751E8BDA3E00245D83 /* Button.swift */,
@@ -383,6 +386,7 @@
 				BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */,
 				BB9E1B5B1E952F7800A43385 /* RxButton.swift in Sources */,
 				BB5DE37C1E8BDA6A00245D83 /* MultithreadModel.swift in Sources */,
+				BB76F45F1EDDBBF900162E6F /* AlertVIew.swift in Sources */,
 				BBF0FE581E99173900EFD61A /* GoziRaizer.swift in Sources */,
 				BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */,
 				BB9E1B5C1E952F7800A43385 /* Rxnotification.swift in Sources */,
