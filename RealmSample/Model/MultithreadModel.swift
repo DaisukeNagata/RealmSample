@@ -8,30 +8,12 @@
 
 import Foundation
 
-protocol setTextString {
-    
-    func magni()->realmDataSet
-    
-}
-
 
 protocol setTextModel {
     
     func magnificationSet(Index:Int)->Double
     
 }
-
-
-class realmSusikiString:setTextString {
-    
-    internal var magnificati =  RealmModel.realm.usersSet[RealmModel.index.indexSet]
-    
-    internal func magni() -> realmDataSet {
-
-        return  magnificati
-    }
-}
-
 
 class realmSusiki:setTextModel {
     

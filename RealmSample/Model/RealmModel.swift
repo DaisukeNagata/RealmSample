@@ -29,7 +29,4 @@ struct RealmModel {
         
     }
     
-    struct index{
-        static var indexSet : Int = 0
-    }
 }
