@@ -11,7 +11,7 @@ import UIKit
 
 class MagnificationView: UIView{
     
-    var setFiled = TextField()
+    var setField = TextField()
     let button = Button().button
     var threadLabel = Label().threadLabel
     var threadLabelTwo = Label().threadLabelTwo

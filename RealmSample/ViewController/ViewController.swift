@@ -45,7 +45,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
         tableViewSetting.reloadData()
         
         view.addSubview(setFiledtType.searchBar)
-        view.addSubview(setFiledtType.setFiled)
+        view.addSubview(setFiledtType.setField)
         view.addSubview(setFiledtType.view)
         view.addSubview(setFiledtType.threadLabel)
         view.addSubview(setFiledtType.threadLabelTwo)
@@ -55,7 +55,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
         //キーボードframe
         let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setFiled,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
+        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setField,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
         RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
         //RX------------------------------------------------------------------------------
         
@@ -71,7 +71,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
             make.width.equalTo(setFiledtType.searchBar)
             make.height.equalTo(textSet).multipliedBy(4)
         }
-        setFiledtType.setFiled.snp.makeConstraints{(make) in
+        setFiledtType.setField.snp.makeConstraints{(make) in
             make.top.equalTo(textSet).offset(3)
             make.right.equalTo(setFiledtType.searchBar).inset(0)
             make.width.equalTo(setFiledtType.searchBar).multipliedBy(0.5)
