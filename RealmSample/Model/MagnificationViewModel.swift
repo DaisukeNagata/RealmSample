@@ -30,7 +30,7 @@ class MagnificationViewModel : MagnificationModeling {
     
     func wari(Index:Int){
         
-        if  vc?.setFiledtType.setFiled.text! != "0" &&  vc?.textSet.text! != "" {
+        if  vc?.setFiledtType.setFiled.text! != "0" &&  vc?.textSet.text! != "" && vc?.textSet.text! != nil  &&  vc?.setFiledtType.setFiled.text != nil {
             RealmSetting().RealmthreadLabel(text: ((Double( RealmModel.realm.usersSet[Index].ID))! / Double((vc?.setFiledtType.setFiled.text!)!)!).description, Index: Index)
             
             clearSuti()
