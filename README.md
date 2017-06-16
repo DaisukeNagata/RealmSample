@@ -8,6 +8,8 @@
 
 http://qiita.com/daisukenagata/items/46bde08c8d5b384157b1
 
+http://qiita.com/daisukenagata/items/b4ae43700bec50a7bdd3
+
 タップする機能
 
 
