@@ -38,6 +38,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
         
         tableViewSetting.dataSource = self
         tableViewSetting.delegate = self
+        tableViewSetting.prefetchDataSource = self
         setFiledtType.searchBar.delegate = self
 
         

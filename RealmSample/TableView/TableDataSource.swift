@@ -51,3 +51,22 @@ extension ViewController: UITableViewDataSource {
         self.tableViewSetting.reloadData()
     }
 }
+
+extension ViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            
+            print(String.init(format: "prefetchRowsAt", indexPath.row))
+            
+        }
+    }
+    // Used when something method
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            
+            print(String.init(format: "cancelPrefetchingForRowsAt", indexPath.row))
+            
+        }
+    }
+}
+
