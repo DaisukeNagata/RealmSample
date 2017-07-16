@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5045531EAA94E300161BFE /* UsageMemory.swift */; };
+		BB50FB6C1F1B2E3200367E27 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */; };
 		BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */; };
 		BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3751E8BDA3E00245D83 /* Button.swift */; };
 		BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3761E8BDA3E00245D83 /* Label.swift */; };
@@ -71,6 +72,7 @@
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		BB5045531EAA94E300161BFE /* UsageMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageMemory.swift; sourceTree = "<group>"; };
+		BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
 		BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationView.swift; sourceTree = "<group>"; };
 		BB5DE3751E8BDA3E00245D83 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = UIparts/Button.swift; sourceTree = "<group>"; };
 		BB5DE3761E8BDA3E00245D83 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = UIparts/Label.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				BBE664251E89905C00529258 /* iphoneSize.swift */,
 				BB880A921E8E85180036D409 /* Size.swift */,
 				BB5045531EAA94E300161BFE /* UsageMemory.swift */,
+				BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */,
 				BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */,
 				BB5DE3781E8BDA3E00245D83 /* Button.swift in Sources */,
+				BB50FB6C1F1B2E3200367E27 /* DeviceOrientation.swift in Sources */,
 				BBF0FEC61E99298800EFD61A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

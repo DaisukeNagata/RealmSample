@@ -136,19 +136,8 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     
     func onOrientationChange(notification: NSNotification){
         
-        let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
+       DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
         
-        if UIDeviceOrientationIsLandscape(deviceOrientation) {
-            
-            let frame = CGRect(x:iphoneSize.heightSizePro(),y: iphoneSize.heightSizeLandscape(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-            
-        } else if UIDeviceOrientationIsPortrait(deviceOrientation){
-            
-            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-            
-        }
     }
     
     //NavigationController-----------------------------------------

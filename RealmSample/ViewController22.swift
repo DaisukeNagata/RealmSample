@@ -40,19 +40,7 @@ class ViewController22: UIViewController {
     
     func onOrientationChange(notification: NSNotification){
         
-        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
-            let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
-            
-            if UIDeviceOrientationIsLandscape(deviceOrientation) {
-                
-                tableViewSetting.frame = CGRect(x:-50,y:0,width:UIScreen.main.bounds.height*2,height:UIScreen.main.bounds.width)
-                
-            } else if UIDeviceOrientationIsPortrait(deviceOrientation){
-                
-                
-                tableViewSetting.frame = CGRect(x:0,y:64,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-                
-            }
-        }
+       DeviceOrientation.deviceOrientationSecound(table: tableViewSetting)
+        
     }
 }
