@@ -1,4 +1,4 @@
-# Realm_Rx_Sample Xcode 8.3.2
+# RealmSample Xcode 8.3.3
 ## version
 ### github "ReactiveX/RxSwift" "3.4.1"
 ### github "SnapKit/SnapKit" "3.2.0"
@@ -9,6 +9,10 @@
 http://qiita.com/daisukenagata/items/46bde08c8d5b384157b1
 
 http://qiita.com/daisukenagata/items/b4ae43700bec50a7bdd3
+
+## SplitView
+
+<img src="https://github.com/daisukenagata/Realm_Rx_Sample/blob/master/Split.png?raw=true" width="600px" height="400px">
 
 タップする機能
 
