@@ -30,8 +30,6 @@ struct DeviceOrientation {
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             if UIDeviceOrientationIsLandscape(deviceOrientation) {
                 
-                let frame = CGRect(x:iphoneSize.heightSizePro(),y: iphoneSize.heightSizeLandscape(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-                RxNotification.rxNotification.Rxnotification(button: uvc , frame: frame)
                 
                 setFiledtType.searchBar.snp.makeConstraints{(make) in
                     make.top.equalTo(textSet.snp.top).multipliedBy(0.45)

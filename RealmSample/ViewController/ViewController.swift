@@ -131,6 +131,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         viewModel.clearSuti()
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
