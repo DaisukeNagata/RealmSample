@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,21 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0j2-z7-4Jc">
-                                <rect key="frame" x="0.0" y="201" width="375" height="467"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="50" id="pjL-rV-IfM">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pjL-rV-IfM" id="ah8-wH-K7R">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fam-JG-KOE">
                                 <rect key="frame" x="0.0" y="108" width="208" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,13 +74,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="4gt-y3-K9l" secondAttribute="firstBaseline" id="0oF-4t-vnP"/>
-                            <constraint firstItem="lAJ-sq-qcf" firstAttribute="trailing" secondItem="0j2-z7-4Jc" secondAttribute="trailing" id="500-tG-uod"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="8" symbolic="YES" id="7fS-fC-QIl"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="8UF-70-6iq"/>
                             <constraint firstItem="lAJ-sq-qcf" firstAttribute="leading" secondItem="Rtl-3j-JN7" secondAttribute="trailing" id="Bln-aa-2v7"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="Rtl-3j-JN7" secondAttribute="firstBaseline" id="NCF-Fj-2Ru"/>
-                            <constraint firstItem="0j2-z7-4Jc" firstAttribute="top" secondItem="fam-JG-KOE" secondAttribute="bottom" constant="68" id="PfR-2w-SBw"/>
-                            <constraint firstItem="4gt-y3-K9l" firstAttribute="leading" secondItem="0j2-z7-4Jc" secondAttribute="leading" id="R8s-2H-C35"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="lAJ-sq-qcf" secondAttribute="top" id="STh-pe-jzk"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="Rtl-3j-JN7" secondAttribute="baseline" id="T17-FF-kzI"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="126" id="UtH-D8-5aj"/>
@@ -107,7 +88,6 @@
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="4gt-y3-K9l" secondAttribute="baseline" id="kAU-Vw-tZI"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="trailing" constant="58" id="lIB-Rx-3ov"/>
                             <constraint firstAttribute="trailing" secondItem="lAJ-sq-qcf" secondAttribute="trailing" id="mJX-Gu-v1j"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="0j2-z7-4Jc" secondAttribute="bottom" constant="-1" id="mzv-25-ptj"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="tV0-34-NDC"/>
                         </constraints>
                     </view>
@@ -126,14 +106,13 @@
                     <connections>
                         <outlet property="Navitotal" destination="jda-fI-acf" id="ryp-rf-igI"/>
                         <outlet property="mbText" destination="Aga-4o-5hu" id="Ael-Ve-Ugq"/>
-                        <outlet property="tableViewSetting" destination="0j2-z7-4Jc" id="Jag-cf-o5G"/>
                         <outlet property="textSet" destination="fam-JG-KOE" id="KZT-aG-z4V"/>
                         <outlet property="totalTax" destination="lAJ-sq-qcf" id="Ru1-q2-wk4"/>
-                        <segue destination="FEW-B6-vtt" kind="showDetail" id="uus-0Z-Ba1"/>
+                        <segue destination="rq2-Xy-oCF" kind="showDetail" id="BTy-hu-OrH"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="406" y="225"/>
+            <point key="canvasLocation" x="199" y="107"/>
         </scene>
         <!--View Controller22-->
         <scene sceneID="uME-vg-oSm">
@@ -146,39 +125,19 @@
                     <view key="view" contentMode="scaleToFill" id="22M-t8-7c5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-46-B5o">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="50" id="KG6-gd-Oa9">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KG6-gd-Oa9" id="gUN-b9-Dzc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="K0f-46-B5o" firstAttribute="bottom" secondItem="VfI-5w-XRv" secondAttribute="top" id="45X-Y6-4ph"/>
-                            <constraint firstItem="K0f-46-B5o" firstAttribute="leading" secondItem="22M-t8-7c5" secondAttribute="leading" id="aKQ-65-N2O"/>
-                            <constraint firstAttribute="trailing" secondItem="K0f-46-B5o" secondAttribute="trailing" id="cuI-P2-urU"/>
-                            <constraint firstItem="K0f-46-B5o" firstAttribute="top" secondItem="22M-t8-7c5" secondAttribute="top" id="tcy-WD-oTG"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eO4-Jm-eK0"/>
-                    <connections>
-                        <outlet property="tableViewSetting" destination="K0f-46-B5o" id="s7l-lc-oZB"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Ni1-3I-TvF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="E1c-YY-Zxo">
+                            <connections>
+                                <action selector="update:" destination="FEW-B6-vtt" id="E7G-8V-TRa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N22-IU-tBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="931"/>
+            <point key="canvasLocation" x="185" y="796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lRh-nS-Cnh">
@@ -194,7 +153,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-502" y="244"/>
+            <point key="canvasLocation" x="-548" y="107"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Oon-Pe-JfW">
@@ -223,10 +182,10 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-455" y="931"/>
+            <point key="canvasLocation" x="-548" y="796"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uus-0Z-Ba1"/>
+        <segue reference="BTy-hu-OrH"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,7 +30,7 @@ class RealmSetting{
             RealmModel.realm.usersSet[Index.row].ID = text
         }
     }
-
+    
     func RealmCreate(now:NSDate,text:String,text2:String){
         try!RealmModel.realm.realmTry.write {
             RealmModel.realm.realmTry.create(realmDataSet.self,value: [now,text,text2] as [Any])
@@ -51,24 +51,25 @@ class RealmSetting{
     //RealmNotification
     private func RealmThread(views:ViewController){
         viewsSet = views
-       ViewController22.ddd.tableViewSetting.reloadData()
+        ViewController22.ddd.tableViewSetting.reloadData()
         notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
             print(views.totalCount)
             if views.totalCount > 1000.0{
                 self?.timer?.fire()
-            self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
+                self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
             }else if views.totalCount < 1{
                 views.totalTax.textColor = UIColor.black
             }
         }
     }
-        @objc func update(up:Timer){
-            up.invalidate()
-            viewsSet?.view.addSubview(GoziRaizer().self)
-            viewsSet?.totalTax.textColor = UIColor.Color()
-        }
+    @objc func update(up:Timer){
+        up.invalidate()
+        viewsSet?.view.addSubview(GoziRaizer().self)
+        viewsSet?.totalTax.textColor = UIColor.Color()
+    }
     deinit {
         self.notificationToken?.stop()
+        
         print("deinit1")
     }
     
@@ -76,10 +77,10 @@ class RealmSetting{
     private func RealmThread22(views:ViewController22){
         viewsSet22 = views
         notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
-
+            
             self?.timer?.fire()
             self?.timer = Timer.scheduledTimer(timeInterval: 1, target: self!, selector: #selector(self?.update2(up:)), userInfo: nil, repeats: true)
-
+            
         }
     }
     @objc func update2(up:Timer){

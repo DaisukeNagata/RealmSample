@@ -14,7 +14,7 @@ import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController,UISearchBarDelegate,UISplitViewControllerDelegate{
-
+    
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
     var button  = MagnificationView().button
@@ -38,17 +38,17 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.preferredDisplayMode = .primaryHidden
                 tableViewSetting.frame = CGRect(x:0,y:200,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
             }
-
+            
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
-
+            
             if let split = self.splitViewController {
-                split.delegate = self 
+                split.delegate = self
                 split.preferredDisplayMode = .allVisible
                 split.maximumPrimaryColumnWidth = 800
                 split.preferredPrimaryColumnWidthFraction = 0.5
                 tableViewSetting.frame = CGRect(x:0,y:254,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
             }
-
+            
         }
         
         viewModel.attachViewSet(vc: self)
@@ -73,14 +73,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         RealmSetting().RealmCreate(now: self.now, text: (textSet?.text!)!,text2: "")
         //RX------------------------------------------------------------------------------------------------------------------------------
         button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.addDisposableTo(dis)
-        //キーボードframe
-        if UIInterfaceOrientation.portrait.isPortrait == false{
-            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-        }else{
-            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
-        }
         
         RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setField,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
         RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
@@ -139,7 +131,26 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         viewModel.clearSuti()
+        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
+    
+    func onOrientationChange(notification: NSNotification){
+        
+        let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
+        
+        if UIDeviceOrientationIsLandscape(deviceOrientation) {
+            
+            let frame = CGRect(x:iphoneSize.heightSizePro(),y: iphoneSize.heightSizeLandscape(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+            
+        } else if UIDeviceOrientationIsPortrait(deviceOrientation){
+            
+            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+            
+        }
+    }
+    
     //NavigationController-----------------------------------------
     @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
         
