@@ -13,7 +13,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RealmSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -34,7 +33,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-y3-K9l">
-                                <rect key="frame" x="0.0" y="167" width="160" height="35"/>
+                                <rect key="frame" x="0.0" y="167" width="52" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="mtc-WX-WQC"/>
@@ -54,17 +53,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtl-3j-JN7">
-                                <rect key="frame" x="218" y="167" width="59" height="35"/>
+                                <rect key="frame" x="242" y="167" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-4o-5hu">
-                                <rect key="frame" x="126" y="167" width="84" height="35"/>
+                                <rect key="frame" x="150" y="167" width="84" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="hl2-Qg-4Go"/>
+                                    <constraint firstAttribute="width" constant="84" id="lEE-RM-uoh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -73,21 +72,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="4gt-y3-K9l" secondAttribute="firstBaseline" id="0oF-4t-vnP"/>
-                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="8" symbolic="YES" id="7fS-fC-QIl"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="8UF-70-6iq"/>
                             <constraint firstItem="lAJ-sq-qcf" firstAttribute="leading" secondItem="Rtl-3j-JN7" secondAttribute="trailing" id="Bln-aa-2v7"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="Rtl-3j-JN7" secondAttribute="firstBaseline" id="NCF-Fj-2Ru"/>
+                            <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="4gt-y3-K9l" secondAttribute="baseline" id="LIw-Uz-Jx5"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="lAJ-sq-qcf" secondAttribute="top" id="STh-pe-jzk"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="Rtl-3j-JN7" secondAttribute="baseline" id="T17-FF-kzI"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="126" id="UtH-D8-5aj"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="top" secondItem="fam-JG-KOE" secondAttribute="bottom" constant="34" id="bLI-Xp-bmA"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="8" symbolic="YES" id="a2E-Hb-NID"/>
+                            <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="Rtl-3j-JN7" secondAttribute="baseline" id="dPo-XV-b5b"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="baseline" secondItem="lAJ-sq-qcf" secondAttribute="baseline" id="iTz-Pj-nYv"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="leading" id="iXJ-hz-ZhF"/>
+                            <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="Rtl-3j-JN7" secondAttribute="firstBaseline" id="iuB-Bh-I18"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kA6-GE-EFm"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="4gt-y3-K9l" secondAttribute="baseline" id="kAU-Vw-tZI"/>
-                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="trailing" constant="58" id="lIB-Rx-3ov"/>
                             <constraint firstAttribute="trailing" secondItem="lAJ-sq-qcf" secondAttribute="trailing" id="mJX-Gu-v1j"/>
+                            <constraint firstItem="Aga-4o-5hu" firstAttribute="top" secondItem="fam-JG-KOE" secondAttribute="bottom" constant="34" id="nr2-4t-uub"/>
+                            <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="4gt-y3-K9l" secondAttribute="firstBaseline" id="rWE-n5-gTF"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="tV0-34-NDC"/>
                         </constraints>
                     </view>
@@ -108,9 +105,9 @@
                         <outlet property="mbText" destination="Aga-4o-5hu" id="Ael-Ve-Ugq"/>
                         <outlet property="textSet" destination="fam-JG-KOE" id="KZT-aG-z4V"/>
                         <outlet property="totalTax" destination="lAJ-sq-qcf" id="Ru1-q2-wk4"/>
-                        <segue destination="rq2-Xy-oCF" kind="showDetail" id="BTy-hu-OrH"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="199" y="107"/>
         </scene>
@@ -142,7 +139,6 @@
         <!--Navigation Controller-->
         <scene sceneID="lRh-nS-Cnh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k9x-X7-C7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="jWD-1c-ghL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eRD-rL-HrW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -152,6 +148,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="q5N-VB-08E"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9x-X7-C7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-548" y="107"/>
         </scene>
@@ -171,7 +168,6 @@
         <!--Navigation Controller-->
         <scene sceneID="I7K-9n-JA0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b3f-NX-rxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="rq2-Xy-oCF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ljz-Rd-Ter">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -181,11 +177,9 @@
                         <segue destination="FEW-B6-vtt" kind="relationship" relationship="rootViewController" id="V1O-TJ-5Ri"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b3f-NX-rxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-548" y="796"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="BTy-hu-OrH"/>
-    </inferredMetricsTieBreakers>
 </document>
