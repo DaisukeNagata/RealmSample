@@ -16,13 +16,18 @@ class RealmSetting{
     var notificationToken: NotificationToken?
     weak var timer = Timer()
     var viewsSet:ViewController?
+    var viewsSet22:ViewController22?
+    
     func RealmNOtification(views:ViewController){
         RealmThread(views:views)
     }
     
+    func RealmNOtification22(views:ViewController22){
+        RealmThread22(views:views)
+    }
     func RealmAdd(text:String,Index:IndexPath,now:NSDate){
         try!RealmModel.realm.realmTry.write {
-        RealmModel.realm.usersSet[Index.row].ID = text
+            RealmModel.realm.usersSet[Index.row].ID = text
         }
     }
 
@@ -46,23 +51,41 @@ class RealmSetting{
     //RealmNotification
     private func RealmThread(views:ViewController){
         viewsSet = views
+       ViewController22.ddd.tableViewSetting.reloadData()
         notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
             print(views.totalCount)
             if views.totalCount > 1000.0{
-                    views.view.addSubview(GoziRaizer().self)
-                    self?.timer?.fire()
-                    self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
+                self?.timer?.fire()
+            self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
             }else if views.totalCount < 1{
                 views.totalTax.textColor = UIColor.black
             }
         }
     }
-    @objc func update(up:Timer){
-        up.invalidate()
-        viewsSet?.totalTax.textColor = UIColor.Color()
-    }
+        @objc func update(up:Timer){
+            up.invalidate()
+            viewsSet?.view.addSubview(GoziRaizer().self)
+            viewsSet?.totalTax.textColor = UIColor.Color()
+        }
     deinit {
         self.notificationToken?.stop()
         print("deinit1")
+    }
+    
+    //RealmNotification
+    private func RealmThread22(views:ViewController22){
+        viewsSet22 = views
+        notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
+
+            self?.timer?.fire()
+            self?.timer = Timer.scheduledTimer(timeInterval: 1, target: self!, selector: #selector(self?.update2(up:)), userInfo: nil, repeats: true)
+
+        }
+    }
+    @objc func update2(up:Timer){
+        up.invalidate()
+        guard RealmModel.realm.bool == true else {return}
+        viewsSet22?.tableViewSetting.reloadData()
+        RealmModel.realm.bool = false
     }
 }

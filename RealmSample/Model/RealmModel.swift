@@ -27,6 +27,7 @@ struct RealmModel {
         static var realmsset = realmDataSet()
         static var usersSet =  RealmModel.realm.realmTry.objects(realmDataSet.self)
         
+        static var bool = Bool()
     }
     
 }

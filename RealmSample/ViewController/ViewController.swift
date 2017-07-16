@@ -13,7 +13,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController,UISearchBarDelegate{
+class ViewController: UIViewController,UISearchBarDelegate,UISplitViewControllerDelegate{
 
     var viewModel = MagnificationViewModel()
     var setFiledtType = MagnificationView()
@@ -23,24 +23,43 @@ class ViewController: UIViewController,UISearchBarDelegate{
     var totalCount: Double = 0
     var dis = DisposeBag()
     var Navitotal: UIBarButtonItem!
-    @IBOutlet weak var tableViewSetting: UITableView!
+    var tableViewSetting = UITableView()
     @IBOutlet weak var textSet: UITextField!
     @IBOutlet weak var totalTax: UILabel!
     @IBOutlet weak var mbText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
+            
+            if let split = self.splitViewController {
+                split.delegate = self
+                split.preferredDisplayMode = .primaryHidden
+                tableViewSetting.frame = CGRect(x:0,y:200,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+            }
+
+        } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
+
+            if let split = self.splitViewController {
+                split.delegate = self 
+                split.preferredDisplayMode = .allVisible
+                split.maximumPrimaryColumnWidth = 800
+                split.preferredPrimaryColumnWidthFraction = 0.5
+                tableViewSetting.frame = CGRect(x:0,y:254,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+            }
+
+        }
+        
         viewModel.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
-        totalTax.text? = "0"
         
         tableViewSetting.dataSource = self
         tableViewSetting.delegate = self
         tableViewSetting.prefetchDataSource = self
         setFiledtType.searchBar.delegate = self
-
+        view.addSubview(tableViewSetting)
         
         tableViewSetting.register(MagnificationCell.self, forCellReuseIdentifier: "Cell")
         tableViewSetting.reloadData()
@@ -51,20 +70,39 @@ class ViewController: UIViewController,UISearchBarDelegate{
         view.addSubview(setFiledtType.threadLabel)
         view.addSubview(setFiledtType.threadLabelTwo)
         
-        //RX------------------------------------------------------------------------------
-        button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel ,views: self, now: self.now) }.addDisposableTo(dis)
+        RealmSetting().RealmCreate(now: self.now, text: (textSet?.text!)!,text2: "")
+        //RX------------------------------------------------------------------------------------------------------------------------------
+        button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.addDisposableTo(dis)
         //キーボードframe
-        let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-        RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+        if UIInterfaceOrientation.portrait.isPortrait == false{
+            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+        }else{
+            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            RxNotification.rxNotification.Rxnotification(button: self, frame: frame)
+        }
+        
         RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setField,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
         RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
-        //RX------------------------------------------------------------------------------
+        //RX------------------------------------------------------------------------------------------------------------------------------
         
-        setFiledtType.searchBar.snp.makeConstraints{(make) in
-            make.top.equalTo(textSet.snp.top).multipliedBy(0.65)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(self.view)
-            make.height.equalTo(textSet).multipliedBy(1.7)
+        if UIInterfaceOrientation.portrait.isPortrait == false{
+            
+            setFiledtType.searchBar.snp.makeConstraints{(make) in
+                make.top.equalTo(textSet.snp.top).multipliedBy(0.45)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(self.view)
+                make.height.equalTo(textSet).multipliedBy(1.7)
+            }
+            
+        }else{
+            setFiledtType.searchBar.snp.makeConstraints{(make) in
+                make.top.equalTo(textSet.snp.top).multipliedBy(0.65)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(self.view)
+                make.height.equalTo(textSet).multipliedBy(1.7)
+            }
+            
         }
         setFiledtType.view.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
@@ -98,6 +136,10 @@ class ViewController: UIViewController,UISearchBarDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        viewModel.clearSuti()
+    }
     //NavigationController-----------------------------------------
     @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
         

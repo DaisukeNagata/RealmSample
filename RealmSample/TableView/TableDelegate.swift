@@ -27,3 +27,22 @@ extension ViewController:UITableViewDelegate{
     }
 
 }
+
+extension ViewController22:UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return RealmModel.realm.usersSet.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        print(String.init(format: "willDisplay", indexPath.row))
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        print(String.init(format: "didEndDisplaying", indexPath.row))
+    }
+    
+}

@@ -20,6 +20,7 @@ struct RxButton {
                 viewModel?.clearSuti()
                 RealmSetting().RealmCreate(now: now!, text: (textSet?.text!)!,text2: "")
                 views?.tableViewSetting.reloadData()
+                RealmModel.realm.bool = true
             }
         }
         textSet?.resignFirstResponder()

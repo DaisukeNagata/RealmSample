@@ -25,9 +25,20 @@ class GoziRaizer: UIView {
         
         view.frame = bounds
         
-        self.line.move(to: CGPoint(x: UIScreen.main.bounds.width/2 , y: 44))
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
+            
+            self.line.move(to: CGPoint(x: UIScreen.main.bounds.width/2 , y: 44))
+            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:190.0))
+
+            
+        } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
+            
+            self.line.move(to: CGPoint(x: 0, y: 44))
+            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width , y:330.0))
+            
+        }
+
         self.lineLayer.fillColor = UIColor.clear.cgColor
-        self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:190.0))
         self.addSubview(labelSet(label: view))
         
         timer.fire()
