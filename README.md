@@ -10,10 +10,6 @@ http://qiita.com/daisukenagata/items/46bde08c8d5b384157b1
 
 http://qiita.com/daisukenagata/items/b4ae43700bec50a7bdd3
 
-## SplitView
-
-<img src="https://github.com/daisukenagata/Realm_Rx_Sample/blob/master/Split.png?raw=true" width="600px" height="400px">
-
 タップする機能
 
 
@@ -42,6 +38,12 @@ If you download it you will need to recreate infoplist.
 
 ## ios10.3 Realm_Rx_Sample Class Diagram & Sequence Diagram
 <img src="https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/ClassDesin.png?raw=true" width="350px" height="400px"><img src="https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/Sequence%20Diagram.png" width="350px" height="400px">
+
+
+# SplitView
+
+<img src="https://github.com/daisukenagata/Realm_Rx_Sample/blob/master/Split.png?raw=true" width="600px" height="400px">
+
 
 # Realm_Rx_Sample
 
