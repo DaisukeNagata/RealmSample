@@ -70,7 +70,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         view.addSubview(setFiledtType.threadLabel)
         view.addSubview(setFiledtType.threadLabelTwo)
         
-        RealmSetting().RealmCreate(now: self.now, text: (textSet?.text!)!,text2: "")
         //RX------------------------------------------------------------------------------------------------------------------------------
         button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.addDisposableTo(dis)
         
@@ -132,6 +131,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         super.viewDidAppear(true)
         viewModel.clearSuti()
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
+        RealmSetting().RealmCreate(now: self.now, text: (textSet?.text!)!,text2: "")
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
