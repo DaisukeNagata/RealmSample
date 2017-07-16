@@ -1,4 +1,4 @@
-# Realm_Rx_Sample Xcode 8.3.2
+# RealmSample Xcode 8.3.3
 ## version
 ### github "ReactiveX/RxSwift" "3.4.1"
 ### github "SnapKit/SnapKit" "3.2.0"
@@ -38,6 +38,12 @@ If you download it you will need to recreate infoplist.
 
 ## ios10.3 Realm_Rx_Sample Class Diagram & Sequence Diagram
 <img src="https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/ClassDesin.png?raw=true" width="350px" height="400px"><img src="https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/Sequence%20Diagram.png" width="350px" height="400px">
+
+
+# SplitView
+
+<img src="https://github.com/daisukenagata/Realm_Rx_Sample/blob/master/Split.png?raw=true" width="600px" height="400px">
+
 
 # Realm_Rx_Sample
 
