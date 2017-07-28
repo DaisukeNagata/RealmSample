@@ -46,7 +46,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.preferredDisplayMode = .allVisible
                 split.maximumPrimaryColumnWidth = 800
                 split.preferredPrimaryColumnWidthFraction = 0.5
-                tableViewSetting.frame = CGRect(x:0,y:254,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+                tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
             }
             
         }
@@ -129,9 +129,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        viewModel.clearSuti()
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
-        RealmSetting().RealmCreate(now: self.now, text: (textSet?.text!)!,text2: "")
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
