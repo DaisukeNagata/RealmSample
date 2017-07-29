@@ -47,4 +47,4 @@ If you download it you will need to recreate infoplist.
 
 # Realm_Rx_Sample
 
-![](https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/GIF/Movie.gif)
+![](https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/movie.gif)
