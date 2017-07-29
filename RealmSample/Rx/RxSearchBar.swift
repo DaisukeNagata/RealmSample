@@ -19,11 +19,12 @@ struct RxSearchBar {
             search
             .rx.text.orEmpty
             .subscribe(onNext: { [unowned search] query in
+                table?.reloadData()
                 if  search.text !=  "" {
                     //indexの値を渡す
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
-                        .filter("Message BEGINSWITH %@",  search.text!)
-                        .sorted(byKeyPath: "Message", ascending: false)
+                        .filter("ID BEGINSWITH %@",  search.text!)
+                        .sorted(byKeyPath: "ID", ascending: false)
                     
                 }else if  search.text! == ""{
                     
