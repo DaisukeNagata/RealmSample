@@ -31,26 +31,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
-            
-            if let split = self.splitViewController {
-                split.delegate = self
-                split.preferredDisplayMode = .primaryHidden
-                tableViewSetting.frame = CGRect(x:0,y:200,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-            }
-            
-        } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
-            
-            if let split = self.splitViewController {
-                split.delegate = self
-                split.preferredDisplayMode = .allVisible
-                split.maximumPrimaryColumnWidth = 800
-                split.preferredPrimaryColumnWidthFraction = 0.5
-                tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-            }
-            
-        }
-        
         viewModel.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
@@ -122,6 +102,28 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
+            
+            if let split = self.splitViewController {
+                split.delegate = self
+                split.preferredDisplayMode = .primaryHidden
+                tableViewSetting.frame = CGRect(x:0,y:220,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+            }
+            
+        } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
+            
+            if let split = self.splitViewController {
+                split.delegate = self
+                split.preferredDisplayMode = .allVisible
+                split.maximumPrimaryColumnWidth = 800
+                split.preferredPrimaryColumnWidthFraction = 0.5
+                tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+            }
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -135,7 +137,10 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     
     func onOrientationChange(notification: NSNotification){
         
-       DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIApplicationDidBecomeActive,
+                                                  object: nil)
         
     }
     

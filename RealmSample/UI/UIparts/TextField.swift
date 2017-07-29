@@ -13,7 +13,6 @@ class TextField: UITextField,UITextFieldDelegate {
     
     override init(frame:CGRect){
         super.init(frame: frame)
-        self.keyboardType = UIKeyboardType.decimalPad
         
         // UITextFieldを作成する.
         self.text = "0"

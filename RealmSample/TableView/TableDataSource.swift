@@ -40,6 +40,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if textSet.text == "" || textSet.text == "0" {
             viewModel.clearSuti()
+            self.tableViewSetting.reloadData()
             RealmModel.realm.bool = true
             RealmSetting().RealmDeleate(indexPath:indexPath)
         } else if textSet.text == "1" {

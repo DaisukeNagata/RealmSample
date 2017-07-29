@@ -40,7 +40,12 @@ class ViewController22: UIViewController {
     
     func onOrientationChange(notification: NSNotification){
         
+       tableViewSetting.reloadData()
        DeviceOrientation.deviceOrientationSecound(table: tableViewSetting)
+        
+        NotificationCenter.default.removeObserver(self,
+                              name: .UIApplicationDidBecomeActive,
+                              object: nil)
         
     }
 }
