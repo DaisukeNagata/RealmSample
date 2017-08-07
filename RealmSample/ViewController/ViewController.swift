@@ -133,6 +133,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         super.viewDidAppear(true)
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.changeDirection), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     func onOrientationChange(notification: NSNotification){
@@ -157,4 +158,17 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         
     }
     
+    //Actual running of turning behavior
+    func changeDirection(notification: NSNotification){
+        
+        if(mbText.backgroundColor == UIColor.white){
+            
+            mbText.backgroundColor = UIColor.blue
+            
+        }else if ( mbText.backgroundColor == UIColor.blue){
+            
+            mbText.backgroundColor = UIColor.white
+            
+        }
+    }
 }
