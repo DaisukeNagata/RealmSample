@@ -12,6 +12,8 @@ http://qiita.com/daisukenagata/items/b4ae43700bec50a7bdd3
 
 http://qiita.com/daisukenagata/items/bfbbbad90d2cfcf06464
 
+http://qiita.com/daisukenagata/items/7175b11a16de7d19dddb
+
 タップする機能
 
 
