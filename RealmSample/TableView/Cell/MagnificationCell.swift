@@ -14,7 +14,6 @@ class MagnificationCell: UITableViewCell {
     var cellLabel = UILabel()
     var kakauLabel = UILabel()
     
-    var cellWitdh =  0
     override init(style: UITableViewCellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -48,18 +47,13 @@ class MagnificationCell: UITableViewCell {
         set (newFrame) {
 
             var frame = newFrame
-            guard  realmSusiki().magnificationSet(Index: cellWitdh) > 0 else {return}
-            frame.origin.x += CGFloat(realmSusiki().magnificationSet(Index: cellWitdh) )
-            frame.size.width -= 2*CGFloat(realmSusiki().magnificationSet(Index: cellWitdh) )
+
+            frame.origin.x += CGFloat(10)
+            frame.size.width -= 2*CGFloat(10)
             super.frame = frame
             super.contentView.backgroundColor = UIColor.blue
-        }
-    }
-    
-    func textSet(index:IndexPath){
-
-        cellWitdh = index.row
-
+            
+            }
     }
     
     func cellMethod(indexPath:IndexPath){

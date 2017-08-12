@@ -24,6 +24,8 @@ extension ViewController: UITableViewDataSource {
             //HowTo Usage
             mbText.text = report_memory()
         }
+        cell.kakauLabel.numberOfLines = 2
+        mbText.text = cell.kakauLabel.text
         return cell
     }
     
