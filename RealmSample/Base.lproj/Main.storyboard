@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhd-aM-Kq7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhd-aM-Kq7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,11 +33,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-y3-K9l">
-                                <rect key="frame" x="0.0" y="167" width="52" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-y3-K9l">
+                                <rect key="frame" x="0.0" y="167" width="60" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="mtc-WX-WQC"/>
+                                    <constraint firstAttribute="width" constant="60" id="wBb-YP-mOm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -52,19 +54,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtl-3j-JN7">
-                                <rect key="frame" x="242" y="167" width="35" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-4o-5hu">
+                                <rect key="frame" x="78" y="167" width="156" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-4o-5hu">
-                                <rect key="frame" x="150" y="167" width="84" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtl-3j-JN7">
+                                <rect key="frame" x="253" y="167" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="lEE-RM-uoh"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -72,16 +70,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Aga-4o-5hu" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="trailing" constant="18" id="33C-eh-xHA"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="8UF-70-6iq"/>
-                            <constraint firstItem="lAJ-sq-qcf" firstAttribute="leading" secondItem="Rtl-3j-JN7" secondAttribute="trailing" id="Bln-aa-2v7"/>
+                            <constraint firstItem="lAJ-sq-qcf" firstAttribute="leading" secondItem="Rtl-3j-JN7" secondAttribute="trailing" constant="-11" id="Bln-aa-2v7"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="4gt-y3-K9l" secondAttribute="baseline" id="LIw-Uz-Jx5"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="lAJ-sq-qcf" secondAttribute="top" id="STh-pe-jzk"/>
-                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="8" symbolic="YES" id="a2E-Hb-NID"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="Rtl-3j-JN7" secondAttribute="baseline" id="dPo-XV-b5b"/>
                             <constraint firstItem="Rtl-3j-JN7" firstAttribute="baseline" secondItem="lAJ-sq-qcf" secondAttribute="baseline" id="iTz-Pj-nYv"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="leading" id="iXJ-hz-ZhF"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="Rtl-3j-JN7" secondAttribute="firstBaseline" id="iuB-Bh-I18"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kA6-GE-EFm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="125" id="kVf-t2-NAA"/>
                             <constraint firstAttribute="trailing" secondItem="lAJ-sq-qcf" secondAttribute="trailing" id="mJX-Gu-v1j"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="top" secondItem="fam-JG-KOE" secondAttribute="bottom" constant="34" id="nr2-4t-uub"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="4gt-y3-K9l" secondAttribute="firstBaseline" id="rWE-n5-gTF"/>
@@ -109,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="199" y="107"/>
+            <point key="canvasLocation" x="197.59999999999999" y="106.59670164917542"/>
         </scene>
         <!--View Controller22-->
         <scene sceneID="uME-vg-oSm">

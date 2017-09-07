@@ -102,12 +102,14 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         }
     }
     
-    override func viewDidLayoutSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             
             if let split = self.splitViewController {
                 split.delegate = self
-                split.preferredDisplayMode = .primaryHidden
+                split.preferredDisplayMode = .allVisible
                 tableViewSetting.frame = CGRect(x:0,y:220,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
             }
             

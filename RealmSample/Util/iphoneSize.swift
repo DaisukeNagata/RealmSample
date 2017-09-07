@@ -51,7 +51,7 @@ struct iphoneSize {
     }
     static  func  heightSizeLandscape()-> CGFloat {
         let heightsize = UIScreen.main.bounds.height
-        print(heightsize)
+
         switch heightsize {
         case 320:
             return UIScreen.main.bounds.width/4.3
@@ -71,6 +71,7 @@ struct iphoneSize {
 
     static  func  heightSizePro()-> CGFloat {
         let heightsize = UIScreen.main.bounds.height
+        
         switch heightsize {
         case 768:
             return UIScreen.main.bounds.height+150
