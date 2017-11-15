@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+//Logic that is not an absolute value corresponds to tomorrow↓
+//I am tired today so I go to bed.Set as relative value which was carried out at work for iphoneX.
 struct iphoneSize {
     
     static  func  heightSize()-> CGFloat {
@@ -21,6 +23,8 @@ struct iphoneSize {
             return 255.0
         case 736:
             return 275.0
+        case 812:
+            return 330.0
         case 1024:
             return 310.0
         case 1366:
@@ -40,6 +44,8 @@ struct iphoneSize {
             return UIScreen.main.bounds.height/4.5
         case 736:
             return UIScreen.main.bounds.height/5
+        case 812:
+            return UIScreen.main.bounds.height/4.7
         case 1024:
             return UIScreen.main.bounds.height/7
         case 1366:
@@ -61,6 +67,8 @@ struct iphoneSize {
             return UIScreen.main.bounds.width/3.4
         case 768:
             return UIScreen.main.bounds.width/2.75
+        case 812:
+            return UIScreen.main.bounds.width/2.55
         case 1024:
             return UIScreen.main.bounds.width/2.45
         default:
@@ -75,6 +83,8 @@ struct iphoneSize {
         switch heightsize {
         case 768:
             return UIScreen.main.bounds.height+150
+        case 812:
+            return UIScreen.main.bounds.height+170
         case 1024:
             return UIScreen.main.bounds.height+250
         default:
