@@ -5,7 +5,7 @@
 ### github "realm/realm-cocoa" "v2.7.0"
 
 ## 参考記事
-
+<details>
 http://qiita.com/daisukenagata/items/46bde08c8d5b384157b1
 
 http://qiita.com/daisukenagata/items/b4ae43700bec50a7bdd3
@@ -17,7 +17,7 @@ http://qiita.com/daisukenagata/items/7175b11a16de7d19dddb
 http://qiita.com/daisukenagata/items/361925cff942359c5af3
 
 http://qiita.com/daisukenagata/items/f4cf06457b17053dbd7f
-
+</details>
 タップする機能
 
 
