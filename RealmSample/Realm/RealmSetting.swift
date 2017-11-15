@@ -52,7 +52,7 @@ class RealmSetting{
     private func RealmThread(views:ViewController){
         viewsSet = views
         ViewController22.ddd.tableViewSetting.reloadData()
-        notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
+        notificationToken = RealmModel.realm.usersSet.observe { [weak self] change in
             print(views.totalCount)
             if views.totalCount > 1000.0{
                 self?.timer?.fire()
@@ -68,7 +68,7 @@ class RealmSetting{
         viewsSet?.totalTax.textColor = UIColor.Color()
     }
     deinit {
-        self.notificationToken?.stop()
+        self.notificationToken?.invalidate()
         
         print("deinit1")
     }
@@ -76,7 +76,7 @@ class RealmSetting{
     //RealmNotification
     private func RealmThread22(views:ViewController22){
         viewsSet22 = views
-        notificationToken = RealmModel.realm.usersSet.addNotificationBlock { [weak self] change in
+        notificationToken = RealmModel.realm.usersSet.observe { [weak self] change in
             
             self?.timer?.fire()
             self?.timer = Timer.scheduledTimer(timeInterval: 1, target: self!, selector: #selector(self?.update2(up:)), userInfo: nil, repeats: true)

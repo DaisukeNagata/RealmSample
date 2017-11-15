@@ -33,6 +33,6 @@ struct RxSearchBar {
                 }
                 table?.reloadData()
             })
-            .addDisposableTo(dis)
+                .disposed(by: dis)
     }
 }
