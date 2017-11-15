@@ -1,8 +1,5 @@
-# RealmSample Xcode 8.3.3
-## version
-### github "ReactiveX/RxSwift" "3.4.1"
-### github "SnapKit/SnapKit" "3.2.0"
-### github "realm/realm-cocoa" "v2.7.0"
+# RealmSample Xcode 9.1
+
 
 ## 参考記事
 <details>
