@@ -23,11 +23,11 @@ class RaizerPaty:SKScene{
         
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             
-            self.view?.frame = CGRect(x:UIScreen.main.bounds.width-100,y:iphoneSize.heightSize2(),width:UIScreen.main.bounds.width/3,height:50)
+            self.view?.frame = CGRect(x:UIScreen.main.bounds.width-100,y:iphoneSize.current.size2,width:UIScreen.main.bounds.width/3,height:50)
             
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
             
-            self.view?.frame = CGRect(x:280,y:iphoneSize.heightSize2(),width:UIScreen.main.bounds.width/3,height:50)
+            self.view?.frame = CGRect(x:280,y:iphoneSize.current.size2,width:UIScreen.main.bounds.width/3,height:50)
             
         }
 

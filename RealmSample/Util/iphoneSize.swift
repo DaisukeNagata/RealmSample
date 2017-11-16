@@ -9,88 +9,105 @@
 import Foundation
 import UIKit
 
-//Logic that is not an absolute value corresponds to tomorrow↓
-//I am tired today so I go to bed.Set as relative value which was carried out at work for iphoneX.
+//Set the logic, take the UI value, the relative value is tomorrow again.im.bussy.....
 struct iphoneSize {
     
-    static  func  heightSize()-> CGFloat {
-        let heightsize = UIScreen.main.bounds.height
+    let iphoneSmall : CGFloat = 568.0
+    let iphoneMiddle : CGFloat = 667.0
+    let iphonePlus : CGFloat = 736.0
+    let iphoneX : CGFloat = 812
+    let ipadHeight : CGFloat = 1024
+    let ipadProHeight : CGFloat = 1366
+    
+    static var current : iphoneProtocol.Type
+    {
         
-        switch heightsize {
-        case 568:
-            return 255.0
-        case 667:
-            return 255.0
-        case 736:
-            return 275.0
-        case 812:
-            return 330.0
-        case 1024:
-            return 310.0
-        case 1366:
-            return 380.0
-        default:
-            break
-        }
-        return 310.0
-    }
-    static  func  heightSize2()-> CGFloat {
-        let heightsize = UIScreen.main.bounds.height
+        let deviceHeight = UIScreen.main.bounds.height
         
-        switch heightsize {
-        case 568:
-            return UIScreen.main.bounds.height/3.8
-        case 667:
-            return UIScreen.main.bounds.height/4.5
-        case 736:
-            return UIScreen.main.bounds.height/5
-        case 812:
-            return UIScreen.main.bounds.height/4.7
-        case 1024:
-            return UIScreen.main.bounds.height/7
-        case 1366:
-            return UIScreen.main.bounds.height/8.5
+        switch deviceHeight {
+        case iphoneSize().iphoneSmall:
+            return iphone5.self
+        case iphoneSize().iphoneMiddle:
+            return iphone6.self
+        case iphoneSize().iphonePlus:
+            return iphone7Plus.self
+        case iphoneSize().iphoneX:
+            return iphone10.self
+        case iphoneSize().ipadHeight:
+            return ipad.self
+        case iphoneSize().ipadProHeight:
+            return ipadPro.self
+            
         default:
             break
         }
-        return UIScreen.main.bounds.height/5
+        return iphone6.self
     }
-    static  func  heightSizeLandscape()-> CGFloat {
-        let heightsize = UIScreen.main.bounds.height
-
-        switch heightsize {
-        case 320:
-            return UIScreen.main.bounds.width/4.3
-        case 375:
-            return UIScreen.main.bounds.width/4
-        case 414:
-            return UIScreen.main.bounds.width/3.4
-        case 768:
-            return UIScreen.main.bounds.width/2.75
-        case 812:
-            return UIScreen.main.bounds.width/2.55
-        case 1024:
-            return UIScreen.main.bounds.width/2.45
-        default:
-            break
-        }
-        return UIScreen.main.bounds.width/2.75
-    }
-
-    static  func  heightSizePro()-> CGFloat {
-        let heightsize = UIScreen.main.bounds.height
-        
-        switch heightsize {
-        case 768:
-            return UIScreen.main.bounds.height+150
-        case 812:
-            return UIScreen.main.bounds.height+170
-        case 1024:
-            return UIScreen.main.bounds.height+250
-        default:
-            break
-        }
-        return UIScreen.main.bounds.height+150
-    }
-
 }
+    
+    protocol iphoneProtocol
+    {
+        //Returnの高さ設定
+        static var size1 :CGFloat{get}
+        //アニメーションの線の設定
+        static var size2 : CGFloat{get}
+        //横の画面の Return設定
+        static var size3 :  CGFloat{get}
+        static var size4 : CGFloat{get}
+        static var size5 : CGFloat{get}
+    }
+    
+    struct iphone5 : iphoneProtocol
+    {
+        static var size1: CGFloat{return 255.0}
+        static var size2: CGFloat{return UIScreen.main.bounds.height/3.8}
+        static var size3: CGFloat{return UIScreen.main.bounds.width/4.3}
+        static var size4: CGFloat{return 10}
+        static var size5: CGFloat{return 10}
+    }
+    
+    struct iphone6 : iphoneProtocol
+    {
+        static var size1: CGFloat{return 255.0}
+        static var size2: CGFloat{return UIScreen.main.bounds.height/4.5}
+        static var size3: CGFloat{return UIScreen.main.bounds.width/4}
+        static var size4: CGFloat{return 10}
+        static var size5: CGFloat{return 10}
+    }
+    
+    struct iphone7Plus : iphoneProtocol
+    {
+        static var size1: CGFloat{return 275.0}
+        static var size2: CGFloat{return UIScreen.main.bounds.height/5}
+        static var size3: CGFloat{return UIScreen.main.bounds.width/3.4}
+        static var size4: CGFloat{return UIScreen.main.bounds.height+150}
+        static var size5: CGFloat{return 10}
+    }
+    
+    struct iphone10 : iphoneProtocol
+    {
+        static var size1: CGFloat{return 330.0}
+        static var size2: CGFloat{return UIScreen.main.bounds.height/4.7}
+        static var size3: CGFloat{return UIScreen.main.bounds.width/3.4}
+        static var size4: CGFloat{return UIScreen.main.bounds.height+170}
+        static var size5: CGFloat{return 10}
+    }
+    
+    struct ipad : iphoneProtocol
+    {
+        static var size1: CGFloat{return 310.0}
+        static var size2: CGFloat{return UIScreen.main.bounds.height/7}
+        static var size3: CGFloat{return UIScreen.main.bounds.width/2.45}
+        static var size4: CGFloat{return UIScreen.main.bounds.height+250}
+        static var size5: CGFloat{return 10}
+    }
+    
+    struct ipadPro : iphoneProtocol
+    {
+        static var size1: CGFloat{return 380.0}
+        static var size2: CGFloat{return UIScreen.main.bounds.width/2.45}
+        static var size3: CGFloat{return UIScreen.main.bounds.width/2.75}
+        static var size4: CGFloat{return UIScreen.main.bounds.height+150}
+        static var size5: CGFloat{return 10}
+    }
+

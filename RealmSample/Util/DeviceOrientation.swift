@@ -18,11 +18,11 @@ struct DeviceOrientation {
         let uvc = uvc as? ViewController
         if UIDeviceOrientationIsLandscape(deviceOrientation) {
             
-            let frame = CGRect(x:iphoneSize.heightSizePro(),y: iphoneSize.heightSizeLandscape(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            let frame = CGRect(x:iphoneSize.current.size4,y: iphoneSize.current.size3, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             RxNotification.rxNotification.Rxnotification(button: uvc ,frame: frame)
             
         } else if UIDeviceOrientationIsPortrait(deviceOrientation){
-            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.current.size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             RxNotification.rxNotification.Rxnotification(button: uvc , frame: frame)
             
         }
@@ -48,7 +48,7 @@ struct DeviceOrientation {
                     make.height.equalTo(textSet).multipliedBy(1.7)
                 }
                 
-                let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.heightSize(), width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+                let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.current.size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
                 RxNotification.rxNotification.Rxnotification(button: uvc, frame: frame)
             }
         }
