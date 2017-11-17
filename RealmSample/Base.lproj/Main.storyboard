@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhd-aM-Kq7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhd-aM-Kq7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtl-3j-JN7">
-                                <rect key="frame" x="253" y="167" width="35" height="35"/>
+                                <rect key="frame" x="242" y="167" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -71,20 +70,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="trailing" constant="18" id="33C-eh-xHA"/>
-                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="8UF-70-6iq"/>
-                            <constraint firstItem="lAJ-sq-qcf" firstAttribute="leading" secondItem="Rtl-3j-JN7" secondAttribute="trailing" constant="-11" id="Bln-aa-2v7"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="baseline" secondItem="Aga-4o-5hu" secondAttribute="baseline" id="5h3-9R-9Pw"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="baseline" secondItem="lAJ-sq-qcf" secondAttribute="baseline" id="7wJ-4e-1VS"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="4gt-y3-K9l" secondAttribute="baseline" id="LIw-Uz-Jx5"/>
-                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="lAJ-sq-qcf" secondAttribute="top" id="STh-pe-jzk"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="baseline" secondItem="Rtl-3j-JN7" secondAttribute="baseline" id="dPo-XV-b5b"/>
-                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="baseline" secondItem="lAJ-sq-qcf" secondAttribute="baseline" id="iTz-Pj-nYv"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="lAJ-sq-qcf" secondAttribute="top" id="Qg2-g0-I0U"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="firstBaseline" secondItem="Aga-4o-5hu" secondAttribute="firstBaseline" id="XE1-wR-3Af"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="leading" secondItem="4gt-y3-K9l" secondAttribute="leading" id="iXJ-hz-ZhF"/>
-                            <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="Rtl-3j-JN7" secondAttribute="firstBaseline" id="iuB-Bh-I18"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kA6-GE-EFm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="125" id="kVf-t2-NAA"/>
                             <constraint firstAttribute="trailing" secondItem="lAJ-sq-qcf" secondAttribute="trailing" id="mJX-Gu-v1j"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="top" secondItem="fam-JG-KOE" secondAttribute="bottom" constant="34" id="nr2-4t-uub"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="leading" secondItem="Aga-4o-5hu" secondAttribute="trailing" constant="8" symbolic="YES" id="qjd-Fz-msV"/>
                             <constraint firstItem="Aga-4o-5hu" firstAttribute="firstBaseline" secondItem="4gt-y3-K9l" secondAttribute="firstBaseline" id="rWE-n5-gTF"/>
                             <constraint firstItem="fam-JG-KOE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="tV0-34-NDC"/>
+                            <constraint firstItem="Rtl-3j-JN7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="103" id="xId-WJ-D2j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="F6M-wV-Ix1">
@@ -140,7 +139,7 @@
             <objects>
                 <navigationController id="jWD-1c-ghL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eRD-rL-HrW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -169,7 +168,7 @@
             <objects>
                 <navigationController id="rq2-Xy-oCF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ljz-Rd-Ter">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -57,7 +57,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         
         RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
         //RX------------------------------------------------------------------------------------------------------------------------------
-        
         if UIInterfaceOrientation.portrait.isPortrait == false{
             
             setFiledtType.searchBar.snp.makeConstraints{(make) in
@@ -106,6 +105,9 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillHide, object: nil)
+        
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             
             if let split = self.splitViewController {
@@ -127,25 +129,47 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
+        
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.5)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.changeDirection), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
     }
     
+    //Set the logic, take the UI value, the relative value is tomorrow again.im.bussy.....
     func onOrientationChange(notification: NSNotification){
-        
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet)
+        guard let userInfo = notification.userInfo as? [String: Any] else {
+            return
+        }
+        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+            return
+        }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:keyboardInfo.cgRectValue.height+40)
         NotificationCenter.default.removeObserver(self,
                                                   name: .UIApplicationDidBecomeActive,
                                                   object: nil)
         
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any] else {
+            return
+        }
+        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+            return
+        }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:keyboardInfo.cgRectValue.height+40)
+    }
+    @objc private func keyboardWillhide(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any] else {
+            return
+        }
+        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+            return
+        }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:keyboardInfo.cgRectValue.height+40)
     }
     
     //NavigationController-----------------------------------------

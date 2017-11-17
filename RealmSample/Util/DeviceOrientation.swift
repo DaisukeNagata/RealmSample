@@ -12,17 +12,18 @@ import RxSwift
 
 struct DeviceOrientation {
     
-    static func deviceOrientation(uvc:UIViewController,table:UITableView,setFiledtType:MagnificationView,textSet:UITextField){
+    static func deviceOrientation(uvc:UIViewController,table:UITableView,setFiledtType:MagnificationView,textSet:UITextField,size1:CGFloat){
         let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
         
         let uvc = uvc as? ViewController
+        
         if UIDeviceOrientationIsLandscape(deviceOrientation) {
             
             let frame = CGRect(x:iphoneSize.current.size4,y: iphoneSize.current.size3, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             RxNotification.rxNotification.Rxnotification(button: uvc ,frame: frame)
             
-        } else if UIDeviceOrientationIsPortrait(deviceOrientation){
-            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.current.size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+        } else {
+            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1+40, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             RxNotification.rxNotification.Rxnotification(button: uvc , frame: frame)
             
         }
@@ -48,7 +49,7 @@ struct DeviceOrientation {
                     make.height.equalTo(textSet).multipliedBy(1.7)
                 }
                 
-                let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-iphoneSize.current.size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+                let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
                 RxNotification.rxNotification.Rxnotification(button: uvc, frame: frame)
             }
         }
