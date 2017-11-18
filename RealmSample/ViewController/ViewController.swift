@@ -104,8 +104,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
-        let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
+
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             
             if let split = self.splitViewController {
@@ -113,15 +112,8 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.preferredDisplayMode = .allVisible
                 tableViewSetting.frame = CGRect(x:0,y:220,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                
-                if UIDeviceOrientationIsLandscape(deviceOrientation) {
-                    
-                     DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
-                    
-                }else{
-                    
-                     DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/1.5)
-                    
-                }
+                DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
+
             }
             
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
@@ -132,17 +124,9 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.maximumPrimaryColumnWidth = 800
                 split.preferredPrimaryColumnWidthFraction = 0.5
                 tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-                
-                let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
-                if UIDeviceOrientationIsLandscape(deviceOrientation) {
+                                    
+                DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
                     
-                    DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
-                    
-                }else{
-                    
-                    DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/1.8)
-                    
-                }
             }
         }
     }

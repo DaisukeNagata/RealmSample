@@ -31,7 +31,6 @@
 		BBD11EE11E8C085C00EEF83A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BBD11EE31E8C09E800EEF83A /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBDFB7211F1A3713008C424A /* ViewController22.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFB7201F1A3713008C424A /* ViewController22.swift */; };
-		BBE664261E89905C00529258 /* iphoneSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE664251E89905C00529258 /* iphoneSize.swift */; };
 		BBF0FE581E99173900EFD61A /* GoziRaizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE571E99173900EFD61A /* GoziRaizer.swift */; };
 		BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE591E99174400EFD61A /* RaizerPaty.swift */; };
 		BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE5B1E99175900EFD61A /* Color.swift */; };
@@ -86,7 +85,6 @@
 		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
 		BBDFB7201F1A3713008C424A /* ViewController22.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController22.swift; sourceTree = "<group>"; };
 		BBE664211E896E9500529258 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		BBE664251E89905C00529258 /* iphoneSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iphoneSize.swift; sourceTree = "<group>"; };
 		BBF0FE571E99173900EFD61A /* GoziRaizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoziRaizer.swift; path = UIparts/GoziRaizer.swift; sourceTree = "<group>"; };
 		BBF0FE591E99174400EFD61A /* RaizerPaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RaizerPaty.swift; path = UIparts/RaizerPaty.swift; sourceTree = "<group>"; };
 		BBF0FE5B1E99175900EFD61A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				BBF0FE5B1E99175900EFD61A /* Color.swift */,
-				BBE664251E89905C00529258 /* iphoneSize.swift */,
 				BB880A921E8E85180036D409 /* Size.swift */,
 				BB5045531EAA94E300161BFE /* UsageMemory.swift */,
 				BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */,
@@ -445,7 +442,6 @@
 				BB5DE3801E8BDAE800245D83 /* MagnificationCell.swift in Sources */,
 				BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */,
 				BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */,
-				BBE664261E89905C00529258 /* iphoneSize.swift in Sources */,
 				BB5DE37A1E8BDA3E00245D83 /* TextField.swift in Sources */,
 				BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */,
 				BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */,
