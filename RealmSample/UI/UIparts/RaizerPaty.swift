@@ -27,7 +27,7 @@ class RaizerPaty:SKScene{
             
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
             
-            self.view?.frame = CGRect(x:280,y:UIScreen.main.bounds.height/4.5,width:UIScreen.main.bounds.width/3,height:50)
+            self.view?.frame = CGRect(x:280,y:UIApplication.shared.statusBarFrame.size.height+125,width:UIScreen.main.bounds.width/3,height:50)
             
         }
 

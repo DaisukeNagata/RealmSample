@@ -34,7 +34,7 @@ class GoziRaizer: UIView {
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
             
             self.line.move(to: CGPoint(x: 0, y: 44))
-            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width , y:UIApplication.shared.statusBarFrame.size.height+310))
+            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:UIApplication.shared.statusBarFrame.size.height+300))
             
         }
 

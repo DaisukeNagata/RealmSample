@@ -100,10 +100,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
             make.centerX.equalToSuperview().multipliedBy(1.5)
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillHide, object: nil)
@@ -114,6 +110,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.delegate = self
                 split.preferredDisplayMode = .allVisible
                 tableViewSetting.frame = CGRect(x:0,y:220,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+                DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
             }
             
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
@@ -124,24 +121,19 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.maximumPrimaryColumnWidth = 800
                 split.preferredPrimaryColumnWidthFraction = 0.5
                 tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
+                DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
             }
             
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
-        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.changeDirection), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
-    }
-    
-    //Set the logic, take the UI value, the relative value is tomorrow again.im.bussy.....
     func onOrientationChange(notification: NSNotification){
         let userInfo = notification.userInfo as? [String: Any]
         let keyboardInfo = userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        
+        guard keyboardInfo?.cgRectValue.height != nil else {
+            return
+        }
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
         NotificationCenter.default.removeObserver(self,
                                                   name: .UIApplicationDidBecomeActive,
@@ -171,19 +163,5 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         
         viewModel.clearSuti()
         
-    }
-    
-    //Actual running of turning behavior
-    func changeDirection(notification: NSNotification){
-        
-        if(mbText.backgroundColor == UIColor.white){
-            
-            mbText.backgroundColor = UIColor.blue
-            
-        }else if ( mbText.backgroundColor == UIColor.blue){
-            
-            mbText.backgroundColor = UIColor.white
-            
-        }
     }
 }
