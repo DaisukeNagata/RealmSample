@@ -28,13 +28,13 @@ class GoziRaizer: UIView {
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             
             self.line.move(to: CGPoint(x: UIScreen.main.bounds.width/2 , y: 44))
-            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:190.0))
+            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width-50 , y:UIApplication.shared.statusBarFrame.size.height+170))
 
             
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
             
             self.line.move(to: CGPoint(x: 0, y: 44))
-            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width , y:330.0))
+            self.line.addLine(to: CGPoint(x: UIScreen.main.bounds.width , y:UIApplication.shared.statusBarFrame.size.height+310))
             
         }
 

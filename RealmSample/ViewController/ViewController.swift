@@ -131,8 +131,8 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.5)
+
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.changeDirection), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
@@ -140,13 +140,9 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     
     //Set the logic, take the UI value, the relative value is tomorrow again.im.bussy.....
     func onOrientationChange(notification: NSNotification){
-        guard let userInfo = notification.userInfo as? [String: Any] else {
-            return
-        }
-        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
-            return
-        }
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:keyboardInfo.cgRectValue.height+40)
+        let userInfo = notification.userInfo as? [String: Any]
+        let keyboardInfo = userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
         NotificationCenter.default.removeObserver(self,
                                                   name: .UIApplicationDidBecomeActive,
                                                   object: nil)
@@ -154,22 +150,14 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Any] else {
-            return
-        }
-        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
-            return
-        }
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:keyboardInfo.cgRectValue.height+40)
+        let userInfo = notification.userInfo as? [String: Any]
+        let keyboardInfo = userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
     }
     @objc private func keyboardWillhide(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Any] else {
-            return
-        }
-        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
-            return
-        }
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:keyboardInfo.cgRectValue.height+40)
+        let userInfo = notification.userInfo as? [String: Any]
+        let keyboardInfo = userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
     }
     
     //NavigationController-----------------------------------------

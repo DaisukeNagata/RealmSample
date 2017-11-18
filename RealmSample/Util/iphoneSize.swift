@@ -31,8 +31,7 @@ struct iphoneSize {
     {
 
         //Set the logic, take the UI value, the relative value is tomorrow again.im.bussy.....
-        //アニメーションの線の設定
-        static var size2 : CGFloat{get}
+
         //横の画面の Return設定
         static var size3 :  CGFloat{get}
         static var size4 : CGFloat{get}
@@ -43,7 +42,6 @@ struct iphoneSize {
     struct iphone : iphoneProtocol
     {
         //Set the logic, take the UI value, the relative value is tomorrow again.im.bussy.....
-        static var size2: CGFloat{return UIScreen.main.bounds.height/4.5}
         static var size3: CGFloat{return UIScreen.main.bounds.width/4}
         static var size4: CGFloat{return 10}
     }
