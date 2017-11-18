@@ -19,7 +19,7 @@ struct DeviceOrientation {
         
         if UIDeviceOrientationIsLandscape(deviceOrientation) {
             
-            let frame = CGRect(x:iphoneSize.current.size4,y: iphoneSize.current.size3, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1+40, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
             RxNotification.rxNotification.Rxnotification(button: uvc ,frame: frame)
             
         } else {
