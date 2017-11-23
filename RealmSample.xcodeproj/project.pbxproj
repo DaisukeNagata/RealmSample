@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB487EA11FC77E1C00DA7713 /* MagnificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB487EA01FC77E1C00DA7713 /* MagnificationCell.swift */; };
 		BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5045531EAA94E300161BFE /* UsageMemory.swift */; };
 		BB50FB6C1F1B2E3200367E27 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */; };
 		BB5DE3741E8BD9C000245D83 /* MagnificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */; };
@@ -15,7 +16,6 @@
 		BB5DE37A1E8BDA3E00245D83 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE3771E8BDA3E00245D83 /* TextField.swift */; };
 		BB5DE37C1E8BDA6A00245D83 /* MultithreadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE37B1E8BDA6A00245D83 /* MultithreadModel.swift */; };
 		BB5DE37E1E8BDA9A00245D83 /* MagnificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE37D1E8BDA9A00245D83 /* MagnificationViewModel.swift */; };
-		BB5DE3801E8BDAE800245D83 /* MagnificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5DE37F1E8BDAE800245D83 /* MagnificationCell.swift */; };
 		BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB68DBEB1E8A887100212102 /* RealmModel.swift */; };
 		BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6DE63B1E8FB47900F1B420 /* SearchBar.swift */; };
 		BB76F45F1EDDBBF900162E6F /* AlertVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76F45E1EDDBBF900162E6F /* AlertVIew.swift */; };
@@ -62,6 +62,7 @@
 		BB385C971DB25A0C00253038 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		BB487EA01FC77E1C00DA7713 /* MagnificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagnificationCell.swift; path = RealmSample/Table/Cell/MagnificationCell.swift; sourceTree = SOURCE_ROOT; };
 		BB5045531EAA94E300161BFE /* UsageMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageMemory.swift; sourceTree = "<group>"; };
 		BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
 		BB5DE3731E8BD9C000245D83 /* MagnificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationView.swift; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		BB5DE3771E8BDA3E00245D83 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = UIparts/TextField.swift; sourceTree = "<group>"; };
 		BB5DE37B1E8BDA6A00245D83 /* MultithreadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultithreadModel.swift; sourceTree = "<group>"; };
 		BB5DE37D1E8BDA9A00245D83 /* MagnificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnificationViewModel.swift; sourceTree = "<group>"; };
-		BB5DE37F1E8BDAE800245D83 /* MagnificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagnificationCell.swift; path = RealmSample/TableView/Cell/MagnificationCell.swift; sourceTree = SOURCE_ROOT; };
 		BB68DBEB1E8A887100212102 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		BB6DE63B1E8FB47900F1B420 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = UIparts/SearchBar.swift; sourceTree = "<group>"; };
 		BB76F45E1EDDBBF900162E6F /* AlertVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertVIew.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				BB4FFBB81E88320B0053C51A /* ViewController */,
 				BB68DBE81E8A742D00212102 /* Model */,
 				BBF0FE5D1E99179200EFD61A /* Paticle */,
-				BBB360DE1E89563400E81BF5 /* TableView */,
+				BBB360DE1E89563400E81BF5 /* Table */,
 			);
 			path = RealmSample;
 			sourceTree = "<group>";
@@ -211,20 +211,20 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
-		BBB360DE1E89563400E81BF5 /* TableView */ = {
+		BBB360DE1E89563400E81BF5 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				BBB360E31E89565D00E81BF5 /* Cell */,
 				BBB360DF1E89563400E81BF5 /* TableDataSource.swift */,
 				BBB360E01E89563400E81BF5 /* TableDelegate.swift */,
+				BBB360E31E89565D00E81BF5 /* Cell */,
 			);
-			path = TableView;
+			path = Table;
 			sourceTree = "<group>";
 		};
 		BBB360E31E89565D00E81BF5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				BB5DE37F1E8BDAE800245D83 /* MagnificationCell.swift */,
+				BB487EA01FC77E1C00DA7713 /* MagnificationCell.swift */,
 			);
 			name = Cell;
 			path = RealmSample/Cell;
@@ -434,12 +434,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */,
+				BB487EA11FC77E1C00DA7713 /* MagnificationCell.swift in Sources */,
 				BB9E1B5D1E952F7800A43385 /* RxSearchBar.swift in Sources */,
 				BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */,
 				BB880A931E8E85180036D409 /* Size.swift in Sources */,
 				BBDFB7211F1A3713008C424A /* ViewController22.swift in Sources */,
 				BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */,
-				BB5DE3801E8BDAE800245D83 /* MagnificationCell.swift in Sources */,
 				BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */,
 				BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */,
 				BB5DE37A1E8BDA3E00245D83 /* TextField.swift in Sources */,
