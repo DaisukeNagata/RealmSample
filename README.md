@@ -19,7 +19,7 @@ http://qiita.com/daisukenagata/items/f4cf06457b17053dbd7f
 合計値が１０００の数を越えるとアニメーションが発生します。
 
 ## ios11.1 Realm_Rx_Sample Class Diagram & Sequence Diagram
-<img src="https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/ClassDesin.png?raw=true" width="350px" height="400px"><img src="https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/Sequence%20Diagram.png" width="350px" height="400px">
+<img src="https://github.com/daisukenagata/RealmSample/blob/master/RealmSample/design/ClassDesin.png?raw=true" width="350px" height="400px"><img src="https://github.com/daisukenagata/RealmSample/blob/master/RealmSample/design/Sequence%20Diagram.png" width="350px" height="400px">
 
 
 # SplitView
