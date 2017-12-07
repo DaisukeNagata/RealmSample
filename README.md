@@ -1,5 +1,7 @@
 # RealmSample Xcode 9.1
 
+##動作確認
+git clone https://github.com/daisukenagata/RealmSample.git
 
 ## 参考記事
 <details>
