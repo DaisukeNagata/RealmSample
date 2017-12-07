@@ -29,4 +29,4 @@ http://qiita.com/daisukenagata/items/f4cf06457b17053dbd7f
 
 # Realm_Rx_Sample
 
-![](https://media.githubusercontent.com/media/daisukenagata/Realm_Rx_Sample/master/RealmSample/design/movie.gif)
+![](https://github.com/daisukenagata/RealmSample/blob/master/Movie.gif?raw=true)
