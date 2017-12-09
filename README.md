@@ -1,8 +1,7 @@
-# RealmSample Xcode 9.1
-git でリポジトリを確認
-
+# RealmSample Xcode 9.2
 
 ## 動作確認
+git でcloneで確認願います。
 git clone https://github.com/daisukenagata/RealmSample.git
 
 ## 参考記事
