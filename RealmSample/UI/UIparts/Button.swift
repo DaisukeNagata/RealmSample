@@ -12,13 +12,13 @@ import UIKit
 class Button: UIButton {
     
     //キーボードのButton設定
-    let button = UIButton(type: UIButtonType.custom)
+    let button = UIButton(type: UIButton.ButtonType.custom)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         //キーボードを閉じる生成。
-        button.setTitle("Return", for: UIControlState.normal)
-        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        button.setTitle("Return", for: UIControl.State.normal)
+        button.setTitleColor(UIColor.black, for: UIControl.State.normal)
         button.adjustsImageWhenHighlighted = false
     }
     

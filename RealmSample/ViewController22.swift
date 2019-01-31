@@ -35,16 +35,16 @@ class ViewController22: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(notification:)), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
-    func onOrientationChange(notification: NSNotification){
+    @objc func onOrientationChange(notification: NSNotification){
         
        tableViewSetting.reloadData()
        DeviceOrientation.deviceOrientationSecound(table: tableViewSetting)
         
         NotificationCenter.default.removeObserver(self,
-                              name: .UIApplicationDidBecomeActive,
+                              name: UIApplication.didBecomeActiveNotification,
                               object: nil)
         
     }

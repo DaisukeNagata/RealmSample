@@ -41,11 +41,11 @@ struct DeviceOrientation {
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation
             
-            if UIDeviceOrientationIsLandscape(deviceOrientation) {
+            if deviceOrientation.isLandscape {
                 
                 table.frame = CGRect(x:-50,y:0,width:UIScreen.main.bounds.height*2,height:UIScreen.main.bounds.width)
                 
-            } else if UIDeviceOrientationIsPortrait(deviceOrientation){
+            } else if deviceOrientation.isPortrait{
                 
                 
                 table.frame = CGRect(x:0,y:64,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)

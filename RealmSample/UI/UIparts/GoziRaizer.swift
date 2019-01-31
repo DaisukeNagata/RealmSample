@@ -62,28 +62,28 @@ class GoziRaizer: UIView {
     func shapeLayer(shape:CAShapeLayer)->CAShapeLayer{
         shape.lineWidth = 4
         shape.strokeColor = UIColor.blue.cgColor
-        shape.fillRule = kCAFillRuleEvenOdd
+        shape.fillRule = CAShapeLayerFillRule.evenOdd
         shape.path = line.cgPath
         self.layer.addSublayer(shape)
         return shape
     }
     func animationDraw(animation:CABasicAnimation)->CABasicAnimation{
         animation.duration = 1.0
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         animation.fromValue = 0.0
         animation.toValue = 1.0
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = true
         return animation
     }
-    func update(up: Timer){
+    @objc func update(up: Timer){
         up.invalidate()
         let scene = RaizerPaty(size: skview.bounds.size)
         skview.presentScene(scene)
         self.view.addSubview(skview)
         self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update2(up:)), userInfo: nil, repeats: true)
     }
-    func update2(up: Timer){
+    @objc func update2(up: Timer){
         up.invalidate()
         self.removeFromSuperview()
     }

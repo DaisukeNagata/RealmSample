@@ -14,7 +14,7 @@ class MagnificationCell: UITableViewCell {
     var cellLabel = UILabel()
     var kakauLabel = UILabel()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String!){
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         titleLabel = UILabel(frame: CGRect(x:Size.labelWidthX, y:0, width:UIScreen.main.bounds.width, height:Size.labelHeight))

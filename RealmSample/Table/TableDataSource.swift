@@ -30,7 +30,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.clearSuti()
             RealmSetting().RealmDeleate(indexPath:indexPath)
@@ -91,7 +91,7 @@ extension ViewController22: UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             RealmSetting().RealmDeleate(indexPath:indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)

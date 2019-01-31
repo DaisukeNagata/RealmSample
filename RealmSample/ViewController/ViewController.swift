@@ -101,9 +101,9 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange), name: UIDevice.orientationDidChangeNotification, object: nil)
 
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             
@@ -131,11 +131,11 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         }
     }
 
-    func onOrientationChange(notification: NSNotification)
+    @objc func onOrientationChange(notification: NSNotification)
     {
        
         NotificationCenter.default.removeObserver(self,
-                                                  name: .UIApplicationDidBecomeActive,
+                                                  name: UIApplication.didBecomeActiveNotification,
                                                   object: nil)
         self.tableViewSetting.reloadData()
     }
@@ -143,13 +143,13 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     @objc private func keyboardWillShow(_ notification: Notification)
     {
         let userInfo = notification.userInfo as? [String: Any]
-        let keyboardInfo = userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        let keyboardInfo = userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
     }
     @objc private func keyboardWillhide(_ notification: Notification)
     {
         let userInfo = notification.userInfo as? [String: Any]
-        let keyboardInfo = userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        let keyboardInfo = userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
     }
     

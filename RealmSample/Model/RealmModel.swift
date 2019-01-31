@@ -12,10 +12,10 @@ import RealmSwift
 
 class realmDataSet: Object {
     
-    dynamic var now = NSDate()
-    dynamic var ID = String()
-    dynamic var Message = String()
-    dynamic var Message2 = String()
+    @objc dynamic var now = NSDate()
+    @objc dynamic var ID = String()
+    @objc dynamic var Message = String()
+    @objc dynamic var Message2 = String()
 
 }
 
