@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB29B65F2203BADE00102321 /* ViewController22.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB29B65E2203BADE00102321 /* ViewController22.swift */; };
 		BB487EA11FC77E1C00DA7713 /* MagnificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB487EA01FC77E1C00DA7713 /* MagnificationCell.swift */; };
 		BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5045531EAA94E300161BFE /* UsageMemory.swift */; };
 		BB50FB6C1F1B2E3200367E27 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB50FB6B1F1B2E3100367E27 /* DeviceOrientation.swift */; };
@@ -30,7 +31,6 @@
 		BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E01E89563400E81BF5 /* TableDelegate.swift */; };
 		BBD11EE11E8C085C00EEF83A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BBD11EE31E8C09E800EEF83A /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE664211E896E9500529258 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BBDFB7211F1A3713008C424A /* ViewController22.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFB7201F1A3713008C424A /* ViewController22.swift */; };
 		BBF0FE581E99173900EFD61A /* GoziRaizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE571E99173900EFD61A /* GoziRaizer.swift */; };
 		BBF0FE5A1E99174400EFD61A /* RaizerPaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE591E99174400EFD61A /* RaizerPaty.swift */; };
 		BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0FE5B1E99175900EFD61A /* Color.swift */; };
@@ -59,6 +59,7 @@
 		24CA6879723659939093F82C /* Pods_RealmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACE70D96CECE52D0E276D39 /* Pods-RealmSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSample/Pods-RealmSample.release.xcconfig"; sourceTree = "<group>"; };
 		BB0868211D9FFF560044A23B /* RealmSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB29B65E2203BADE00102321 /* ViewController22.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController22.swift; path = ViewController/ViewController22.swift; sourceTree = "<group>"; };
 		BB385C971DB25A0C00253038 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BB385C991DB25A1E00253038 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BB385C9B1DB25BD000253038 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		BBB360D71E8955D100E81BF5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController/ViewController.swift; sourceTree = "<group>"; };
 		BBB360DF1E89563400E81BF5 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
-		BBDFB7201F1A3713008C424A /* ViewController22.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController22.swift; sourceTree = "<group>"; };
 		BBE664211E896E9500529258 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		BBF0FE571E99173900EFD61A /* GoziRaizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoziRaizer.swift; path = UIparts/GoziRaizer.swift; sourceTree = "<group>"; };
 		BBF0FE591E99174400EFD61A /* RaizerPaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RaizerPaty.swift; path = UIparts/RaizerPaty.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB360D71E8955D100E81BF5 /* ViewController.swift */,
-				BBDFB7201F1A3713008C424A /* ViewController22.swift */,
+				BB29B65E2203BADE00102321 /* ViewController22.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -423,8 +423,8 @@
 				BB487EA11FC77E1C00DA7713 /* MagnificationCell.swift in Sources */,
 				BB9E1B5D1E952F7800A43385 /* RxSearchBar.swift in Sources */,
 				BBF0FE5C1E99175900EFD61A /* Color.swift in Sources */,
+				BB29B65F2203BADE00102321 /* ViewController22.swift in Sources */,
 				BB880A931E8E85180036D409 /* Size.swift in Sources */,
-				BBDFB7211F1A3713008C424A /* ViewController22.swift in Sources */,
 				BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */,
 				BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */,
 				BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */,
