@@ -1,14 +1,9 @@
-# RealmSample Xcode 9.2
+# RealmSample Xcode 10.1 Swift4.2
 
 ## 動作確認
-git でcloneで確認願います。
+carthage update --platform iOS
 
-git-lfsも必要です。
-
-snapkitのアップデートも必要です。carthage update --platform iOS
-
-git clone https://github.com/daisukenagata/RealmSample.git
-
+pod install or pod update
 
 
 ## 参考記事
