@@ -93,7 +93,7 @@
 		BBF0FEB91E99265400EFD61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RealmSample/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		BBF0FEC51E99298800EFD61A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBF0FEC71E99299200EFD61A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BBF0FECB1E992B9F00EFD61A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RealmSample/Info.plist; sourceTree = "<group>"; };
+		BBF0FECB1E992B9F00EFD61A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7A7CBB546F90DD5CC24677A /* Pods-RealmSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSample.release.xcconfig"; path = "Target Support Files/Pods-RealmSample/Pods-RealmSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,7 +128,6 @@
 				902C6EFF94F74DFA54E2B7B4 /* Pods-RealmSample.debug.xcconfig */,
 				F7A7CBB546F90DD5CC24677A /* Pods-RealmSample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -136,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				BB0868231D9FFF560044A23B /* RealmSample */,
-				BBF0FECB1E992B9F00EFD61A /* Info.plist */,
 				BB0868221D9FFF560044A23B /* Products */,
 				157E2620345369DA490D5EAE /* Frameworks */,
 				60E0D04CBBD5616F73A29161 /* Pods */,
@@ -156,6 +154,7 @@
 			children = (
 				BBF0FEC51E99298800EFD61A /* AppDelegate.swift */,
 				BBF0FEC71E99299200EFD61A /* Assets.xcassets */,
+				BBF0FECB1E992B9F00EFD61A /* Info.plist */,
 				BBF0FE601E99180000EFD61A /* Base.lproj */,
 				BB9E1B531E952F5000A43385 /* Realm */,
 				BB9E1B561E952F7800A43385 /* Rx */,
