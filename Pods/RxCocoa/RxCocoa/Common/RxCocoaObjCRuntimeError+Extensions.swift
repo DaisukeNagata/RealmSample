@@ -148,6 +148,7 @@
                     return .observingPerformanceSensitiveMessages(target: target)
                 case .observingMessagesWithUnsupportedReturnType:
                     return .observingMessagesWithUnsupportedReturnType(target: target)
+                @unknown default: break
                 }
             }
             
