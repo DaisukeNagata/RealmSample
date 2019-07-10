@@ -1,4 +1,4 @@
-# RealmSample Xcode 10.1 Swift4.2
+# RealmSample Xcode 10.2 Swift5.0
 
 ## 動作確認
 carthage update --platform iOS
