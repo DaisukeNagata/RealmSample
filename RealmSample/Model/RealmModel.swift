@@ -6,9 +6,7 @@
 //  Copyright © 2017年 永田大祐. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
-
 
 class realmDataSet: Object {
     
