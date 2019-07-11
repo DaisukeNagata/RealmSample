@@ -12,8 +12,7 @@ import RxSwift
 
 struct DeviceOrientation {
     
-    static func deviceOrientation(uvc:UIViewController,table:UITableView,setFiledtType:MagnificationView,textSet:UITextField,size1:CGFloat)
-    {
+    static func deviceOrientation(uvc:UIViewController,table:UITableView,setFiledtType:MagnificationView,textSet:UITextField,size1:CGFloat) {
         
         let uvc = uvc as? ViewController
         
@@ -35,8 +34,7 @@ struct DeviceOrientation {
         }
     }
     
-    static func deviceOrientationSecound(table:UITableView)
-    {
+    static func deviceOrientationSecound(table:UITableView) {
         
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
             let deviceOrientation: UIDeviceOrientation!  = UIDevice.current.orientation

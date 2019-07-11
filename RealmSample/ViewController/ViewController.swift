@@ -16,7 +16,7 @@ import RxCocoa
 class ViewController: UIViewController,UISearchBarDelegate,UISplitViewControllerDelegate{
     
     var viewModel: MagnificationViewModel?
-    var setFiledtType = MagnificationView()
+    var setFiledtType: MagnificationView?
     var textField = UITextField()
     var now = NSDate()
     var totalCount: Double = 0
@@ -31,6 +31,8 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         super.viewDidLoad()
         
         viewModel = MagnificationViewModel()
+        setFiledtType = MagnificationView()
+        guard let sType = setFiledtType else { return }
         viewModel?.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
@@ -38,28 +40,28 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         tableViewSetting.dataSource = self
         tableViewSetting.delegate = self
         tableViewSetting.prefetchDataSource = self
-        setFiledtType.searchBar.delegate = self
+        sType.searchBar.delegate = self
         view.addSubview(tableViewSetting)
-        
+
         tableViewSetting.register(MagnificationCell.self, forCellReuseIdentifier: "Cell")
         tableViewSetting.reloadData()
-        
-        view.addSubview(setFiledtType.searchBar)
-        view.addSubview(setFiledtType.setField)
-        view.addSubview(setFiledtType.view)
-        view.addSubview(setFiledtType.threadLabel)
-        view.addSubview(setFiledtType.threadLabelTwo)
-        
+
+        view.addSubview(sType.searchBar)
+        view.addSubview(sType.setField)
+        view.addSubview(sType.view)
+        view.addSubview(sType.threadLabel)
+        view.addSubview(sType.threadLabelTwo)
+
         //RX------------------------------------------------------------------------------------------------------------------------------
-        setFiledtType.button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.setFiledtType.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
+        setFiledtType?.button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: sType.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
         
-        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setField,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
+        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:sType.setField,threadLabel: sType.threadLabel,threadLabelTwo: sType.threadLabelTwo)
         
-        RxSearchBar.rxSearchBar.rxSearchBar(search: setFiledtType.searchBar, text: setFiledtType.searchBar.text!, table: tableViewSetting)
+        RxSearchBar.rxSearchBar.rxSearchBar(search: sType.searchBar, text: sType.searchBar.text!, table: tableViewSetting)
         //RX------------------------------------------------------------------------------------------------------------------------------
         if UIInterfaceOrientation.portrait.isPortrait == false{
             
-            setFiledtType.searchBar.snp.makeConstraints{(make) in
+            sType.searchBar.snp.makeConstraints{(make) in
                 make.top.equalTo(textSet.snp.top).multipliedBy(0.45)
                 make.centerX.equalToSuperview()
                 make.width.equalTo(self.view)
@@ -67,7 +69,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
             }
             
         }else{
-            setFiledtType.searchBar.snp.makeConstraints{(make) in
+            sType.searchBar.snp.makeConstraints{(make) in
                 make.top.equalTo(textSet.snp.top).multipliedBy(0.65)
                 make.centerX.equalToSuperview()
                 make.width.equalTo(self.view)
@@ -75,30 +77,30 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
             }
             
         }
-        setFiledtType.view.snp.makeConstraints{(make) in
+        sType.view.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
-            make.right.equalTo(setFiledtType.searchBar).inset(0)
-            make.width.equalTo(setFiledtType.searchBar)
+            make.right.equalTo(sType.searchBar).inset(0)
+            make.width.equalTo(sType.searchBar)
             make.height.equalTo(textSet).multipliedBy(4)
         }
-        setFiledtType.setField.snp.makeConstraints{(make) in
+        sType.setField.snp.makeConstraints{(make) in
             make.top.equalTo(textSet).offset(3)
-            make.right.equalTo(setFiledtType.searchBar).inset(0)
-            make.width.equalTo(setFiledtType.searchBar).multipliedBy(0.5)
+            make.right.equalTo(sType.searchBar).inset(0)
+            make.width.equalTo(sType.searchBar).multipliedBy(0.5)
             make.height.equalTo(textSet)
         }
-        setFiledtType.threadLabel.snp.makeConstraints{(make) in
+        sType.threadLabel.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
-            make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
+            make.height.equalTo(sType.view).multipliedBy(0.3)
         }
-        setFiledtType.threadLabelTwo.snp.makeConstraints{(make) in
+        sType.threadLabelTwo.snp.makeConstraints{(make) in
             make.top.equalTo(textSet.snp.bottom)
             make.width.equalTo(self.view).multipliedBy(0.5)
             make.centerY.equalToSuperview().multipliedBy(0.4)
             make.centerX.equalToSuperview().multipliedBy(1.5)
-            make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
+            make.height.equalTo(sType.view).multipliedBy(0.3)
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -111,7 +113,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.delegate = self
                 split.preferredDisplayMode = .allVisible
                 tableViewSetting.frame = CGRect(x:0,y:240,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-               DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
+               DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
 
             }
             
@@ -123,7 +125,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.maximumPrimaryColumnWidth = 800
                 split.preferredPrimaryColumnWidthFraction = 0.5
                 tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-                                    DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
+                                    DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
                     
             }
         }
@@ -137,17 +139,17 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     @objc private func keyboardWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo as? [String: Any]
         let keyboardInfo = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
-        guard let keyboard = keyboardInfo else { return }
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
+        guard let keyboard = keyboardInfo, let sType = setFiledtType else { return }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
     }
 
     @objc private func keyboardWillhide(_ notification: Notification) {
         let userInfo = notification.userInfo as? [String: Any]
         let keyboardInfo = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
-        guard let keyboard = keyboardInfo else { return }
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
+        guard let keyboard = keyboardInfo, let sType = setFiledtType else { return }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
     }
-    
+
     //NavigationController-----------------------------------------
     @IBAction func navigationTotal(_ sender: UIBarButtonItem) { AlertView().alert(view: self,now:now,tx:self.textSet,table:tableViewSetting) }
     
