@@ -116,7 +116,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
                 split.delegate = self
                 split.preferredDisplayMode = .allVisible
                 tableViewSetting.frame = CGRect(x:0,y:240,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-               DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
+               DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.2)
 
             }
             
