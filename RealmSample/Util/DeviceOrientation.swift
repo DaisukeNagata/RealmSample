@@ -17,8 +17,8 @@ struct DeviceOrientation {
         
         let uvc = uvc as? ViewController
         
-            let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1+40, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-            RxNotification.rxNotification.Rxnotification(button: uvc , frame: frame)
+        let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1+40, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+        RxNotification.rxNotification.Rxnotification(vc: uvc , frame: frame)
         
         
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
@@ -30,7 +30,7 @@ struct DeviceOrientation {
                     make.height.equalTo(textSet).multipliedBy(1.7)
 
                 let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
-                RxNotification.rxNotification.Rxnotification(button: uvc, frame: frame)
+                    RxNotification.rxNotification.Rxnotification(vc: uvc, frame: frame)
             }
         }
     }

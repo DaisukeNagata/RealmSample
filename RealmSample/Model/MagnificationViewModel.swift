@@ -16,7 +16,7 @@ protocol MagnificationModeling {
     
 }
 
-class MagnificationViewModel : MagnificationModeling {
+class MagnificationViewModel: MagnificationModeling {
     
     weak var vc: ViewController?
     func attachViewSet(vc: UIViewController) {
@@ -28,7 +28,7 @@ class MagnificationViewModel : MagnificationModeling {
         vc?.totalCount = 0
     }
     
-    func wari(Index:Int){
+    func wari(Index:Int ){
         
         if  vc?.setFiledtType.setField.text! != "0" &&  vc?.textSet.text! != "" && vc?.textSet.text! != nil  &&  vc?.setFiledtType.setField.text != nil {
             RealmSetting().RealmthreadLabel(text: ((Double( RealmModel.realm.usersSet[Index].ID))! / Double((vc?.setFiledtType.setField.text!)!)!).description, Index: Index)

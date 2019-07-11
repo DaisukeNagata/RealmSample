@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MagnificationView: UIView{
+class MagnificationView: UIView {
     
     var setField = TextField()
     let button = Button().button
@@ -17,11 +17,12 @@ class MagnificationView: UIView{
     var searchBar = SearchBar()
     var view = UIView()
     
-    override init (frame:CGRect){
+    override init (frame: CGRect){
         super.init(frame: frame)
+        self.frame = frame
     }
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     deinit {
         print("deinit2")

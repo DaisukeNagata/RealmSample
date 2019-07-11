@@ -15,12 +15,12 @@ class RxNotification {
     static var rxNotification = RxNotification()
     var dis = DisposeBag()
     
-    func Rxnotification(button:ViewController?,frame:CGRect)  {
+    func Rxnotification(vc: ViewController?,frame:CGRect)  {
         // オブザーバーでframeChange
          let willChangeFrame = NotificationCenter.default.rx.notification(UIResponder.keyboardWillChangeFrameNotification)
             .map { notification -> CGRect in
-                button?.button.frame = frame
-                UIApplication.shared.windows.last?.addSubview((button?.button)!)
+                vc?.setFiledtType.button.frame = frame
+                UIApplication.shared.windows.last?.addSubview((vc?.setFiledtType.button ?? UIButton()))
                 UIView.animate(withDuration: (((notification.userInfo! as NSDictionary).object(forKey: UIResponder.keyboardAnimationCurveUserInfoKey)!as AnyObject).doubleValue), delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
                 }, completion: { (complete) -> Void in
                 })

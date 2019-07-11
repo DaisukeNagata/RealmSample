@@ -17,7 +17,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     
     var viewModel: MagnificationViewModel?
     var setFiledtType = MagnificationView()
-    var button  = MagnificationView().button
     var textField = UITextField()
     var now = NSDate()
     var totalCount: Double = 0
@@ -31,6 +30,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = MagnificationViewModel()
         viewModel?.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
@@ -51,7 +51,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         view.addSubview(setFiledtType.threadLabelTwo)
         
         //RX------------------------------------------------------------------------------------------------------------------------------
-        button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
+        setFiledtType.button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: self.setFiledtType.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
         
         RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:setFiledtType.setField,threadLabel:setFiledtType.threadLabel,threadLabelTwo:setFiledtType.threadLabelTwo)
         

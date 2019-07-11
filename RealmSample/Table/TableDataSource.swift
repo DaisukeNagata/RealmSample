@@ -31,7 +31,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            viewModel?.clearSuti()
+            guard let model = viewModel else { return }
+            model.clearSuti()
             RealmSetting().RealmDeleate(indexPath:indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -39,18 +40,19 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let model = viewModel else { return }
         if textSet.text == "" || textSet.text == "0" {
-            viewModel?.clearSuti()
+            model.clearSuti()
             self.tableViewSetting.reloadData()
             RealmModel.realm.bool = true
             RealmSetting().RealmDeleate(indexPath:indexPath)
         } else if textSet.text == "1" {
-            viewModel?.clearSuti()
+            model.clearSuti()
             RealmModel.realm.bool = true
             RealmSetting().RealmAdd(text: textSet.text!, Index: indexPath, now: now)
         } else if textSet.text != "" {
-            viewModel?.clearSuti()
-            viewModel?.cast(Index: indexPath.row)
+            model.clearSuti()
+            model.cast(Index: indexPath.row)
         }
         self.tableViewSetting.reloadData()
     }
