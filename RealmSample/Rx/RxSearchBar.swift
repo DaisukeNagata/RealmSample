@@ -26,7 +26,7 @@ struct RxSearchBar {
                         .filter("ID BEGINSWITH %@",  search.text!)
                         .sorted(byKeyPath: "ID", ascending: false)
                     
-                }else if  search.text! == ""{
+                }else if  search.text == ""{
                     
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
                         .sorted(byKeyPath: "now", ascending: false)

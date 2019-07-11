@@ -18,7 +18,7 @@ class MagnificationCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         titleLabel = UILabel(frame: CGRect(x:Size.labelWidthX, y:0, width:UIScreen.main.bounds.width, height:Size.labelHeight))
-        titleLabel.text = "";
+        titleLabel.text = ""
         titleLabel.font = UIFont.systemFont(ofSize: Size.labelFont)
         
         self.addSubview(titleLabel)

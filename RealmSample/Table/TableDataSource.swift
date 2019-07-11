@@ -15,15 +15,14 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MagnificationCell
         cell.cellMethod(indexPath: indexPath)
         
-        for _ in 0...0{
-            //RealmNotification
-            RealmSetting.realmSetting.RealmNOtification(views: self)
-            totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
-            totalTax?.text? =  totalCount.description
-            //HowTo Usage
-            mbText?.text = report_memory()
-        }
         cell.kakauLabel.numberOfLines = 2
+
+        //RealmNotification
+        RealmSetting.realmSetting.RealmNOtification(views: self)
+        totalCount = realmSusiki().magnificationSet(Index: indexPath.row)
+        totalTax?.text? =  totalCount.description
+        //HowTo Usage
+        mbText?.text = report_memory()
 
         return cell
     }
@@ -82,16 +81,10 @@ extension ViewController22: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MagnificationCell
         cell.cellMethod(indexPath: indexPath)
-        
-        for _ in 0...0{
-            //RealmNotification
-            RealmSetting.realmSetting.RealmNOtification22(views: self)
-
-        }
+        RealmSetting.realmSetting.RealmNOtification22(views: self)
         return cell
     }
-    
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             RealmSetting().RealmDeleate(indexPath:indexPath)
