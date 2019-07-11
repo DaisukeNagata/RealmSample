@@ -15,9 +15,9 @@ struct RxTextFiled{
     static var rxTextFiled = RxTextFiled()
     var dis = DisposeBag()
     
-    func RxrextFiled(textSet:UITextField,textFFiled:UITextField,setFiled:UITextField,threadLabel:UILabel,threadLabelTwo:UILabel)  {
+    func RxrextFiled(textSet:UITextField,setFiled:UITextField,threadLabel:UILabel,threadLabelTwo:UILabel)  {
         
-        Observable.combineLatest(textSet.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
+        Observable.combineLatest(textSet.rx.text.orEmpty,setFiled.rx.text.orEmpty) {
             textValue1 , textValue2-> Int in
             return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
             }
@@ -25,7 +25,7 @@ struct RxTextFiled{
             .bind(to: threadLabel.rx.text)
             .disposed(by: dis)
         
-        Observable.combineLatest(setFiled.rx.text.orEmpty,textFFiled.rx.text.orEmpty) {
+        Observable.combineLatest(setFiled.rx.text.orEmpty,setFiled.rx.text.orEmpty) {
             textValue1 , textValue2-> Int in
             return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0)
             }

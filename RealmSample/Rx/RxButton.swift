@@ -14,16 +14,17 @@ struct RxButton {
     
     static var rxButton = RxButton()
  
-    func Rxbutton(sender: UIButton?,textSet:UITextField?,viewModel:MagnificationViewModel?,views:ViewController?,now:NSDate?){
+    func Rxbutton(sender: UIButton?,viewModel: MagnificationViewModel?,views: ViewController?,now:NSDate?){
         DispatchQueue.main.async { () -> Void in
-            if textSet?.text! != ""{
+            if views?.textSet?.text! != ""{
                 viewModel?.clearSuti()
-                RealmSetting().RealmCreate(now: now!, text: (textSet?.text!)!,text2: "")
+                RealmSetting().RealmCreate(now: now!, text: views?.textSet?.text ?? "" ,text2: "")
                 views?.tableViewSetting.reloadData()
                 RealmModel.realm.bool = true
+                views?.textSet?.resignFirstResponder()
+                views?.setFiledtType?.setField.resignFirstResponder()
+                sender?.removeFromSuperview()
             }
         }
-        textSet?.resignFirstResponder()
-        sender?.removeFromSuperview()
     }
 }

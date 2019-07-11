@@ -27,19 +27,17 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     var setFiledtType: MagnificationView?
     var viewModel: MagnificationViewModel?
 
-    private var textField: UITextField?
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textField = UITextField()
+    
         setFiledtType = MagnificationView()
         viewModel = MagnificationViewModel()
 
-        guard let sType = setFiledtType, let textSet = textSet,  let textField = textField else { return }
+        guard let sType = setFiledtType, let textSet = textSet else { return }
         viewModel?.attachViewSet(vc: self)
-        textField.text = "0"
+        sType.setField.text = "0"
         textSet.text = "0"
         
         tableViewSetting.dataSource = self
@@ -58,11 +56,11 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         view.addSubview(sType.threadLabelTwo)
 
         //RX------------------------------------------------------------------------------------------------------------------------------
-        setFiledtType?.button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: sType.button, textSet: self.textSet, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
+        sType.button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: sType.button, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
         
-        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet,textFFiled: textField,setFiled:sType.setField,threadLabel: sType.threadLabel,threadLabelTwo: sType.threadLabelTwo)
+        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet, setFiled:sType.setField,threadLabel: sType.threadLabel,threadLabelTwo: sType.threadLabelTwo)
         
-        RxSearchBar.rxSearchBar.rxSearchBar(search: sType.searchBar, text: sType.searchBar.text!, table: tableViewSetting)
+        RxSearchBar.rxSearchBar.rxSearchBar(search: sType.searchBar, text: sType.searchBar.text, table: tableViewSetting)
         //RX------------------------------------------------------------------------------------------------------------------------------
         if UIInterfaceOrientation.portrait.isPortrait == false{
             
