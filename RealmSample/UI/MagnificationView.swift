@@ -14,12 +14,11 @@ class MagnificationView: UIView {
     let button = Button().button
     var threadLabel = Label().threadLabel
     var threadLabelTwo = Label().threadLabelTwo
-    var searchBar: SearchBar()
-    var view: UIView?
+    var searchBar = SearchBar()
+    var view = UIView()
     
     override init (frame: CGRect){ super.init(frame: frame) }
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
-
     deinit {
         print("deinit2")
     }
