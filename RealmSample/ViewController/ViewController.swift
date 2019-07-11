@@ -23,16 +23,16 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     var dis = DisposeBag()
     var Navitotal: UIBarButtonItem!
     var tableViewSetting = UITableView()
-    @IBOutlet weak var textSet: UITextField!
-    @IBOutlet weak var totalTax: UILabel!
-    @IBOutlet weak var mbText: UILabel!
+    @IBOutlet weak var textSet: UITextField?
+    @IBOutlet weak var totalTax: UILabel?
+    @IBOutlet weak var mbText: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = MagnificationViewModel()
         setFiledtType = MagnificationView()
-        guard let sType = setFiledtType else { return }
+        guard let sType = setFiledtType, let textSet = textSet else { return }
         viewModel?.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
@@ -139,19 +139,21 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     @objc private func keyboardWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo as? [String: Any]
         let keyboardInfo = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
-        guard let keyboard = keyboardInfo, let sType = setFiledtType else { return }
+        guard let keyboard = keyboardInfo, let sType = setFiledtType, let textSet = textSet else { return }
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
     }
 
     @objc private func keyboardWillhide(_ notification: Notification) {
         let userInfo = notification.userInfo as? [String: Any]
         let keyboardInfo = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
-        guard let keyboard = keyboardInfo, let sType = setFiledtType else { return }
+        guard let keyboard = keyboardInfo, let sType = setFiledtType, let textSet = textSet else { return }
         DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:sType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
     }
 
     //NavigationController-----------------------------------------
-    @IBAction func navigationTotal(_ sender: UIBarButtonItem) { AlertView().alert(view: self,now:now,tx:self.textSet,table:tableViewSetting) }
+    @IBAction func navigationTotal(_ sender: UIBarButtonItem) {
+        guard let textSet = textSet else { return }
+        AlertView().alert(view: self,now:now,tx: textSet,table:tableViewSetting) }
     
     @IBAction func clearAction(_ sender: UIBarButtonItem) { viewModel?.clearSuti() }
 }

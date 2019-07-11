@@ -21,7 +21,7 @@ extension ViewController: UITableViewDataSource {
             totalCount +=  realmSusiki().magnificationSet(Index: indexPath.row)
             totalTax?.text? =  totalCount.description
             //HowTo Usage
-            mbText.text = report_memory()
+            mbText?.text = report_memory()
         }
         cell.kakauLabel.numberOfLines = 2
 
@@ -41,16 +41,16 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let model = viewModel else { return }
-        if textSet.text == "" || textSet.text == "0" {
+        if textSet?.text == "" || textSet?.text == "0" {
             model.clearSuti()
             self.tableViewSetting.reloadData()
             RealmModel.realm.bool = true
             RealmSetting().RealmDeleate(indexPath:indexPath)
-        } else if textSet.text == "1" {
+        } else if textSet?.text == "1" {
             model.clearSuti()
             RealmModel.realm.bool = true
-            RealmSetting().RealmAdd(text: textSet.text!, Index: indexPath, now: now)
-        } else if textSet.text != "" {
+            RealmSetting().RealmAdd(text: textSet?.text ?? "", Index: indexPath, now: now)
+        } else if textSet?.text != "" {
             model.clearSuti()
             model.cast(Index: indexPath.row)
         }

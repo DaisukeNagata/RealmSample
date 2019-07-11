@@ -24,19 +24,19 @@ class MagnificationViewModel: MagnificationModeling {
     }
     
     func clearSuti(){
-        vc?.totalTax?.text! = "0"
+        vc?.totalTax?.text = "0"
         vc?.totalCount = 0
     }
     
     func wari(Index:Int ){
-        
-        if  vc?.setFiledtType?.setField.text! != "0" &&  vc?.textSet.text! != "" && vc?.textSet.text! != nil  &&  vc?.setFiledtType?.setField.text != nil {
-            RealmSetting().RealmthreadLabel(text: ((Double( RealmModel.realm.usersSet[Index].ID))! / Double((vc?.setFiledtType?.setField.text!)!)!).description, Index: Index)
+        guard let vc = vc else { return }
+        if  vc.setFiledtType?.setField.text != "0" &&  vc.textSet?.text != "" && vc.textSet?.text != nil  &&  vc.setFiledtType?.setField.text != nil {
+            RealmSetting().RealmthreadLabel(text: ((Double( RealmModel.realm.usersSet[Index].ID))! / Double((vc.setFiledtType?.setField.text!)!)!).description, Index: Index)
             
             clearSuti()
             
-            vc?.totalTax?.text? =  (vc?.totalCount.description)!
-            vc?.tableViewSetting.reloadData()
+            vc.totalTax?.text? = (vc.totalCount.description)
+            vc.tableViewSetting.reloadData()
             
         }
     }
@@ -44,18 +44,18 @@ class MagnificationViewModel: MagnificationModeling {
     func cast(Index:Int){
         
         clearSuti()
-        
-        if  RealmModel.realm.usersSet[Index].ID != "0" &&  vc?.textSet.text! != "" {
-            let threadLabel = Double(RealmModel.realm.usersSet[Index].ID)! * Double((vc?.textSet.text)!)!
+
+        if  RealmModel.realm.usersSet[Index].ID != "0" &&  vc?.textSet?.text! != "" {
+            let threadLabel = Double(RealmModel.realm.usersSet[Index].ID)! * Double((vc?.textSet?.text)!)!
             RealmSetting().RealmthreadLabel(text:threadLabel.description, Index: Index)
         }
-        
-        if  RealmModel.realm.usersSet[Index].ID == "0" && vc?.textSet.text! != "" {
-            RealmSetting().RealmthreadLabel(text: (vc?.textSet.text!)!, Index: Index)
+
+        if  RealmModel.realm.usersSet[Index].ID == "0" && vc?.textSet?.text ?? "" != "" {
+            RealmSetting().RealmthreadLabel(text: (vc?.textSet?.text ?? ""), Index: Index)
         }
-        
+
         wari(Index:Index)
-        vc?.totalTax?.text? =  (vc?.totalCount.description)!
+        vc?.totalTax?.text? = vc?.totalCount.description ?? ""
         vc?.tableViewSetting.reloadData()
     }
     deinit {

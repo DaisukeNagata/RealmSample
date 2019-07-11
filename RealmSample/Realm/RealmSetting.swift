@@ -48,23 +48,23 @@ class RealmSetting{
         }
     }
     //RealmNotification
-    private func RealmThread(views:ViewController){
+    private func RealmThread(views: ViewController){
         viewsSet = views
         ViewController22.ddd.tableViewSetting.reloadData()
         notificationToken = RealmModel.realm.usersSet.observe { [weak self] change in
-            print(views.totalCount)
+
             if views.totalCount > 1000.0{
                 self?.timer.fire()
                 self?.timer = Timer.scheduledTimer(timeInterval: 6, target: self!, selector: #selector(self?.update(up:)), userInfo: nil, repeats: true)
             }else if views.totalCount < 1{
-                views.totalTax.textColor = UIColor.black
+                views.totalTax?.textColor = UIColor.black
             }
         }
     }
     @objc func update(up:Timer){
         up.invalidate()
         viewsSet?.view.addSubview(GoziRaizer().self)
-        viewsSet?.totalTax.textColor = UIColor.Color()
+        viewsSet?.totalTax?.textColor = UIColor.Color()
     }
     deinit {
         self.notificationToken?.invalidate()
