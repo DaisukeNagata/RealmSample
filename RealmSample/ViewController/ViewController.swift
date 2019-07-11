@@ -14,25 +14,30 @@ import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController,UISearchBarDelegate,UISplitViewControllerDelegate{
-    
-    var viewModel: MagnificationViewModel?
-    var setFiledtType: MagnificationView?
-    var textField = UITextField()
-    var now = NSDate()
+
     var totalCount: Double = 0
-    var dis = DisposeBag()
-    var Navitotal: UIBarButtonItem!
-    var tableViewSetting = UITableView()
-    @IBOutlet weak var textSet: UITextField?
-    @IBOutlet weak var totalTax: UILabel?
+
     @IBOutlet weak var mbText: UILabel?
+    @IBOutlet weak var totalTax: UILabel?
+    @IBOutlet weak var textSet: UITextField?
     
+    var now = NSDate()
+    var dis = DisposeBag()
+    var tableViewSetting = UITableView()
+    var setFiledtType: MagnificationView?
+    var viewModel: MagnificationViewModel?
+
+    private var textField: UITextField?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = MagnificationViewModel()
+        textField = UITextField()
         setFiledtType = MagnificationView()
-        guard let sType = setFiledtType, let textSet = textSet else { return }
+        viewModel = MagnificationViewModel()
+
+        guard let sType = setFiledtType, let textSet = textSet,  let textField = textField else { return }
         viewModel?.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
