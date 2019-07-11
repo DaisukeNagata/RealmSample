@@ -15,7 +15,7 @@ import RxCocoa
 
 class ViewController: UIViewController,UISearchBarDelegate,UISplitViewControllerDelegate{
     
-    var viewModel = MagnificationViewModel()
+    var viewModel: MagnificationViewModel?
     var setFiledtType = MagnificationView()
     var button  = MagnificationView().button
     var textField = UITextField()
@@ -31,7 +31,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.attachViewSet(vc: self)
+        viewModel?.attachViewSet(vc: self)
         textField.text = "0"
         textSet.text = "0"
         
@@ -100,71 +100,56 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
             make.centerX.equalToSuperview().multipliedBy(1.5)
             make.height.equalTo(setFiledtType.view).multipliedBy(0.3)
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange), name: UIDevice.orientationDidChangeNotification, object: nil)
 
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
-            
+
             if let split = self.splitViewController {
                 split.delegate = self
                 split.preferredDisplayMode = .allVisible
                 tableViewSetting.frame = CGRect(x:0,y:240,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-               
-                DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
+               DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.3)
 
             }
             
         } else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
-            
+
             if let split = self.splitViewController {
                 split.delegate = self
                 split.preferredDisplayMode = .allVisible
                 split.maximumPrimaryColumnWidth = 800
                 split.preferredPrimaryColumnWidthFraction = 0.5
                 tableViewSetting.frame = CGRect(x:0,y:259,width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
-                                    
-                DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
+                                    DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:UIScreen.main.bounds.size.height/2.9)
                     
             }
         }
     }
 
-    @objc func onOrientationChange(notification: NSNotification)
-    {
-       
-        NotificationCenter.default.removeObserver(self,
-                                                  name: UIApplication.didBecomeActiveNotification,
-                                                  object: nil)
+    @objc func onOrientationChange(notification: NSNotification) {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
         self.tableViewSetting.reloadData()
     }
-    
-    @objc private func keyboardWillShow(_ notification: Notification)
-    {
+
+    @objc private func keyboardWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo as? [String: Any]
-        let keyboardInfo = userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
+        let keyboardInfo = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
+        guard let keyboard = keyboardInfo else { return }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
     }
-    @objc private func keyboardWillhide(_ notification: Notification)
-    {
+
+    @objc private func keyboardWillhide(_ notification: Notification) {
         let userInfo = notification.userInfo as? [String: Any]
-        let keyboardInfo = userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
-        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboardInfo?.cgRectValue.height)!+40)
+        let keyboardInfo = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
+        guard let keyboard = keyboardInfo else { return }
+        DeviceOrientation.deviceOrientation(uvc:self,table:tableViewSetting,setFiledtType:setFiledtType,textSet:textSet,size1:(keyboard.cgRectValue.height) + 40)
     }
     
     //NavigationController-----------------------------------------
-    @IBAction func navigationTotal(_ sender: UIBarButtonItem)
-    {
-        
-        AlertView().alert(view: self,now:now,tx:self.textSet,table:tableViewSetting)
-        
-    }
+    @IBAction func navigationTotal(_ sender: UIBarButtonItem) { AlertView().alert(view: self,now:now,tx:self.textSet,table:tableViewSetting) }
     
-    @IBAction func clearAction(_ sender: UIBarButtonItem)
-    {
-        
-        viewModel.clearSuti()
-        
-    }
+    @IBAction func clearAction(_ sender: UIBarButtonItem) { viewModel?.clearSuti() }
 }
