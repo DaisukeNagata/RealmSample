@@ -13,6 +13,8 @@ class Label:UILabel{
     // Buttonを生成する.
     var threadLabel = UILabel()
     var threadLabelTwo = UILabel()
+
+
     override init(frame:CGRect) {
         super.init(frame:frame)
         
