@@ -18,15 +18,15 @@ struct RxSearchBar {
     func rxSearchBar(search:UISearchBar,text:String?,table:UITableView?){
             search
             .rx.text.orEmpty
-            .subscribe(onNext: { [unowned search] query in
+            .subscribe(onNext: { [weak search] query in
                 table?.reloadData()
-                if  search.text !=  "" {
+                if  search?.text !=  "" {
                     //indexの値を渡す
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
-                        .filter("ID BEGINSWITH %@",  search.text!)
+                        .filter("ID BEGINSWITH %@",  search?.text ?? "")
                         .sorted(byKeyPath: "ID", ascending: false)
                     
-                }else if  search.text == ""{
+                }else if  search?.text == ""{
                     
                     RealmModel.realm.usersSet = RealmModel.realm.realmTry.objects(realmDataSet.self)
                         .sorted(byKeyPath: "now", ascending: false)
