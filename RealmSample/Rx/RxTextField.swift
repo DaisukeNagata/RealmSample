@@ -1,5 +1,5 @@
 //
-//  RxTextFiled.swift
+//  RxTextFeld.swift
 //  RealmSample
 //
 //  Created by 永田大祐 on 2017/04/02.
@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-struct RxTextFiled{
+struct RxTextField{
     
-    static var rxTextFiled = RxTextFiled()
+    static var rxTextFiled = RxTextField()
     var dis = DisposeBag()
     
     func RxrextFiled(textSet:UITextField,setFiled:UITextField,threadLabel:UILabel,threadLabelTwo:UILabel)  {

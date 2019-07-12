@@ -58,7 +58,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         //RX------------------------------------------------------------------------------------------------------------------------------
         sType.button.rx.tap.bind { _ in RxButton.rxButton.Rxbutton(sender: sType.button, viewModel: self.viewModel, views: self, now: self.now) }.disposed(by: dis)
         
-        RxTextFiled.rxTextFiled.RxrextFiled(textSet: textSet, setFiled:sType.setField,threadLabel: sType.threadLabel,threadLabelTwo: sType.threadLabelTwo)
+        RxTextField.rxTextFiled.RxrextFiled(textSet: textSet, setFiled:sType.setField,threadLabel: sType.threadLabel,threadLabelTwo: sType.threadLabelTwo)
         
         RxSearchBar.rxSearchBar.rxSearchBar(search: sType.searchBar, text: sType.searchBar.text, table: tableViewSetting)
         //RX------------------------------------------------------------------------------------------------------------------------------
