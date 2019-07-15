@@ -16,7 +16,7 @@ struct DeviceOrientation {
         
         let uvc = uvc as? ViewController
         
-        let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1+40, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
+        let frame = CGRect(x:UIScreen.main.bounds.width-Size.keyShowWith,y: (UIApplication.shared.windows.last?.frame.size.height)!-size1, width:Size.keyShowWithTwo, height:Size.keyShowHeight)
         RxNotification.rxNotification.Rxnotification(vc: uvc , frame: frame)
         
         
