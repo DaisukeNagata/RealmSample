@@ -28,7 +28,6 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
     var viewModel: MagnificationViewModel?
 
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -107,7 +106,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UISplitViewController
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillhide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange), name: UIDevice.orientationDidChangeNotification, object: nil)
 
         if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
