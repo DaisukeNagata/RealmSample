@@ -1,0 +1,22 @@
+# Mac OS X Finder
+.DS_Store
+
+*.xcworkspace
+!default.xcworkspace
+
+*.xcodeproj/xcuserdata/**/xcschemes/*
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Cartfile
+Cartfile.resolved
+Carthage/
+
+# Cocoapods
+Pods/
+
+build/
+*.swp
+*.nib
+*~
+*.bak
