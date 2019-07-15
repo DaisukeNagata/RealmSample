@@ -26,7 +26,7 @@
 		BB9E1B5B1E952F7800A43385 /* RxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E1B571E952F7800A43385 /* RxButton.swift */; };
 		BB9E1B5C1E952F7800A43385 /* Rxnotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E1B581E952F7800A43385 /* Rxnotification.swift */; };
 		BB9E1B5D1E952F7800A43385 /* RxSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E1B591E952F7800A43385 /* RxSearchBar.swift */; };
-		BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E1B5A1E952F7800A43385 /* RxTextFiled.swift */; };
+		BB9E1B5E1E952F7800A43385 /* RxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E1B5A1E952F7800A43385 /* RxTextField.swift */; };
 		BBB360D81E8955D100E81BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360D71E8955D100E81BF5 /* ViewController.swift */; };
 		BBB360E11E89563400E81BF5 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360DF1E89563400E81BF5 /* TableDataSource.swift */; };
 		BBB360E21E89563400E81BF5 /* TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB360E01E89563400E81BF5 /* TableDelegate.swift */; };
@@ -81,7 +81,7 @@
 		BB9E1B571E952F7800A43385 /* RxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxButton.swift; sourceTree = "<group>"; };
 		BB9E1B581E952F7800A43385 /* Rxnotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rxnotification.swift; sourceTree = "<group>"; };
 		BB9E1B591E952F7800A43385 /* RxSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSearchBar.swift; sourceTree = "<group>"; };
-		BB9E1B5A1E952F7800A43385 /* RxTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTextFiled.swift; sourceTree = "<group>"; };
+		BB9E1B5A1E952F7800A43385 /* RxTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTextField.swift; sourceTree = "<group>"; };
 		BBB360D71E8955D100E81BF5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController/ViewController.swift; sourceTree = "<group>"; };
 		BBB360DF1E89563400E81BF5 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		BBB360E01E89563400E81BF5 /* TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDelegate.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				BB9E1B571E952F7800A43385 /* RxButton.swift */,
 				BB9E1B581E952F7800A43385 /* Rxnotification.swift */,
 				BB9E1B591E952F7800A43385 /* RxSearchBar.swift */,
-				BB9E1B5A1E952F7800A43385 /* RxTextFiled.swift */,
+				BB9E1B5A1E952F7800A43385 /* RxTextField.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 				BB880A931E8E85180036D409 /* Size.swift in Sources */,
 				BB6DE63C1E8FB47900F1B420 /* SearchBar.swift in Sources */,
 				BB68DBEC1E8A887100212102 /* RealmModel.swift in Sources */,
-				BB9E1B5E1E952F7800A43385 /* RxTextFiled.swift in Sources */,
+				BB9E1B5E1E952F7800A43385 /* RxTextField.swift in Sources */,
 				BB5DE37A1E8BDA3E00245D83 /* TextField.swift in Sources */,
 				BB5045541EAA94E300161BFE /* UsageMemory.swift in Sources */,
 				BB5DE3791E8BDA3E00245D83 /* Label.swift in Sources */,
